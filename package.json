@@ -10,10 +10,14 @@
     "@liquid-design/liquid-design-react": "^1.1.2",
     "@material-ui/pickers": "^3.2.7",
     "date-fns": "^2.6.0",
+    "react-router-dom": "^5.1.2",
+    "node-nlp": "^3.10.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "uws": "^10.148.1"
   },
   "scripts": {
     "start": "react-scripts start",
