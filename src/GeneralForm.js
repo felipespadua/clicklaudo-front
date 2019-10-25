@@ -5,6 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 // import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import TextField from "@material-ui/core/TextField";
 
 class General extends Component {
   constructor(props) {
@@ -63,11 +64,16 @@ class General extends Component {
                 <label htmlFor="">Data</label>
               </td>
               <td>
-                <input
-                  type="date"
+                <TextField
+                  id="date"
                   name="date"
                   value={this.state.date}
                   onChange={this.handleChange}
+                  type="date"
+                  //   defaultValue="2017-05-24"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
               </td>
               <td>
@@ -154,6 +160,7 @@ class General extends Component {
             <tr>
               <td>
                 <h2>Paciente</h2>
+                {/* ------------------------------------------------------------------------------------------ */}
               </td>
             </tr>
 
@@ -162,11 +169,16 @@ class General extends Component {
                 <label htmlFor="">Data de Nasc:</label>
               </td>
               <td>
-                <input
-                  type="date"
+                <TextField
+                  id="date"
                   name="dataDeNasc"
                   value={this.state.dataDeNasc}
                   onChange={this.handleChange}
+                  type="date"
+                  //   defaultValue="2017-05-24"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
               </td>
             </tr>
@@ -176,8 +188,10 @@ class General extends Component {
                 <label htmlFor="">Nome:</label>
               </td>
               <td>
-                <input
-                  type="text"
+                <TextField
+                  id="outlined-dense"
+                  margin="dense"
+                  variant="outlined"
                   name="nome"
                   value={this.state.nome}
                   onChange={this.handleChange}
@@ -190,11 +204,17 @@ class General extends Component {
                 <label htmlFor="">Idade:</label>
               </td>
               <td>
-                <input
-                  type="number"
+                <TextField
+                  id="outlined-number"
                   name="idade"
+                  margin="dense"
                   value={this.state.idade}
                   onChange={this.handleChange}
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  variant="outlined"
                 />
               </td>
             </tr>
@@ -204,8 +224,11 @@ class General extends Component {
                 <label htmlFor="">Telefone:</label>
               </td>
               <td>
-                <input
-                  type="tel"
+                <TextField
+                  id="outlined-dense"
+                  margin="dense"
+                  label="Telefone"
+                  variant="outlined"
                   name="telefone"
                   value={this.state.telefone}
                   onChange={this.handleChange}
@@ -218,11 +241,15 @@ class General extends Component {
                 <label htmlFor="">E-mail:</label>
               </td>
               <td>
-                <input
+                <TextField
+                  id="outlined-email-input"
                   type="email"
                   name="email"
-                  value={this.state.email}
+                  autoComplete="email"
+                  margin="dense"
+                  variant="outlined"
                   onChange={this.handleChange}
+                  value={this.state.email}
                 />
               </td>
             </tr>
