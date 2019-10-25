@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url("/img/fundo.jpg");
+  background-repeat: no-repeat; */
 }
 
 code {
@@ -13,7 +15,7 @@ code {
 }
 
 .border-box{
-  padding-top: 40px;
+  padding-top: 30px;
   /* padding-bottom: 40px; */
   padding-left: 30%;
   padding-right: 30%;
@@ -33,5 +35,23 @@ code {
 }
 
 .logo{
-  width: 40%;
+  width: 80%;
+}
+.botao {
+  margin-bottom: 100px;
+}
+.botao:hover {
+  color: white;
+}
+
+.m-botton {
+  margin-bottom: 100px;;
+}
+
+.m-list {
+  padding: 10px;
+}
+
+p {
+  margin: 0;
 }
