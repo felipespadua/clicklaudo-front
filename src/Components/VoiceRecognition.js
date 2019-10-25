@@ -2,6 +2,10 @@ import { Component } from 'react';
 import React from 'react';
 import socketIOClient from "socket.io-client";
 // import io from "socket.io"
+let globalStream = undefined;
+let input = undefined;
+let context = undefined;
+let processor = undefined;
 
 class VoiceRecognition extends Component {
     constructor(props) {
@@ -9,10 +13,6 @@ class VoiceRecognition extends Component {
         this.socket = socketIOClient("http://localhost:5000")
         this.bufferSize = 2048;
         this.AudioContext = undefined;
-        this.context = undefined;
-        this.processor = undefined;
-        this.input = undefined;
-        this.globalStream = undefined;
         this.finalWord = false;
         this.removeLastSetence = true;
 
@@ -30,6 +30,11 @@ class VoiceRecognition extends Component {
                 video: false
             }
         };
+        this.initRecording = this.initRecording.bind(this);
+        this.startRecording = this.startRecording.bind(this);
+        this.stopRecording = this.stopRecording.bind(this);
+        this.microphoneProcess = this.microphoneProcess.bind(this);
+
     }
 
     initRecording() {
@@ -38,24 +43,28 @@ class VoiceRecognition extends Component {
             streamStreaming: true, 
         }) 
         this.AudioContext = window.AudioContext || window.webkitAudioContext;
-        this.context = new AudioContext({
+        context = new AudioContext({
             // if Non-interactive, use 'playback' or 'balanced' // https://developer.mozilla.org/en-US/docs/Web/API/AudioContextLatencyCategory
             latencyHint: 'interactive',
         });
-        this.processor = this.context.createScriptProcessor(this.bufferSize, 1, 1);
-        this.processor.connect(this.context.destination);
-        this.context.resume();
-    
+        processor = context.createScriptProcessor(this.bufferSize, 1, 1);
+        processor.connect(context.destination);
+        context.resume();
+
+        //verificar isso
+        let onAudioProcess = (e) => {
+            this.microphoneProcess(e);
+        }   
         let handleSuccess = function (stream) {
-            this.globalStream = stream;
-            this.input = this.context.createMediaStreamSource(stream);
-            this.input.connect(this.processor);
+            globalStream = stream;
+            input = context.createMediaStreamSource(stream);
+            input.connect(processor);
+            
+            processor.onaudioprocess = onAudioProcess;   
     
-            this.processor.onaudioprocess = function (e) {
-                this.microphoneProcess(e);
-            };
-        };
-    
+        }
+      
+
         navigator.mediaDevices.getUserMedia(this.state.constraints)
             .then(handleSuccess);
     
@@ -81,21 +90,19 @@ class VoiceRecognition extends Component {
         // streamStreaming = false;
         this.socket.emit('endGoogleCloudStream', '');
     
-        let track = this.globalStream.getTracks()[0];
+        let track = globalStream.getTracks()[0];
         track.stop();
     
-        this.input.disconnect(this.processor);
-        this.processor.disconnect(this.context.destination);
-        this.context.close().then(function () {
-            this.input = null;
-            this.processor = null;
-            this.context = null;
+        input.disconnect(processor);
+        processor.disconnect(context.destination);
+        let closeContext = () => {
+            input = null;
+            processor = null;
+            context = null;
             this.AudioContext = null
           
-            // startButton.disabled : false,
-     
-           
-        });
+        }
+        context.close().then(closeContext);
     }
     downsampleBuffer(buffer, sampleRate, outSampleRate) {
         if (outSampleRate == sampleRate) {
@@ -135,8 +142,10 @@ class VoiceRecognition extends Component {
         // const { endpoint } = this.state;
         // const socket = socketIOClient(endpoint);
         // socket.on("FromAPI", data => this.setState({ response: data }));
+        
         this.socket.on('connect', function (data) {
-            this.socket.emit('join', 'Server Connected to Client');
+            // this.socket.emit('join', 'Server Connected to Client');
+            console.log('Server Connected to Client',data)
         });
         
         
