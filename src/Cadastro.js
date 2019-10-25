@@ -5,7 +5,7 @@ import Fab from '@material-ui/core/Fab';
 
 import TextField from '@material-ui/core/TextField';
 
-class Login extends Component {
+class Cadastro extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -25,8 +25,8 @@ class Login extends Component {
         <div className="col-1"></div>
         <div className="col-10">
           <img className="mt-5 logo" src="/img/Logo.svg"/>
-          <h5 className="p-2 text-secondary">Seja bem vindo.</h5>
-          <div className="box-shadow border-box border-primary">
+          <h5 className="p-2 text-secondary">Cadastro</h5>
+          {/* <div className="box-shadow border-box border-primary">
             <form method="POST" className="d-flex flex-column pt classes.container" noValidate autoComplete="off">
               <TextField className="mb-2 mt-4"
                 id="standard-name"
@@ -45,18 +45,22 @@ class Login extends Component {
               />
               <Fab variant="extended" color="primary" aria-label="add" className="">Entrar</Fab>
         <div className="row d-flex justify-content-between nav-login mb-2">
+        <a href="/Login"><li>Login</li></a>
+        <a href="#"><li>Cadastre-se</li></a>
+        </div>
+            
+            </form> */}
+            <div className="row d-flex justify-content-between nav-login mb-2">
         <a href="/"><li>Login</li></a>
         <a href="/Cadastro"><li>Cadastre-se</li></a>
         </div>
-            
-            </form>
           </div>
-        </div>
+        </div>  
         <div className="col-1"></div>
         </div>
-      </div>
+      
     )
   }
 }
 
-export default Login
+export default Cadastro
