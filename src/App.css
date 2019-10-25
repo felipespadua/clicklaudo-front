@@ -2,6 +2,17 @@
   text-align: center;
 } */
 
+body {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.App {
+  width: 50rem;
+  height: 50rem;
+}
+
 .App-logo {
   height: 40vmin;
 }
@@ -19,4 +30,13 @@
 
 .App-link {
   color: #09d3ac;
+}
+
+.mainTd {
+  padding-left: 2rem;
+}
+
+.pacienteTd {
+  padding: 0;
+  padding-left: 2rem;
 }

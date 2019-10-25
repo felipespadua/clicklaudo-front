@@ -1,75 +1,269 @@
 import React, { Component } from "react";
-// import Input from "@material-ui/core/Input";
+import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+// import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 import TextField from "@material-ui/core/TextField";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Switch from "@material-ui/core/Switch";
 
-class TheForms extends Component {
+class General extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: "",
-      checkedA: false,
-      checkedB: false,
-      checkedC: true
+      date: 0,
+      clinica: "",
+      medico: "",
+      convenio: "",
+      medicoSolicitante: "",
+
+      dataDeNasc: 0,
+      nome: "",
+      idade: "",
+      telefone: "",
+      email: ""
     };
 
-    // this.handleChange = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange = name => event => {
-    this.setState({ ...this.state, [name]: event.target.checked });
-  };
+  handleChange(event) {
+    let { name, value } = event.target;
+    this.setState({ [name]: value });
+  }
 
   handleSubmit(event) {
-    alert(this.state);
+    console.log(this.state);
     event.preventDefault();
+    //axios
+    this.setState({
+      date: 0,
+      clinica: "",
+      medico: "",
+      convenio: "",
+      medicoSolicitante: "",
+
+      dataDeNasc: 0,
+      nome: "",
+      idade: "",
+      telefone: "",
+      email: ""
+    });
   }
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <TextField
-          id="outlined-with-placeholder"
-          label="With placeholder"
-          placeholder="Placeholder"
-          margin="normal"
-          variant="outlined"
-          onChange={this.handleChange("value")}
-        />
+        <h2>Exame</h2>
+        <table>
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>
+                <label htmlFor="">Data</label>
+              </td>
+              <td>
+                <TextField
+                  id="date"
+                  name="date"
+                  value={this.state.date}
+                  onChange={this.handleChange}
+                  type="date"
+                  //   defaultValue="2017-05-24"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                />
+              </td>
+              <td>
+                <label htmlFor="">Clinica</label>
+              </td>
 
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={this.state.checkedA}
-              onChange={this.handleChange("checkedA")}
-              value="checkedA"
-            />
-          }
-          label="Secondary"
-        />
+              <td>
+                <FormControl variant="outlined">
+                  <InputLabel
+                    ref={this.inputLabel}
+                    htmlFor="outlined-age-simple"
+                  >
+                    Clinica
+                  </InputLabel>
+                  <Select
+                    value={this.state.clinica}
+                    onChange={this.handleChange}
+                    labelWidth={this.labelWidth}
+                    inputProps={{
+                      name: "clinica",
+                      id: "outlined-age-simple"
+                    }}
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="">Medico</label>
+              </td>
+              <td>
+                <select
+                  value={this.state.medico}
+                  onChange={this.handleChange}
+                  name="medico"
+                >
+                  <option value="laranja">Laranja</option>
+                  <option value="limao">Limão</option>
+                  <option defaultValue="coco">Coco</option>
+                  <option value="manga">Manga</option>
+                </select>
+              </td>
+              <td>
+                <label htmlFor="">Convenio</label>
+              </td>
+              <td>
+                <select
+                  value={this.state.convenio}
+                  onChange={this.handleChange}
+                  name="convenio"
+                >
+                  <option value="laranja">Laranja</option>
+                  <option value="limao">Limão</option>
+                  <option defaultValue="coco">Coco</option>
+                  <option value="manga">Manga</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label htmlFor="">Medico Solicitante</label>
+              </td>
+              <td>
+                <select
+                  name="medicoSolicitante"
+                  value={this.state.medicoSolicitante}
+                  onChange={this.handleChange}
+                >
+                  <option value="laranja">Laranja</option>
+                  <option value="limao">Limão</option>
+                  <option defaultValue="coco">Coco</option>
+                  <option value="manga">Manga</option>
+                </select>
+              </td>
+            </tr>
 
-        <Switch
-          checked={this.state.checkedC}
-          onChange={this.handleChange("checkedC")}
-          value="checkedC"
-          inputProps={{ "aria-label": "secondary checkbox" }}
-        />
+            <tr>
+              <td>
+                <h2>Paciente</h2>
+                {/* ------------------------------------------------------------------------------------------ */}
+              </td>
+            </tr>
 
-        <Switch
-          checked={this.state.checkedB}
-          onChange={this.handleChange("checkedB")}
-          value="checkedB"
-          color="primary"
-          inputProps={{ "aria-label": "primary checkbox" }}
-        />
+            <tr>
+              <td>
+                <label htmlFor="">Data de Nasc:</label>
+              </td>
+              <td>
+                <TextField
+                  id="date"
+                  name="dataDeNasc"
+                  value={this.state.dataDeNasc}
+                  onChange={this.handleChange}
+                  type="date"
+                  //   defaultValue="2017-05-24"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                />
+              </td>
+            </tr>
 
-        <button type="submit">Submit Laudo</button>
+            <tr>
+              <td>
+                <label htmlFor="">Nome:</label>
+              </td>
+              <td>
+                <TextField
+                  id="outlined-dense"
+                  margin="dense"
+                  variant="outlined"
+                  name="nome"
+                  value={this.state.nome}
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label htmlFor="">Idade:</label>
+              </td>
+              <td>
+                <TextField
+                  id="outlined-number"
+                  name="idade"
+                  margin="dense"
+                  value={this.state.idade}
+                  onChange={this.handleChange}
+                  type="number"
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                  variant="outlined"
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label htmlFor="">Telefone:</label>
+              </td>
+              <td>
+                <TextField
+                  id="outlined-dense"
+                  margin="dense"
+                  label="Telefone"
+                  variant="outlined"
+                  name="telefone"
+                  value={this.state.telefone}
+                  onChange={this.handleChange}
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <label htmlFor="">E-mail:</label>
+              </td>
+              <td>
+                <TextField
+                  id="outlined-email-input"
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  margin="dense"
+                  variant="outlined"
+                  onChange={this.handleChange}
+                  value={this.state.email}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <Button type="submit" variant="contained" color="primary">
+          Primary
+        </Button>
       </form>
     );
   }
 }
 
-export default TheForms;
+export default General;
+
+// Erro ao mandar a data junto com algo a mais
