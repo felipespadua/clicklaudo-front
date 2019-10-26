@@ -16,12 +16,6 @@ class VoiceRecognition extends Component {
         this.finalWord = false;
         this.removeLastSetence = true;
 
-        // let audioElement = document.querySelector('audio'),
-        //     finalWord = false,
-        //     resultText = document.getElementById('ResultText'),
-        //     removeLastSentence = true,
-        //     streamStreaming = false;
-
         this.state = {
             response: false,
             streamStreaming: false,
@@ -138,6 +132,10 @@ class VoiceRecognition extends Component {
         return s.charAt(0).toUpperCase() + s.slice(1);
     }
 
+    updateState(){
+        
+    }
+
     componentDidMount() {
         // const { endpoint } = this.state;
         // const socket = socketIOClient(endpoint);
@@ -155,7 +153,10 @@ class VoiceRecognition extends Component {
         
         
         this.socket.on('speechData', function (data) {
-            console.log("speechData",data)
+            // console.log("speechData",data)
+            if(data.results[0].isFinal === true && data.results[0].alternatives[0].confidence > 0.9){
+                console.log(data.results[0].alternatives[0])
+            }
     
         });
         
@@ -166,16 +167,9 @@ class VoiceRecognition extends Component {
     render(){
         return (
             <div className="wrapper">
-                <h1>Google Cloud Speech Node with Socket.io Playground</h1>
                 <audio></audio>
                 <button id="startRecButton" onClick={(e) => this.startRecording(e)} type="button"> Start recording</button>
                 <button id="stopRecButton"  onClick={(e) => this.stopRecording(e)} type="button"> Stop recording</button>
-                <div id="recordingStatus">&nbsp;</div>
-                <div>
-                    <p id="ResultText">
-                        <span className="greyText">No Speech to Text yet/</span>>
-                    </p>
-                </div>
             </div>
         );
     }

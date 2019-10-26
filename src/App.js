@@ -7,6 +7,7 @@ import Login from './Login'
 import Cadastro from './Cadastro'
 import Laudos from './Laudos'
 import MainTable from './MainTable'
+import { Fragment } from 'react'
 import SimpleExpansionPanel from "./Expansion";
 
 // import { Switch } from? '@material-ui/core';
@@ -18,12 +19,16 @@ class App extends React.Component {
   render(){
     return (
         <div className="App">
-          {SimpleExpansionPanel()}
+          <Fragment>
+            {/* {SimpleExpansionPanel()} */}
+          </Fragment>
+         
           <Switch>
               <Route exact path="/" component={Login} />
               <Route path="/cadastro" component={Cadastro} />
               <Route path="/laudos" component={Laudos} />
               <Route path="/maintable" component={MainTable} />
+              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
           </Switch>
         </div>

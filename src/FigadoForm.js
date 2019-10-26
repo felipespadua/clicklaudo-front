@@ -8,6 +8,7 @@ import Checkbox from "@material-ui/core/Checkbox";
 // import FormControl from "@material-ui/core/FormControl";
 // import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
+import VoiceRecognition from "./Components/VoiceRecognition";
 
 class FigadoForm extends Component {
   constructor(props) {
@@ -15,49 +16,53 @@ class FigadoForm extends Component {
     this.state = {
       dimensao: "",
       homogeneo: false,
-
       esteatotico: false,
       hepatopiaCronica: false,
-
       ciscoSimples: false,
       cistoSimplesMM: 0,
       ciscoSimplesSit: "",
-
       variosCiscos: false,
       variosCiscosMM: 0,
       variosCiscosSit: "",
-
       noduloSolido: false,
       noduloSolidoTipo: "",
       noduloSolidoContorno: "",
       noduloSolidoHMM: 0,
       noduloSolidoVMM: 0,
       noduloSolidoSit: "",
-
       calcificacaoGrosseira: false,
       calcificacaoGrosseiraMM: 0,
       calcificacaoGrosseiraSit: "",
-
       age: ""
     };
+    this.typeControl = {
+      checkBox: ["homogeneo", "esteatotico", "hepatopiaCronica", "ciscoSimples", "variosCiscos", "noduloSolido","calcificacaoGrosseira"],
+      text: ["dimensao", "ciscoSimplesSit","variosCiscosSit", "noduloSolidoContorno","noduloSolidoTipo", "noduloSolidoSit", "calcificacaoGrosseiraSit", "age"],
+      select: []
+    }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChangeCheck = this.handleChangeCheck.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
   }
 
   handleChangeCheck = name => event => {
+    console.log(event.target)
     this.setState({ ...this.state, [name]: event.target.checked });
-    console.log(this.state);
   };
 
   handleChange = name => event => {
-    this.setState({ ...this.state, [name]: event.target.value });
+    console.log(event.target)
+    if(event.target.type === "checkbox"){
+      this.setState({ ...this.state, [name]: event.target.checked });
+    }else {
+      this.setState({ ...this.state, [name]: event.target.value });
+    }
   };
 
   handleChangeSelect = event => {
-    console.log(event);
+    console.log(event.target);
     this.setState({
       [event.target.name]: event.target.value
     });
@@ -116,7 +121,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.homogeneo}
-                      onChange={this.handleChangeCheck("homogeneo")}
+                      onChange={this.handleChange("homogeneo")}
                       value="homogeneo"
                     />
                   }
@@ -132,6 +137,12 @@ class FigadoForm extends Component {
                   onChange={this.handleChange("dimensao")}
                 />
               </td>
+              <td>
+                <VoiceRecognition
+                prevState= {this.state}
+                handleChange={this.handleChange}
+                />
+              </td>
             </tr>
             {/* -------------------------------------- */}
             <tr>
@@ -140,7 +151,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.esteatotico}
-                      onChange={this.handleChangeCheck("esteatotico")}
+                      onChange={this.handleChange("esteatotico")}
                       value="esteatotico"
                     />
                   }
@@ -152,7 +163,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.hepatopiaCronica}
-                      onChange={this.handleChangeCheck("hepatopiaCronica")}
+                      onChange={this.handleChange("hepatopiaCronica")}
                       value="hepatopiaCronica"
                     />
                   }
@@ -167,7 +178,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.ciscoSimples}
-                      onChange={this.handleChangeCheck("ciscoSimples")}
+                      onChange={this.handleChange("ciscoSimples")}
                       value="ciscoSimples"
                     />
                   }
@@ -208,7 +219,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.variosCiscos}
-                      onChange={this.handleChangeCheck("variosCiscos")}
+                      onChange={this.handleChange("variosCiscos")}
                       value="variosCiscos"
                     />
                   }
@@ -246,7 +257,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.noduloSolido}
-                      onChange={this.handleChangeCheck("noduloSolido")}
+                      onChange={this.handleChange("noduloSolido")}
                       value="noduloSolido"
                     />
                   }
@@ -319,7 +330,7 @@ class FigadoForm extends Component {
                   control={
                     <Checkbox
                       checked={this.state.calcificacaoGrosseira}
-                      onChange={this.handleChangeCheck("calcificacaoGrosseira")}
+                      onChange={this.handleChange("calcificacaoGrosseira")}
                       value="calcificacaoGrosseira"
                     />
                   }
