@@ -52,3 +52,15 @@ code {
 p {
   margin: 0;
 }
+
+.btnHover:hover{
+  color: white;
+}
+
+.MuiAppBar-colorPrimary{
+  background-color: #f0f0f0 !important;
+}
+
+/* li:hover{
+  color: white
+} */
