@@ -1,7 +1,6 @@
 import React from 'react';
 import MaterialTable from 'material-table';
 
-
   export default function MainTable() {
     const [state, setState] = React.useState({
       columns: [

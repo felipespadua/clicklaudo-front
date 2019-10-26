@@ -1,14 +1,10 @@
 import React, {Component} from 'react';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import AccountCircleSharpIcon from '@material-ui/icons/AccountCircleSharp';
-
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-
 import Fab from '@material-ui/core/Fab';
-
 import TextField from '@material-ui/core/TextField';
+import './Login?.css'
 
 class Login extends Component {
   constructor(props){
@@ -23,9 +19,15 @@ class Login extends Component {
     this.setState({ [name]: event.target.value });
   };
 
+  
   render(){ 
+    const bgcolor = {
+      backgroundImage: 'url(/img/fundo.jpg)',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh'
+    }
     return (
-      <div className="container-fluid ">
+      <div className="container-fluid" style={bgcolor}>
         <div className="row">
         <div className="col-2"></div>
         <div className="col-8">
@@ -49,21 +51,17 @@ class Login extends Component {
                 type="password"
                 margin="normal"
               />
-              <Fab variant="extended" size="medium" href="/MainTable" color="primary" aria-label="add" className="botao mb-3">Entrar</Fab>
+              <Fab variant="extended" size="medium" href="/Laudos" color="primary" aria-label="add" className="botao mb-3">Entrar</Fab>
               <div className="mb-5"></div>
-        {/* <div className="row d-flex justify-content-between nav-login mb-2"> */}
-        {/* <a href="/"><li>Login</li></a>
-        <a href="/Cadastro"><li>Cadastre-se</li></a> */}
-        {/* </div> */}
+
             </form>
-          <Grid item xs={12} md={12}>
-        <ButtonGroup fullWidth aria-label="full width outlined button group" color="primary" variant="text">
-          <Button href="/">Login</Button>
-          <Button href="/Cadastro">Cadastra-se</Button>
-        </ButtonGroup>
-      </Grid>
+            <Grid item xs={12} md={12}>
+              <ButtonGroup fullWidth aria-label="full width outlined button group" color="primary" variant="text">
+                <Button href="/">Login</Button>
+                <Button href="/Cadastro">Cadastra-se</Button>
+              </ButtonGroup>
+            </Grid>
           </div>
-         
         </div>
         <div className="col-2"></div>
         </div>

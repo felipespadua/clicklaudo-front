@@ -24,8 +24,13 @@ class Cadastro extends Component {
   };
 
   render(){ 
+    const bgcolor = {
+      backgroundImage: 'url(/img/fundo.jpg)',
+      backgroundRepeat: 'no-repeat',
+      height: '100vh'
+    }
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" style={bgcolor}>
         <div className="row">
         <div className="col-2"></div>
         <div className="col-8">
