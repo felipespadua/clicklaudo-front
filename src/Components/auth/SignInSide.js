@@ -12,6 +12,8 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import AuthService from './auth-service';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,8 +44,35 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SignInSide() {
+export default function SignInSide(props) {
   const classes = useStyles();
+
+  const [state,setState]=React.useState({
+     username: '', password: ''
+
+  })
+ const service = new AuthService()
+
+  const handleFormSubmit = (event) => {
+    console.log(props, "===>")
+    event.preventDefault();
+    const username = state.username;
+    const password = state.password;
+    service.login(username, password)
+    .then( response => {
+        setState({ username: "", password: "" });
+        console.log(response)
+        props.getUser(response)
+        props.history.push("/laudos")
+        
+    })
+    .catch( error => console.log(error) )
+  }
+  const handleChange = (event) => {  
+    const {name, value} = event.target;
+    setState({[name]: value});
+  }
+    
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -57,7 +86,7 @@ export default function SignInSide() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
             <TextField
               id="filled-email-input"
               label="Email"
