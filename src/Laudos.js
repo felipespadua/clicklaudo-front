@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router } from "react-router-dom";
 import MainTable from './MainTable'
-import NavBar from './Navbar'
+import NavBar from './NavBar'
 import Footer from './Footer'
 import {Link} from 'react-router-dom'
 
