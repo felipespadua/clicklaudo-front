@@ -89,276 +89,279 @@ export default function GeneralForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <table>
-        <thead>
-          <tr>
-            <td>
-              <h2>Exame</h2>
-            </td>
-            <td className="pacienteTd">
-              <h2>Paciente</h2>
-            </td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <tr>
-                <td>
-                  <label htmlFor="">Data:</label>
-                </td>
-                <td>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                      <KeyboardDatePicker
-                        margin="normal"
-                        id="date-picker-dialog"
-                        format="dd/MM/yyyy"
-                        value={state.data}
-                        onChange={handleDateChange("data")}
-                        KeyboardButtonProps={{
-                          "aria-label": "change date"
-                        }}
-                      />
-                    </Grid>
-                  </MuiPickersUtilsProvider>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label htmlFor="">Clinica:</label>
-                </td>
+    <div className="mainDivGF">
+      <form onSubmit={handleSubmit}>
+        <h1>Novo Laudo</h1>
+        <table>
+          <thead>
+            <tr>
+              <td>
+                <h2>Exame</h2>
+              </td>
+              <td className="pacienteTd">
+                <h2>Paciente</h2>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <tr>
+                  <td>
+                    <label htmlFor="">Data:</label>
+                  </td>
+                  <td>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <Grid container justify="space-around">
+                        <KeyboardDatePicker
+                          margin="normal"
+                          id="date-picker-dialog"
+                          format="dd/MM/yyyy"
+                          value={state.data}
+                          onChange={handleDateChange("data")}
+                          KeyboardButtonProps={{
+                            "aria-label": "change date"
+                          }}
+                        />
+                      </Grid>
+                    </MuiPickersUtilsProvider>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Clinica:</label>
+                  </td>
 
-                <td>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.formControl}
-                  >
-                    <InputLabel
-                      ref={inputLabel}
-                      htmlFor="outlined-age-simple"
-                    ></InputLabel>
-                    <Select
-                      native
-                      margin="dense"
-                      value={state.clinica}
-                      onChange={handleChange("clinica")}
-                      labelWidth={labelWidth}
-                      inputProps={{
-                        name: "clinica",
-                        id: "outlined-clinica"
-                      }}
+                  <td>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
                     >
-                      <option value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                  </FormControl>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label htmlFor="">Medico:</label>
-                </td>
-                <td>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.formControl}
-                  >
-                    {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
+                      <InputLabel
+                        ref={inputLabel}
+                        htmlFor="outlined-age-simple"
+                      ></InputLabel>
+                      <Select
+                        native
+                        margin="dense"
+                        value={state.clinica}
+                        onChange={handleChange("clinica")}
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "clinica",
+                          id: "outlined-clinica"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Medico:</label>
+                  </td>
+                  <td>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
+                    >
+                      {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                   Medico
                 </InputLabel> */}
-                    <Select
-                      native
-                      value={state.medico}
-                      onChange={handleChange("medico")}
-                      name="medico"
-                      margin="dense"
-                      labelWidth={labelWidth}
-                      inputProps={{
-                        name: "medico",
-                        id: "outlined-medico"
-                      }}
-                    >
-                      <option value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                  </FormControl>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label htmlFor="">Convenio:</label>
-                </td>
-                <td>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.formControl}
-                  >
-                    {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-                  Convenio
-                </InputLabel> */}
-                    <Select
-                      native
-                      value={state.convenio}
-                      onChange={handleChange("convenio")}
-                      name="convenio"
-                      margin="dense"
-                      labelWidth={labelWidth}
-                      inputProps={{
-                        name: "convenio",
-                        id: "outlined-convenio"
-                      }}
-                    >
-                      <option value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                  </FormControl>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <label htmlFor="">Medico Solicitante:</label>
-                </td>
-                <td>
-                  <FormControl
-                    variant="outlined"
-                    className={classes.formControl}
-                  >
-                    {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
-                  Convenio
-                </InputLabel> */}
-                    <Select
-                      native
-                      name="medicoSolicitante"
-                      value={state.medicoSolicitante}
-                      onChange={handleChange("medicoSolicitante")}
-                      margin="dense"
-                      labelWidth={labelWidth}
-                      inputProps={{
-                        name: "medicoSolicitante",
-                        id: "outlined-medicoSolicitante"
-                      }}
-                    >
-                      <option value="" />
-                      <option value={10}>Ten</option>
-                      <option value={20}>Twenty</option>
-                      <option value={30}>Thirty</option>
-                    </Select>
-                  </FormControl>
-                </td>
-              </tr>
-            </td>
-            {/* --------------------------------------------------------------------------------------------- */}
-            <td className="mainTd">
-              <tr>
-                <td>
-                  <label htmlFor="">Data de Nasc: </label>
-                </td>
-                <td>
-                  <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    <Grid container justify="space-around">
-                      <KeyboardDatePicker
-                        margin="normal"
-                        id="date-picker-dialog"
-                        format="dd/MM/yyyy"
-                        value={state.dataDeNasc}
-                        onChange={handleDateChange("dataDeNasc")}
-                        KeyboardButtonProps={{
-                          "aria-label": "change date"
+                      <Select
+                        native
+                        value={state.medico}
+                        onChange={handleChange("medico")}
+                        name="medico"
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "medico",
+                          id: "outlined-medico"
                         }}
-                      />
-                    </Grid>
-                  </MuiPickersUtilsProvider>
-                </td>
-              </tr>
+                      >
+                        <option value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Convenio:</label>
+                  </td>
+                  <td>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
+                    >
+                      {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
+                  Convenio
+                </InputLabel> */}
+                      <Select
+                        native
+                        value={state.convenio}
+                        onChange={handleChange("convenio")}
+                        name="convenio"
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "convenio",
+                          id: "outlined-convenio"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Medico Solicitante:</label>
+                  </td>
+                  <td>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
+                    >
+                      {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
+                  Convenio
+                </InputLabel> */}
+                      <Select
+                        native
+                        name="medicoSolicitante"
+                        value={state.medicoSolicitante}
+                        onChange={handleChange("medicoSolicitante")}
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "medicoSolicitante",
+                          id: "outlined-medicoSolicitante"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={10}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
+                      </Select>
+                    </FormControl>
+                  </td>
+                </tr>
+              </td>
+              {/* --------------------------------------------------------------------------------------------- */}
+              <td className="mainTd">
+                <tr>
+                  <td>
+                    <label htmlFor="">Data de Nasc: </label>
+                  </td>
+                  <td>
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                      <Grid container justify="space-around">
+                        <KeyboardDatePicker
+                          margin="normal"
+                          id="date-picker-dialog"
+                          format="dd/MM/yyyy"
+                          value={state.dataDeNasc}
+                          onChange={handleDateChange("dataDeNasc")}
+                          KeyboardButtonProps={{
+                            "aria-label": "change date"
+                          }}
+                        />
+                      </Grid>
+                    </MuiPickersUtilsProvider>
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <label htmlFor="">Nome:</label>
-                </td>
-                <td>
-                  <TextField
-                    id="outlined-dense"
-                    margin="dense"
-                    variant="outlined"
-                    name="nome"
-                    type="text"
-                    value={state.nome}
-                    onChange={handleChange("nome")}
-                  />
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Nome:</label>
+                  </td>
+                  <td>
+                    <TextField
+                      id="outlined-dense"
+                      margin="dense"
+                      variant="outlined"
+                      name="nome"
+                      type="text"
+                      value={state.nome}
+                      onChange={handleChange("nome")}
+                    />
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <label htmlFor="">Idade:</label>
-                </td>
-                <td>
-                  <TextField
-                    id="outlined-number"
-                    name="idade"
-                    margin="dense"
-                    value={state.idade}
-                    onChange={handleChange("idade")}
-                    type="number"
-                    InputLabelProps={{
-                      shrink: true
-                    }}
-                    variant="outlined"
-                  />
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Idade:</label>
+                  </td>
+                  <td>
+                    <TextField
+                      id="outlined-number"
+                      name="idade"
+                      margin="dense"
+                      value={state.idade}
+                      onChange={handleChange("idade")}
+                      type="number"
+                      InputLabelProps={{
+                        shrink: true
+                      }}
+                      variant="outlined"
+                    />
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <label htmlFor="">Telefone:</label>
-                </td>
-                <td>
-                  <TextField
-                    id="outlined-tel"
-                    margin="dense"
-                    // label="Telefone"
-                    variant="outlined"
-                    name="telefone"
-                    type="tel"
-                    value={state.telefone}
-                    onChange={handleChange("telefone")}
-                  />
-                </td>
-              </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Telefone:</label>
+                  </td>
+                  <td>
+                    <TextField
+                      id="outlined-tel"
+                      margin="dense"
+                      // label="Telefone"
+                      variant="outlined"
+                      name="telefone"
+                      type="tel"
+                      value={state.telefone}
+                      onChange={handleChange("telefone")}
+                    />
+                  </td>
+                </tr>
 
-              <tr>
-                <td>
-                  <label htmlFor="">E-mail:</label>
-                </td>
-                <td>
-                  <TextField
-                    id="outlined-email-input"
-                    type="email"
-                    name="email"
-                    autoComplete="email"
-                    margin="dense"
-                    variant="outlined"
-                    onChange={handleChange("email")}
-                    value={state.email}
-                  />
-                </td>
-              </tr>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <br />
-      <Button type="submit" variant="contained" color="primary">
-        Primary
-      </Button>
-    </form>
+                <tr>
+                  <td>
+                    <label htmlFor="">E-mail:</label>
+                  </td>
+                  <td>
+                    <TextField
+                      id="outlined-email-input"
+                      type="email"
+                      name="email"
+                      autoComplete="email"
+                      margin="dense"
+                      variant="outlined"
+                      onChange={handleChange("email")}
+                      value={state.email}
+                    />
+                  </td>
+                </tr>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <Button type="submit" variant="contained" color="primary">
+          Primary
+        </Button>
+      </form>
+    </div>
   );
 }

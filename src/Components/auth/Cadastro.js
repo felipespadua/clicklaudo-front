@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+<<<<<<< HEAD:src/Components/auth/Cadastro.js
 // import Button from '@material-ui/core/Button';
 import AuthService from './auth-service';
 import Fab from '@material-ui/core/Fab';
@@ -8,14 +9,20 @@ import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 import TextField from '@material-ui/core/TextField';
+=======
+import SignUp from './SignUp.js'
+>>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
 
 class Cadastro extends Component {
   constructor(props){
     super(props)
     this.state = {
+<<<<<<< HEAD:src/Components/auth/Cadastro.js
       username: '',
       email: '',
       password: ''
+=======
+>>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
     }
     this.service = new AuthService();
   }
@@ -45,6 +52,7 @@ class Cadastro extends Component {
 
   render(){ 
     return (
+<<<<<<< HEAD:src/Components/auth/Cadastro.js
       <div className="container-fluid">
         <div className="row">
         <div className="col-2"></div>
@@ -94,6 +102,11 @@ class Cadastro extends Component {
         </div>
      
       
+=======
+      <div>
+        <SignUp/>
+      </div>
+>>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
     )
   }
 }

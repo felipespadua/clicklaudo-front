@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import React from 'react';
 import socketIOClient from "socket.io-client";
+import { isThisHour } from 'date-fns/esm';
+import { nominalTypeHack } from 'prop-types';
 // import io from "socket.io"
 let globalStream = undefined;
 let input = undefined;
@@ -15,7 +17,7 @@ class VoiceRecognition extends Component {
         this.AudioContext = undefined;
         this.finalWord = false;
         this.removeLastSetence = true;
-
+        this.wordControl = [];
         this.state = {
             response: false,
             streamStreaming: false,
@@ -28,7 +30,7 @@ class VoiceRecognition extends Component {
         this.startRecording = this.startRecording.bind(this);
         this.stopRecording = this.stopRecording.bind(this);
         this.microphoneProcess = this.microphoneProcess.bind(this);
-
+        this.fillForm = this.fillForm.bind(this);
     }
 
     initRecording() {
@@ -151,16 +153,76 @@ class VoiceRecognition extends Component {
             console.log("messages", data);
         });
         
-        
-        this.socket.on('speechData', function (data) {
-            // console.log("speechData",data)
-            if(data.results[0].isFinal === true && data.results[0].alternatives[0].confidence > 0.9){
-                console.log(data.results[0].alternatives[0])
-            }
-    
-        });
+        this.socket.on('speechData',this.fillForm);
         
     }
+    fillForm(data){
+        // console.log(data.results[0].alternatives[0])
+       console.log(data.results[0])
+    //    if(data.results[0].isFinal === true){
+           let alternatives = data.results[0].alternatives
+        //    let words = alternatives.map(alternative => {
+        //        return alternative.words
+
+        //    })
+        
+           let words =  alternatives.map(alternative => {
+                return this.normalizeText(alternative.transcript).replace(" ","")
+            })
+           
+
+           words.forEach(word => {
+               console.log(word, "WORD")
+               let normalizedKeys = Object.keys(this.props.prevState).map(key => {
+                   return this.normalizeText(key)
+               })
+               let index = normalizedKeys.indexOf(this.normalizeText(word))
+               if(index !== -1){
+                   console.log(index)
+                    this.props.handleChangeVR(Object.keys(this.props.prevState)[index])
+               }
+           });
+     
+
+
+        //    for( let key in this.props.prevState){
+        //         if(!this.wordControl.includes(key)){
+        //             // console.log(transcripts, "A")
+        //             if(transcripts.includes(this.normalizeText(key))){
+        //                 this.props.handleChangeVR(key)
+        //                 this.wordControl.push(key)
+        //             }
+        //         }else{
+        //             // console.log(transcripts, "B")
+        //             let count = this.wordControl.filter(word => word === key).length
+        //             for(let i = 0; i < count; i++){
+        //                 let index = transcripts.indexOf(key)
+        //                 transcripts = transcripts.splice(index)
+        //             }
+        //             if(transcripts.includes(this.normalizeText(key))){
+        //                 this.props.handleChangeVR(key)
+        //                 this.wordControl.push(key)
+        //             }
+        //        }
+        //    }
+
+    //    } 
+        // console.log("AAA")
+    }
+
+    normalizeText(text){
+
+        console.log(text)
+        text = text.toLowerCase();                                                         
+        text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
+        text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
+        text = text.replace(new RegExp('[ÍÌÎ]','gi'), 'i');
+        text = text.replace(new RegExp('[ÓÒÔÕ]','gi'), 'o');
+        text = text.replace(new RegExp('[ÚÙÛ]','gi'), 'u');
+        text = text.replace(new RegExp('[Ç]','gi'), 'c');
+        return text;   
+    }
+
     componentWillUnmount(){
         if (this.state.streamStreaming) { this.socket.emit('endGoogleCloudStream', ''); }
     }
