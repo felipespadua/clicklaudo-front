@@ -158,8 +158,9 @@ class VoiceRecognition extends Component {
     }
     fillForm(data){
         // console.log(data.results[0].alternatives[0])
-       console.log(data.results[0])
-    //    if(data.results[0].isFinal === true){
+    //    console.log(data.results[0])
+       if(data.results[0].isFinal === false){
+           console.log(data.results[0])
            let alternatives = data.results[0].alternatives
         //    let words = alternatives.map(alternative => {
         //        return alternative.words
@@ -172,18 +173,18 @@ class VoiceRecognition extends Component {
            
 
            words.forEach(word => {
-               console.log(word, "WORD")
+            //    console.log(word, "WORD")
                let normalizedKeys = Object.keys(this.props.prevState).map(key => {
                    return this.normalizeText(key)
                })
                let index = normalizedKeys.indexOf(this.normalizeText(word))
                if(index !== -1){
-                   console.log(index)
+                   console.log(word)
                     this.props.handleChangeVR(Object.keys(this.props.prevState)[index])
                }
            });
      
-
+       }
 
         //    for( let key in this.props.prevState){
         //         if(!this.wordControl.includes(key)){
@@ -212,7 +213,6 @@ class VoiceRecognition extends Component {
 
     normalizeText(text){
 
-        console.log(text)
         text = text.toLowerCase();                                                         
         text = text.replace(new RegExp('[ÁÀÂÃ]','gi'), 'a');
         text = text.replace(new RegExp('[ÉÈÊ]','gi'), 'e');
