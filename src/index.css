@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url("/img/fundo.jpg");
-  background-repeat: no-repeat; */
+  /* background-color: #e4d6eb !important; */
+
 }
 
 code {
@@ -29,7 +29,6 @@ code {
   
 
 .box-shadow{
-  /* box-shadow: 10px 5px rgba(0,0,0,0.1); */
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05),
   0 4px 8px 0 rgba(0, 0, 0, .05);
 }
@@ -54,4 +53,28 @@ code {
 
 p {
   margin: 0;
+}
+
+.btnHover:hover{
+  color: white;
+}
+
+.MuiAppBar-colorPrimary{
+  background-color: #d1d1d1 !important;
+}
+.MTableHeader-header-207{
+  background-color: red !important;
+
+}
+
+
+
+
+
+/* li:hover{
+  color: white
+} */
+
+a:hover {
+  color: black;
 }

@@ -10,8 +10,6 @@ import MainTable from './MainTable'
 import { Fragment } from 'react'
 import SimpleExpansionPanel from "./Expansion";
 
-// import { Switch } from? '@material-ui/core';
-
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -33,8 +31,6 @@ class App extends React.Component {
           </Switch>
         </div>
     )
-
-
   }
 }
 
