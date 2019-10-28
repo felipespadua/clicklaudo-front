@@ -11,6 +11,11 @@ import Link from '@material-ui/core/Link';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
 
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';  
+
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -41,11 +46,20 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function NavBar() {
+  
   const classes = useStyles();
-  const [setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
+  };
+
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -63,9 +77,26 @@ export default function NavBar() {
           <Tooltip disableFocusListener title="Laudos">
             <Button href="Laudos">Laudos</Button>
           </Tooltip>
-          <Tooltip disableFocusListener title="Cadastre-se">
-            <Button href="Cadastro">Configurações</Button>
-          </Tooltip>
+          {/* <Tooltip disableFocusListener title="Cadastre-se">
+            <Button href="Configuracoes">Configurações</Button>
+          </Tooltip> */}
+          <div>
+      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        Configurações
+      </Button>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <Link href="/Medicos"><MenuItem onClick={handleClose}>Médicos</MenuItem></Link>
+        <Link href="/MedicosSolicitante"><MenuItem onClick={handleClose}>Médicos Solitantes</MenuItem></Link>
+        <Link href="/Convenios"><MenuItem onClick={handleClose}>Convênios</MenuItem></Link>
+        <Link href="/Clinicas"><MenuItem onClick={handleClose}>Clinicas</MenuItem></Link>
+      </Menu>
+    </div>
             <div>
               <IconButton
                 aria-label="account of current user"

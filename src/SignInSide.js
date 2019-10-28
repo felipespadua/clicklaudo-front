@@ -3,11 +3,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
-import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
@@ -22,6 +19,15 @@ const useStyles = makeStyles(theme => ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+  },
+  logo: {
+    marginBottom  : '35px',
+    backgroundImage: 'url(/img/Logo.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '15vh',
+    width: '70vh',
+    backgroundSize: '350px'
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -40,6 +46,7 @@ const useStyles = makeStyles(theme => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  color: '7c7ef8'
 }));
 
 export default function SignInSide() {
@@ -51,6 +58,7 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+        <Link href="/" className={classes.logo}></Link>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -59,31 +67,27 @@ export default function SignInSide() {
           </Typography>
           <form className={classes.form} noValidate>
           <TextField
-        id="filled-email-input"
-        label="Email"
-        className={classes.textField}
-        required
-        fullWidth
-        type="email"
-        name="email"
-        autoComplete="email"
-        margin="normal"
-        // variant="filled"
-      />
+            id="username"
+            label="Username"
+            className={classes.textField}
+            required
+            fullWidth
+            type="text"
+            name="username"
+            autoComplete="username"
+            margin="normal"
+            // variant="filled"
+          />
             <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+            id="password"
+            label="Password"
+            className={classes.textField}
+            required
+            fullWidth
+            type="password"
+            name="password"
+            margin="normal"
+            autoComplete="current-password"
             />
             <Button
               type="submit"
@@ -91,18 +95,18 @@ export default function SignInSide() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              href="/Laudos"
             >
               Sign In
             </Button>
             <Grid container>
         
               <Grid item>
-                <Link href="#" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                <Link href="Cadastro" variant="body2">
+                  {"Não possui uma conta? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-    
           </form>
         </div>
       </Grid>

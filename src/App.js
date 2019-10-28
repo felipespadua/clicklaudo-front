@@ -6,7 +6,10 @@ import './App.css';
 import Login from './Login'
 import Cadastro from './Cadastro'
 import Laudos from './Laudos'
-// import MainTable from './MainTable'
+import Medicos from './Medicos'
+import MedicosSolicitante from './MedicosSolicitante'
+import Clinicas from './Clinicas'
+import Convenios from './Convenios'
 import { Fragment } from 'react'
 import SimpleExpansionPanel from "./Expansion";
 
@@ -25,7 +28,10 @@ class App extends React.Component {
               <Route exact path="/" component={Login} />
               <Route path="/cadastro" component={Cadastro} />
               <Route path="/laudos" component={Laudos} />
-              {/* <Route path="/maintable" component={MainTable} /> */}
+              <Route path="/medicos" component={Medicos} />
+              <Route path="/medicosSolicitante" component={MedicosSolicitante} />
+              <Route path="/Convenios" component={Convenios} />
+              <Route path="/Clinicas" component={Clinicas} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
           </Switch>

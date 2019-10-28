@@ -5,34 +5,23 @@ import MaterialTable from 'material-table';
 
   export default function MainTable() {
     const [state, setState] = React.useState({
-      bg: {
-        // backgroundColor: "#f0f0f0",
-        // color: 'red'
-      },  
+      // bg: {
+      //   backgroundColor: "#f0f0f0",
+      //   color: 'red'
+      // },  
       columns: [
-        { title: 'Exame', field: 'exam' },
-        { title: 'Paciente', field: 'pacient' },
-        { title: 'Status', field: 'status', text: { color: 'red' } },
-        { title: 'Data', field: 'time'},
-        { title: 'Horario'}
-        
+        { title: 'Convênio', field: 'convenio' },
       ],
       data: [
-        { exam: '2374849', pacient: 'Rafael Sousa Dias', 'status': 'Fechado' },
-        {
-          exam: '2384832',pacient: 'João da Silva', 'status': 'Aberto', 'time': ''
-        },
-        
+        { convenio: 'Unimed' },
       ],
-
-      
     });
 
     
     return (
       <MaterialTable 
         style={state.bg}
-        title="Procurar laudos"
+        title="Convênios"
         columns={state.columns}
         data={state.data}
         onRowClick={((evt, selectedRow) =>{
@@ -74,6 +63,8 @@ import MaterialTable from 'material-table';
             }),
         }}
       />
+      
+      
     );
   }
 
