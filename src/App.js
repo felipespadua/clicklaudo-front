@@ -34,7 +34,6 @@ class App extends React.Component {
       })
     }
   }
- 
 
   getTheUser= (userObj) => {
     this.setState({
@@ -43,43 +42,40 @@ class App extends React.Component {
   }
   render(){
     if(this.state.loggedInUser){
- console.log("logado")
-    return (
-      
-        <div className="App">
-          <Fragment>
-            {/* {SimpleExpansionPanel()} */}
-          </Fragment>
-         
-          <Switch>
-          <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
-              <Route path="/cadastro" component={Cadastro} />
-              <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
-              <Route path="/maintable" component={MainTable} />
-              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+      return (
+        
+          <div className="App">
+            <Fragment>
+              {/* {SimpleExpansionPanel()} */}
+            </Fragment>
+          
+            <Switch>
+            <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
+                <Route path="/cadastro" component={Cadastro} />
+                <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
+                <Route path="/maintable" component={MainTable} />
+                <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
-          </Switch>
-        </div>
-    )
-
-    } else {
-      console.log("n logado")
-      return(
-        <div className="App">
-          <Fragment>
-            {/* {SimpleExpansionPanel()} */}
-          </Fragment>
-         
-          <Switch>
-          <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
-              <Route path="/cadastro" component={Cadastro} />
-              <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
-              <Route path="/maintable" component={MainTable} />
-              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
-
-          </Switch>
-        </div> 
+            </Switch>
+          </div>
       )
+    } else {
+        return(
+          <div className="App">
+            <Fragment>
+              {/* {SimpleExpansionPanel()} */}
+            </Fragment>
+          
+            <Switch>
+            <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
+                <Route path="/cadastro" component={Cadastro} />
+                <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
+                <Route path="/maintable" component={MainTable} />
+                <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+
+            </Switch>
+          </div> 
+        )
     }
   }
 } 
