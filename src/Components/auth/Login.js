@@ -1,24 +1,24 @@
-import React, { Component } from 'react';
-import AuthService from './auth-service';
-import { Link,Redirect } from 'react-router-dom';
-import SignInSide from './SignInSide';
+import React, {Component} from 'react';
+import SignInSide from './SignInSide'
+// import MainTable from './MainTable'
 
 class Login extends Component {
   constructor(props){
-    super(props);
- 
+    super(props)
+    this.state = {
+      username: '',
+      password: '',
+    };
    
   }
-
-     render(){
-    return(
-    
+  
+  render(){ 
+    return (
       <div>
-          <SignInSide/>
-     
+        <SignInSide/>
       </div>
     )
   }
 }
 
-export default Login;
+export default Login

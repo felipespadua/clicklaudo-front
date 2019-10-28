@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router } from "react-router-dom";
 import MainTableClinicas from './MainTableClinicas'
-import NavBar from './NavBar'
+import Navbar from './Navbar'
 import Footer from './Footer'
 
 class Clinicas extends Component {
@@ -17,7 +17,7 @@ class Clinicas extends Component {
           <div>
             <Router>
               <div id="main"></div>
-              <NavBar/>
+              <Navbar/>
                 <MainTableClinicas/>
               <Footer/>
             </Router> 

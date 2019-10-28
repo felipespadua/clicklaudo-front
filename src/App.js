@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import VoiceRecognition from './Components/VoiceRecognition';
 import './App.css';
 import Login from './Components/auth/Login'
-import Cadastro from './Components/auth/Cadastro'
+import SignUp from './Components/auth/SignUp'
 import Laudos from './Laudos'
 import MainTable from './MainTable'
 import Medicos from './Medicos'
@@ -56,7 +56,7 @@ class App extends React.Component {
          
           <Switch>
           <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
-              <Route path="/cadastro" component={Cadastro} />
+              <Route path="/cadastro" component={SignUp} />
               <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
               <Route path="/maintable" component={MainTable} />
               
@@ -78,7 +78,7 @@ class App extends React.Component {
           
             <Switch>
             <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
-                <Route path="/cadastro" component={Cadastro} />
+                <Route path="/cadastro" component={SignUp} />
                 <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
                 <Route path="/maintable" component={MainTable} />
                 <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
