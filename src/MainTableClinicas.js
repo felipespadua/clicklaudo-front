@@ -10,16 +10,12 @@ import MaterialTable from 'material-table';
       //   color: 'red'
       // },  
       columns: [
-        { title: 'Medico', field: 'medico' },
-        { title: 'CRM', field: 'crm' },
-        { title: 'Estado', field: 'estado' },
+        { title: 'Clinicas', field: 'clinica' },
       ],
       data: [
-        { medico: 'João Lisboa Campos', crm: '33345223', 'estado': 'São Paulo' },
-        {
-          medico: 'Leticia Pardo',crm: '333353', 'estado': 'Bahia '
-        },
-        
+        { clinica: 'Albert Einstein' },
+        { clinica: 'São Domingos' },
+        { clinica: 'UDI' },
       ],
     });
 
@@ -27,7 +23,7 @@ import MaterialTable from 'material-table';
     return (
       <MaterialTable 
         style={state.bg}
-        title="Clinicas"
+        title="Cadastro Clinicas"
         columns={state.columns}
         data={state.data}
         onRowClick={((evt, selectedRow) =>{

@@ -14,6 +14,9 @@ import MaterialTable from 'material-table';
       ],
       data: [
         { convenio: 'Unimed' },
+        { convenio: 'Cassi'},
+        { convenio: 'Bradesco'},
+        { convenio: 'Hapvida'}
       ],
     });
 
@@ -21,7 +24,7 @@ import MaterialTable from 'material-table';
     return (
       <MaterialTable 
         style={state.bg}
-        title="Convênios"
+        title="Cadastro Convênios"
         columns={state.columns}
         data={state.data}
         onRowClick={((evt, selectedRow) =>{
