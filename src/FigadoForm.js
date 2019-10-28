@@ -45,12 +45,8 @@ class FigadoForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeSelect = this.handleChangeSelect.bind(this);
+    this.handleChangeBySpeech = this.handleChangeBySpeech.bind(this);
   }
-
-  handleChangeCheck = name => event => {
-    console.log(event.target)
-    this.setState({ ...this.state, [name]: event.target.checked });
-  };
 
   handleChange = name => event => {
     console.log(event.target)
@@ -60,6 +56,15 @@ class FigadoForm extends Component {
       this.setState({ ...this.state, [name]: event.target.value });
     }
   };
+
+  handleChangeBySpeech = name => {
+    let checkBoxes = this.typeControl.checkBox;
+    let texts = this.typeControl.text;
+    let selects = this.typeControl.selects;
+    if(checkBoxes.includes(name)){
+      this.setState({ ...this.state, [name]: !this.state.name });
+    }
+  }
 
   handleChangeSelect = event => {
     console.log(event.target);
@@ -140,7 +145,7 @@ class FigadoForm extends Component {
               <td>
                 <VoiceRecognition
                 prevState= {this.state}
-                handleChange={this.handleChange}
+                handleChangeVR={this.handleChangeBySpeech}
                 />
               </td>
             </tr>
