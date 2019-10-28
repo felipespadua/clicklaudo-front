@@ -26,13 +26,7 @@ class App extends React.Component {
           {/* <Route path="/maintable" component={MainTable} /> */}
           <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
         </Switch>
-        <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/cadastro" component={Cadastro} />
-          <Route path="/laudos" component={Laudos} />
-          {/* <Route path="/maintable" component={MainTable} /> */}
-          <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
-        </Switch>
+  
       </div>
     );
   }

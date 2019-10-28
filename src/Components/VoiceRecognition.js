@@ -85,20 +85,22 @@ class VoiceRecognition extends Component {
         // recordingStatus.style.visibility = "hidden";
         // streamStreaming = false;
         this.socket.emit('endGoogleCloudStream', '');
-    
-        let track = globalStream.getTracks()[0];
-        track.stop();
-    
-        input.disconnect(processor);
-        processor.disconnect(context.destination);
-        let closeContext = () => {
-            input = null;
-            processor = null;
-            context = null;
-            this.AudioContext = null
-          
+        if(globalStream !== undefined){
+
+            let track = globalStream.getTracks()[0];
+            track.stop();
+        
+            input.disconnect(processor);
+            processor.disconnect(context.destination);
+            let closeContext = () => {
+                input = null;
+                processor = null;
+                context = null;
+                this.AudioContext = null
+              
+            }
+            context.close().then(closeContext);
         }
-        context.close().then(closeContext);
     }
     downsampleBuffer(buffer, sampleRate, outSampleRate) {
         if (outSampleRate == sampleRate) {
@@ -170,7 +172,7 @@ class VoiceRecognition extends Component {
            let words =  alternatives.map(alternative => {
                 return this.normalizeText(alternative.transcript).replace(" ","")
             })
-           
+           console.log(words)
 
            words.forEach(word => {
             //    console.log(word, "WORD")

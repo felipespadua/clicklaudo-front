@@ -4,13 +4,19 @@ import MaterialTable from 'material-table';
   export default function MainTable() {
     const [state, setState] = React.useState({
       bg: {
-        backgroundColor: "#f0f0f0",
-        color: 'red'
+        // backgroundColor: "#f0f0f0",
+        // color: 'red'
       },  
       columns: [
         { title: 'Exame', field: 'exam' },
         { title: 'Paciente', field: 'pacient' },
-        { title: 'Status', field: 'status', text: { color: 'red' } },
+        { title: 'Status', 
+          field: 'status',
+          render: rowData => (
+              rowData.status === "Aberto" ? <p style={{color: 'green'}}>{rowData.status}</p> : <p style={{color: 'red'}}>{rowData.status}</p>
+  
+            )
+        }
         
       ],
       data: [
@@ -28,16 +34,23 @@ import MaterialTable from 'material-table';
     return (
       <MaterialTable 
         style={state.bg}
+        column= {{
+          cellStyle: cell => ({
+            backgroundColor: 'red'
+          })
+        }}
         title="Procurar laudos"
         columns={state.columns}
         data={state.data}
         onRowClick={((evt, selectedRow) =>{
           
-          return setState( {...state }, { selectedRow })
+          return setState( {...state, selectedRow })
           }) }
         options={{
           rowStyle: rowData => ({
-            backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? 'red' : '#FFF'
+            backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? '#f0f5f5' : '#FFF',
+            // color: (rowData.status === "Aberto" ? '#00b300' : '#ff3300')
+            
           })
         }}
         editable={{

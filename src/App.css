@@ -35,7 +35,7 @@ body {
 /* .mainTd {
   padding-left: 2rem;
 }
-
+*/
 .pacienteTd {
   padding: 0;
   padding-left: 2rem;
@@ -43,10 +43,10 @@ body {
 
 .App {
   background-color: white;
-  display: flex;
-  justify-content: center;
-  height: 80vh;
-  width: 80vw;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* height: 80vh; */
+  /* width: 80vw; */
   flex-direction: column;
 }
 
