@@ -32,7 +32,7 @@ body {
   color: #09d3ac;
 }
 
-/* .mainTd {
+.mainTd {
   padding-left: 2rem;
 }
 
@@ -43,10 +43,10 @@ body {
 
 .App {
   background-color: white;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   height: 80vh;
-  width: 80vw;
+  /* width: 80vw; */
   flex-direction: column;
 }
 
@@ -54,4 +54,9 @@ body {
   display: flex;
   justify-content: center;
   height: 100vh;
+}
+
+.exameTransDiv {
+  border: 1px solid gray;
+  padding: 10px;
 }

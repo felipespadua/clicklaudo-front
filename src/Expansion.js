@@ -6,7 +6,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import FigadoForm from "./FigadoForm";
 import General from "./GeneralForm";
-
+import ProstataForm from "./ProstataForm";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,7 +58,9 @@ export default function SimpleExpansionPanel() {
         >
           <Typography className={classes.heading}>Laudo Figado</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails></ExpansionPanelDetails>
+        <ExpansionPanelDetails>
+          <ProstataForm />
+        </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
   );
