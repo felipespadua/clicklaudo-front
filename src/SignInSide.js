@@ -30,22 +30,11 @@ const useStyles = makeStyles(theme => ({
   root: {
     height: '100vh',
   },
-  logo: {
-    marginBottom  : '35px',
-    backgroundImage: 'url(/img/Logo.svg)',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '15vh',
-    width: '70vh'
-
-  },
   image: {
-    backgroundImage: 'url(/img/medical.jpeg)',
+    backgroundImage: 'url(/img/medical5.jpeg)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    // height: '150px'
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -55,7 +44,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -75,7 +64,6 @@ export default function SignInSide() {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-        <Link href="/" className={classes.logo}></Link>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -83,17 +71,18 @@ export default function SignInSide() {
             Sign in
           </Typography>
           <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
+          <TextField
+        id="filled-email-input"
+        label="Email"
+        className={classes.textField}
+        required
+        fullWidth
+        type="email"
+        name="email"
+        autoComplete="email"
+        margin="normal"
+        // variant="filled"
+      />
             <TextField
               variant="outlined"
               margin="normal"
@@ -105,33 +94,28 @@ export default function SignInSide() {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
+            <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            /> */}
+            />
             <Button
               type="submit"
               fullWidth
-              variant="outlined"
+              variant="contained"
               color="primary"
               className={classes.submit}
-              href="/Laudos"
             >
               Sign In
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">Esqueceu a senha?  </Link>
-              </Grid>
+        
               <Grid item>
-                <Link href="/Cadastro" variant="body2">
-                  {"Não possui uma conta? Sign Up"}
+                <Link href="#" variant="body2">
+                  {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
-            {/* <Box mt={5}>
-              <Copyright />
-            </Box> */}
+    
           </form>
         </div>
       </Grid>

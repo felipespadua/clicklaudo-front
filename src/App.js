@@ -4,10 +4,8 @@ import './App.css';
 import Login from './Login'
 import Cadastro from './Cadastro'
 import Laudos from './Laudos'
-import MainTable from './MainTable'
+// import { Switch } from '@material-ui/core';
 
-
-// import { Switch } from? '@material-ui/core';
 
 class App extends React.Component {
   constructor(props){
@@ -20,13 +18,9 @@ class App extends React.Component {
             <Route exact path="/" component={Login} />
             <Route path="/cadastro" component={Cadastro} />
             <Route path="/laudos" component={Laudos} />
-            <Route path="/maintable" component={MainTable} />
-
         </Switch>
         </div>
     )
-
-
   }
 }
 

@@ -4,17 +4,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
-import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+// import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Tooltip from '@material-ui/core/Tooltip';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +26,6 @@ const useStyles = makeStyles(theme => ({
     marginBottom  : '35px',
     backgroundImage: 'url(/img/Logo.svg)',
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '6vh',
     width: '50vh',
@@ -38,9 +33,7 @@ const useStyles = makeStyles(theme => ({
     position: 'absolute',
     top: '50%',
     marginLeft: '90px',
-    
     transform: 'translate(-50%, -50%)'
-
   },
   justify: {
     alignItems: 'center'
@@ -49,48 +42,30 @@ const useStyles = makeStyles(theme => ({
 
 export default function NavBar() {
   const classes = useStyles();
-  const [auth, setAuth] = React.useState(true);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-
-  const handleChange = event => {
-    setAuth(event.target.checked);
-  };
+  const [setAnchorEl] = React.useState(null);
 
   const handleMenu = event => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <div className={classes.root}>
       <FormGroup>
-        {/* <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        /> */}
       </FormGroup>
       <AppBar position="static">
         <Toolbar>
-          {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton> */}
           <Link href="/" className={classes.logo}></Link>
           <Typography variant="h6" className={classes.title}>
-            
-          </Typography>
-          {/* <li><Link    href="/" color="secondary">Home</Link></li>
-          <li><Link href="/Laudos" color="secondary" >Laudos</Link></li> */}
-          <Tooltip disableFocusListener title="Add">
+          </Typography> 
+          <Tooltip disableFocusListener title="Home">
             <Button href="/">Home</Button>
           </Tooltip>
-          <Tooltip disableFocusListener title="Add">
+          <Tooltip disableFocusListener title="Laudos">
             <Button href="Laudos">Laudos</Button>
           </Tooltip>
-          {auth && (
+          <Tooltip disableFocusListener title="Cadastre-se">
+            <Button href="Cadastro">Configurações</Button>
+          </Tooltip>
             <div>
               <IconButton
                 aria-label="account of current user"
@@ -98,30 +73,11 @@ export default function NavBar() {
                 aria-haspopup="true"
                 onClick={handleMenu}
                 color="primary"
+                href="/Cadastro"
               >
                 <AccountCircle />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                  
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
+            </div>     
         </Toolbar>
       </AppBar>
     </div>

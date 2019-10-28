@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: #e4d6eb !important; */
+
 }
 
 code {
@@ -58,9 +60,21 @@ p {
 }
 
 .MuiAppBar-colorPrimary{
-  background-color: #f0f0f0 !important;
+  background-color: #d1d1d1 !important;
 }
+.MTableHeader-header-207{
+  background-color: red !important;
+
+}
+
+
+
+
 
 /* li:hover{
   color: white
 } */
+
+a:hover {
+  color: black;
+}
