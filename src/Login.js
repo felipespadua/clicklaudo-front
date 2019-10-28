@@ -16,7 +16,8 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-    }
+    };
+   
   }
 
   handleChange = name => event => {
