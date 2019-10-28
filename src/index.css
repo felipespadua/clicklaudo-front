@@ -5,6 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* height: 100vh; */
+  background-repeat: no-repeat;
+  ;
+
 }
 
 code {
@@ -12,26 +20,67 @@ code {
     monospace;
 }
 
-.border-box{
-  padding-top: 40px;
+.border-box {
+  padding-top: 30px;
   /* padding-bottom: 40px; */
   padding-left: 30%;
   padding-right: 30%;
 }
 
-.nav-login{
+.nav-login {
   padding-top: 80px;
   list-style-type: none;
-  
-}
-  
 
-.box-shadow{
-  /* box-shadow: 10px 5px rgba(0,0,0,0.1); */
+}
+
+
+.box-shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05),
-  0 4px 8px 0 rgba(0, 0, 0, .05);
+    0 4px 8px 0 rgba(0, 0, 0, .05);
 }
 
-.logo{
-  width: 40%;
+.logo {
+  width: 80%;
+}
+
+.botao {
+  margin-bottom: 100px;
+}
+
+.botao:hover {
+  color: white;
+}
+
+.m-botton {
+  margin-bottom: 100px;
+  ;
+}
+
+.m-list {
+  padding: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+.btnHover:hover {
+  color: white;
+}
+
+.MuiAppBar-colorPrimary {
+  background-color: #d1d1d1 !important;
+}
+
+
+
+
+
+
+/* li:hover{
+  color: white
+} */
+
+a:hover {
+  color: black;
 }
