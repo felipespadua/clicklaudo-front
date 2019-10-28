@@ -5,7 +5,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-color: #e4d6eb !important; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right top, #6e43fe, #6938f6, #642bee, #601ce5, #5b04dd);
+  height: 100vh;
+  background-repeat: no-repeat;
+  ;
 
 }
 
@@ -14,37 +21,40 @@ code {
     monospace;
 }
 
-.border-box{
+.border-box {
   padding-top: 30px;
   /* padding-bottom: 40px; */
   padding-left: 30%;
   padding-right: 30%;
 }
 
-.nav-login{
+.nav-login {
   padding-top: 80px;
   list-style-type: none;
-  
-}
-  
 
-.box-shadow{
+}
+
+
+.box-shadow {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05),
-  0 4px 8px 0 rgba(0, 0, 0, .05);
+    0 4px 8px 0 rgba(0, 0, 0, .05);
 }
 
-.logo{
+.logo {
   width: 80%;
 }
+
 .botao {
   margin-bottom: 100px;
 }
+
 .botao:hover {
   color: white;
 }
 
 .m-botton {
-  margin-bottom: 100px;;
+  margin-bottom: 100px;
+  ;
 }
 
 .m-list {
@@ -55,14 +65,15 @@ p {
   margin: 0;
 }
 
-.btnHover:hover{
+.btnHover:hover {
   color: white;
 }
 
-.MuiAppBar-colorPrimary{
+.MuiAppBar-colorPrimary {
   background-color: #d1d1d1 !important;
 }
-.MTableHeader-header-207{
+
+.MTableHeader-header-207 {
   background-color: red !important;
 
 }
