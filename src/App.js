@@ -1,17 +1,9 @@
 import React from "react";
-// import logo from "./logo.svg";
 import "./App.css";
-// import Forms from "./Forms";
-import SearchAppBar from "./Navbar";
-import SimpleExpansionPanel from "./Expansion";
+import NewLaudoView from "./NewLaudoView";
 
 const App = () => {
-  return (
-    <div className="App">
-      {/* {SearchAppBar()} */}
-      {SimpleExpansionPanel()}
-    </div>
-  );
+  return <NewLaudoView />;
 };
 
 export default App;
