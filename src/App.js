@@ -59,8 +59,7 @@ class App extends React.Component {
               <Route path="/cadastro" component={SignUp} />
               <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
               <Route path="/maintable" component={MainTable} />
-              
-              <Route path="/medicos" component={Medicos} />
+             <Route path="/medicos" component={Medicos} />
               <Route path="/medicosSolicitante" component={MedicosSolicitante} />
               <Route path="/Convenios" component={Convenios} />
               <Route path="/Clinicas" component={Clinicas} />
