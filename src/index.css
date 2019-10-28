@@ -78,3 +78,7 @@ p {
 a:hover {
   color: black;
 }
+
+.makeStyles-root-1{
+  height: 55vh;
+}

@@ -3,14 +3,14 @@
 } */
 
 body {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-content: center; */
 }
 
 .App {
-  width: 50rem;
-  height: 50rem;
+  /* width: 50rem;
+  height: 50rem; */
 }
 
 .App-logo {
@@ -18,25 +18,25 @@ body {
 }
 
 .App-header {
-  background-color: #282c34;
+  /* background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: white; */
 }
 
 .App-link {
   color: #09d3ac;
 }
 
-.mainTd {
+/* .mainTd {
   padding-left: 2rem;
 }
 
 .pacienteTd {
   padding: 0;
   padding-left: 2rem;
-}
+} */
