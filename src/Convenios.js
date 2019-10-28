@@ -18,10 +18,10 @@ class Convenios extends Component {
             <Router>
               <div id="main"></div>
               <NavBar/>
-     
+      
               <MainTableConvenios/>
 
-          
+        
 
               <Footer/>
             </Router> 

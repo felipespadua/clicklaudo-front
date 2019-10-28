@@ -15,9 +15,9 @@ import MaterialTable from 'material-table';
         { title: 'Estado', field: 'estado' },
       ],
       data: [
-        { medico: 'João Lisboa Campos', crm: '33345223', 'estado': 'São Paulo' },
+        { medico: 'Patricia Campos', crm: '33345223', 'estado': 'Rio de Janeiro' },
         {
-          medico: 'Leticia Pardo',crm: '333353', 'estado': 'Bahia '
+          medico: 'Sandra Bullock',crm: '333353', 'estado': 'Maranhão '
         },
         
       ],

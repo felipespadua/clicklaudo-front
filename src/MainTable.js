@@ -7,7 +7,7 @@ import MaterialTable from 'material-table';
     const [state, setState] = React.useState({
       bg: {
         // backgroundColor: "#f0f0f0",
-        // color: 'red'
+        // color: 'red  '
       },  
       columns: [
         { title: 'Exame', field: 'exam' },
