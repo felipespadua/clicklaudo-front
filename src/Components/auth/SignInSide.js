@@ -25,6 +25,16 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover",
     backgroundPosition: "center"
   },
+
+  logo: {
+    marginBottom  : '35px',
+    backgroundImage: 'url(/img/Logo.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '15vh',
+    width: '70vh',
+    backgroundSize: '350px'
+  },
   paper: {
     margin: theme.spacing(8, 4),
     display: "flex",
@@ -80,6 +90,7 @@ export default function SignInSide(props) {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
+        <Link href="/" className={classes.logo}></Link>
           <Avatar className={classes.avatar}>
             <LockOutlinedIcon />
           </Avatar>
@@ -88,31 +99,28 @@ export default function SignInSide(props) {
           </Typography>
           <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
             <TextField
-              id="filled-email-input"
-              label="Email"
+              id="username"
+              label="Username"
               className={classes.textField}
               required
               fullWidth
-              type="email"
-              name="email"
-              autoComplete="email"
+              type="text"
+              name="username"
+              autoComplete="username"
               margin="normal"
               // variant="filled"
             />
             <TextField
-              variant="outlined"
-              margin="normal"
+              id="password"
+              label="Password"
+              className={classes.textField}
               required
               fullWidth
-              name="password"
-              label="Password"
               type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
+              name="password"
+              autoComplete="password"
+              margin="normal"
+              // variant="filled"
             />
             <Button
               type="submit"
@@ -120,13 +128,14 @@ export default function SignInSide(props) {
               variant="contained"
               color="primary"
               className={classes.submit}
+              href="/Laudos"
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item>
                 <Link href="/cadastro" variant="body2">
-                  {"Don't have an account? Sign Up"}
+                  {"Não possui uma conta? Sign Up"}
                 </Link>
               </Grid>
             </Grid>
