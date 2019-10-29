@@ -309,7 +309,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField
                   id="outlined-number"
-                  label="Largura Prostata"
+                  label="Largura Nodulo"
                   value={this.props.noduloSize1}
                   onChange={this.props.handleChangeByToggle("noduloSize1")}
                   type="number"
@@ -323,7 +323,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField
                   id="outlined-number"
-                  label="Altura Prostata"
+                  label="Altura Nodulo"
                   value={this.props.noduloSize2}
                   onChange={this.props.handleChangeByToggle("noduloSize2")}
                   type="number"
@@ -337,7 +337,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField
                   id="outlined-number"
-                  label="Espessura Prostata(mm)"
+                  label="Espessura Nodulo(mm)"
                   value={this.props.noduloSize3}
                   onChange={this.props.handleChangeByToggle("noduloSize3")}
                   type="number"
