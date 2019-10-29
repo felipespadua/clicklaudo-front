@@ -4,7 +4,7 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     let service = axios.create({
-      baseURL: 'http://localhost:3010/api',
+      baseURL: 'https://clicklaudo.herokuapp.com//api',
       withCredentials: true
     });
     this.service = service;
