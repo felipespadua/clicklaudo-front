@@ -135,7 +135,6 @@ export default function Login (props) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              href="/Laudos"
             >
               Sign In
             </Button>

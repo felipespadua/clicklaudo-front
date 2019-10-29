@@ -1,9 +1,23 @@
 import React from 'react';
 import MaterialTable from 'material-table';
-
+import ApiService from './Services/ApiService'
 
 
   export default function MainTable() {
+    const apiHandler = new ApiService()
+    
+    React.useEffect(() => fetchData() )
+
+    const fetchData = async () => {
+      try {
+        const response = await apiHandler.getAllExams()
+        console.log(response)
+        
+      }catch(err){
+
+      }
+    }
+
     const [state, setState] = React.useState({
       bg: {
         // backgroundColor: "#f0f0f0",
@@ -19,7 +33,6 @@ import MaterialTable from 'material-table';
   
             )
         }
-        
       ],
       data: [
         { exam: '2374849', pacient: 'Rafael Sousa Dias', 'status': 'Fechado' },
