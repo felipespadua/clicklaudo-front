@@ -59,11 +59,8 @@ export default function SignUp(props) {
     const { username, password, name } = state
     service.signup(username, password, name)
     .then( response => {
-        console.log(response, "response")
         setState({ username: "", password: "", name:"" });
-       
-        //props.getUser(response)
-       // props.history.push("/")
+        props.history.push("/")
         
     })
     .catch( error => console.log(error,"ERRO") )
