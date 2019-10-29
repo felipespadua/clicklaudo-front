@@ -62,8 +62,8 @@ export default function SignUp(props) {
         console.log(response, "response")
         setState({ username: "", password: "", name:"" });
        
-        //props.getUser(response)
-       // props.history.push("/")
+       // props.getUser(response)
+        props.history.push("/")
         
     })
     .catch( error => console.log(error,"ERRO") )
