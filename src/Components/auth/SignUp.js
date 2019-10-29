@@ -95,21 +95,39 @@ export default function SignInSide(props) {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Sign Up
           </Typography>
           <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12}  >
             <TextField
-              id="username"
-              label="Username"
+              id="Nome"
+              label="Nome"
               className={classes.textField}
               required
               fullWidth
               type="text"
-              name="username"
-              autoComplete="username"
+              name="nome"
+              autoComplete="nome"
               margin="normal"
               // variant="filled"
             />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="email"
+              label="E-mail"
+              className={classes.textField}
+              required
+              fullWidth
+              type="email"
+              name="email"
+              autoComplete="email"
+              margin="normal"
+              // variant="filled"
+            />
+            </Grid>
+            <Grid item xs={12}>
             <TextField
               id="password"
               label="Password"
@@ -122,20 +140,23 @@ export default function SignInSide(props) {
               margin="normal"
               // variant="filled"
             />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              href="/Laudos"
-            >
-              Sign In
-            </Button>
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            href="/Laudos"
+          >
+            Sign Up
+          </Button>
+      
             <Grid container>
               <Grid item>
-                <Link href="/SignUp" variant="body2">
-                  {"Não possui uma conta? Sign Up"}
+                <Link href="/" variant="body2">
+                  {"Não possui uma conta? Sign In"}
                 </Link>
               </Grid>
             </Grid>

@@ -80,3 +80,11 @@ p {
 a:hover {
   color: black;
 }
+
+.makeStyles-avatar-5 {
+  background-color: #7c7ef8 !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #7c7ef8 !important; 
+}
