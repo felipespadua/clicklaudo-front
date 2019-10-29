@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import AuthService from './auth-service';
 
 const useStyles = makeStyles(theme => ({
   '@global': {
@@ -44,8 +45,38 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const classes = useStyles();
+
+  const [state,setState]=React.useState({
+     username: '', password: '', name: "",
+
+  })
+ const service = new AuthService()
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const username = state.username;
+    const password = state.password;
+    const name = state.name;
+    service.signup(username, password, name)
+    .then( response => {
+        console.log(response, "response")
+        setState({ username: "", password: "", name:"" });
+       
+        //props.getUser(response)
+       // props.history.push("/")
+        
+    })
+    .catch( error => console.log(error,"ERRO") )
+  }
+  const handleChange = (event) => {  
+
+    const {name, value} = event.target;
+    setState({[name]: value});
+  }
+  
+  
 
   return (
     <Container component="main" maxWidth="xs">
@@ -58,53 +89,55 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="Nome"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Sobrenome"
-                name="lastName"
-                autoComplete="lname"
-              />
+            <Grid item xs={12}  >
+            <TextField
+              id="Nome"
+              label="Nome"
+              className={classes.textField}
+              required
+              fullWidth
+              type="text"
+              name="name"
+              autoComplete="nome"
+              margin="normal"
+              value={state.name} 
+              onChange={ e => handleChange(e)}
+              // variant="filled"
+            />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email"
-                name="email"
-                autoComplete="email"
-              />
+            <TextField
+              id="username"
+              label="username"
+              className={classes.textField}
+              required
+              fullWidth
+              type="username"
+              name="username"
+              autoComplete="username"
+              margin="normal"
+              value={state.username} 
+              onChange={ e => handleChange(e)}
+              // variant="filled"
+            />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+            <TextField
+              id="password"
+              label="Password"
+              className={classes.textField}
+              required
+              fullWidth
+              type="password"
+              name="password"
+              autoComplete="password"
+              margin="normal"
+              value={state.password} 
+              onChange={ e => handleChange(e)}
+              // variant="filled"
+            />
             </Grid>
           </Grid>
           <Button
@@ -113,7 +146,6 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            href="/Laudos"
           >
             Sign Up
           </Button>

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import VoiceRecognition from './Components/VoiceRecognition';
 import './App.css';
 import Login from './Components/auth/Login'
-import SignUp from './Components/auth/SignUp'
+import SignUp from './Components/auth/SIgnUp'
 import Laudos from './Laudos'
 import MainTable from './MainTable'
 import Medicos from './Medicos'
@@ -55,8 +55,7 @@ class App extends React.Component {
               <Route path="/cadastro" component={SignUp} />
               <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
               <Route path="/maintable" component={MainTable} />
-              
-              <Route path="/medicos" component={Medicos} />
+             <Route path="/medicos" component={Medicos} />
               <Route path="/medicosSolicitante" component={MedicosSolicitante} />
               <Route path="/Convenios" component={Convenios} />
               <Route path="/Clinicas" component={Clinicas} />
