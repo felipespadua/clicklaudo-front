@@ -25,6 +25,12 @@ class NewLaudoView extends React.Component {
     });
   }
 
+  showProstata() {
+    this.setState({
+      show: "Prostata"
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -34,8 +40,12 @@ class NewLaudoView extends React.Component {
         <button onClick={this.showFigado} className="btn-change">
           Figado
         </button>
+        <button onClick={this.showFigado} className="btn-change">
+          Prostata
+        </button>
         {this.state.show === "General" && <GeneralForm />}
         {this.state.show === "Figado" && <FigadoForm />}
+        {this.state.show === "Prostata" && <FigadoForm />}
       </div>
     );
   }

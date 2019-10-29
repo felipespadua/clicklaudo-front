@@ -10,6 +10,7 @@ import Medicos from './Medicos'
 import MedicosSolicitante from './MedicosSolicitante'
 import Clinicas from './Clinicas'
 import Convenios from './Convenios'
+import NewLaudoView from './NewLaudoView'
 import { Fragment } from 'react'
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
@@ -64,6 +65,7 @@ class App extends React.Component {
               <Route path="/medicosSolicitante" component={MedicosSolicitante} />
               <Route path="/Convenios" component={Convenios} />
               <Route path="/Clinicas" component={Clinicas} />
+              <Route path="/NewLaudoView" component={NewLaudoView} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
           </Switch>
@@ -82,6 +84,8 @@ class App extends React.Component {
                 <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
                 <Route path="/maintable" component={MainTable} />
                 <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+              <Route path="/NewLaudoView" component={NewLaudoView} />
+
 
             </Switch>
           </div> 

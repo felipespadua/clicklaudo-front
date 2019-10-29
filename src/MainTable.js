@@ -1,6 +1,24 @@
 import React from 'react';
 import MaterialTable from 'material-table';
+// import axios from 'axios'
 
+// class MainTable extends Component {
+
+//   constructor(){
+//     super()
+//     this.state = {
+//       exam: []
+//     }
+//   }
+  
+//   componentDidMount(){
+//     axios.get("https//google.com")
+//     .then(response => {
+//       this.setState({exam: response.data})
+//     })
+//   }
+
+// }
 
 
   export default function MainTable() {
