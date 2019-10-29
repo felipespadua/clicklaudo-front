@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 import VoiceRecognition from './Components/VoiceRecognition';
 import './App.css';
 import Login from './Components/auth/Login'
-import SignUp from './Components/auth/SIgnUp'
+import SignUp from './Components/auth/SignUp'
 import Laudos from './Laudos'
 import MainTable from './MainTable'
 import Medicos from './Medicos'
