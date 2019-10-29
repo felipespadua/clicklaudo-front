@@ -11,7 +11,6 @@ import Footer from './Footer'
 
 import Button from '@material-ui/core/Button';
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from "@material-ui/core/styles";
 
 class NewLaudoView extends React.Component {
   constructor(props) {
@@ -37,24 +36,13 @@ class NewLaudoView extends React.Component {
 
   showProstata() {
     this.setState({
-      show: "Prostata"
+      show:  "Prostata"
     });
   }
-
-  const useStyles = makeStyles(theme => ({
-    paper: {
-      margin: theme.spacing(8, 4),
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center"
-    }
-  }));
-
-
-
   
+
+
   render() {
-    const classes = useStyles();
     return (
       <div>
         <Router>
