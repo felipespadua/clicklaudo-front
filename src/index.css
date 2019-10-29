@@ -6,9 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
   height: 100vh;
   background-repeat: no-repeat;
   ;
@@ -22,7 +22,7 @@ code {
 
 .border-box {
   padding-top: 30px;
-  /* padding-bottom: 40px; */
+  padding-bottom: 40px;
   padding-left: 30%;
   padding-right: 30%;
 }
@@ -87,8 +87,4 @@ p {
 
 a:hover {
   color: black;
-}
-
-.makeStyles-root-1{
-  height: 55vh;
 }

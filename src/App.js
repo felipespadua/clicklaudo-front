@@ -48,10 +48,6 @@ class App extends React.Component {
     return (
       
         <div className="App">
-          <Fragment>
-            {/* {SimpleExpansionPanel()} */}
-          </Fragment>
-         
           <Switch>
           <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
               <Route path="/cadastro" component={Cadastro} />
@@ -67,21 +63,18 @@ class App extends React.Component {
       console.log("n logado")
       return(
         <div className="App">
-          <Fragment>
-            {/* {SimpleExpansionPanel()} */}
-          </Fragment>
-         
           <Switch>
           <Route exact path="/" render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
               <Route path="/cadastro" component={Cadastro} />
               <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
-              <Route path="/maintable" component={MainTable} />
+              <Route path="/laudos" component={Laudos} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
           </Switch>
         </div> 
       )
     }
+    
   }
 } 
 
