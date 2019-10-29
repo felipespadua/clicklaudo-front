@@ -56,9 +56,7 @@ export default function SignUp(props) {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    const username = state.username;
-    const password = state.password;
-    const name = state.name;
+    const { username, password, name } = state
     service.signup(username, password, name)
     .then( response => {
         console.log(response, "response")
@@ -73,7 +71,7 @@ export default function SignUp(props) {
   const handleChange = (event) => {  
 
     const {name, value} = event.target;
-    setState({[name]: value});
+    setState({ ...state, [name]: value});
   }
   
   

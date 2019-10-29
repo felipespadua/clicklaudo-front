@@ -81,10 +81,8 @@ export default function Login (props) {
     .catch( error => console.log(error) )
   }
   const handleChange = (event) => {  
-
     const {name, value} = event.target;
-    console.log(name,value)
-    setState({[name]: value});
+    setState({ ...state , [name]: value});
   }
   
   
