@@ -33,7 +33,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
@@ -111,7 +111,7 @@ export default function SignUp() {
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
+            color="primary"
             className={classes.submit}
             href="/Laudos"
           >

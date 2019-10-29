@@ -5,54 +5,35 @@ import MaterialTable from 'material-table';
 
   export default function MainTable() {
     const [state, setState] = React.useState({
-      bg: {
-        // backgroundColor: "#f0f0f0",
-        // color: 'red  '
-      },  
+      // bg: {
+      //   backgroundColor: "#f0f0f0",
+      //   color: 'red'
+      // },  
       columns: [
-        { title: 'Exame', field: 'exam' },
-        { title: 'Paciente', field: 'pacient' },
-        { title: 'Status', 
-          field: 'status',
-          render: rowData => (
-              rowData.status === "Aberto" ? <p style={{color: 'green'}}>{rowData.status}</p> : <p style={{color: 'red'}}>{rowData.status}</p>
-  
-            )
-        }
-        
+        { title: 'Convênio', field: 'convenio' },
       ],
       data: [
-        { exam: '2374849', pacient: 'Rafael Sousa Dias', 'status': 'Fechado' },
-        {
-          exam: '2384832',pacient: 'João da Silva', 'status': 'Aberto', 'time': ''
-        },
-        
+        { convenio: 'Unimed' },
+        { convenio: 'Cassi'},
+        { convenio: 'Bradesco'},
+        { convenio: 'Hapvida'}
       ],
-
-      
     });
 
     
     return (
       <MaterialTable 
         style={state.bg}
-        column= {{
-          cellStyle: cell => ({
-            backgroundColor: 'red'
-          })
-        }}
-        title="Procurar laudos"
+        title="Cadastro Convênios"
         columns={state.columns}
         data={state.data}
         onRowClick={((evt, selectedRow) =>{
           
-          return setState( {...state, selectedRow })
+          return setState( {...state }, { selectedRow })
           }) }
         options={{
           rowStyle: rowData => ({
-            backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? '#f0f5f5' : '#FFF',
-            // color: (rowData.status === "Aberto" ? '#00b300' : '#ff3300')
-            
+            backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? 'red' : '#FFF'
           })
         }}
         editable={{
@@ -85,6 +66,8 @@ import MaterialTable from 'material-table';
             }),
         }}
       />
+      
+      
     );
   }
 

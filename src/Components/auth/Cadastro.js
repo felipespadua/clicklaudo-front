@@ -1,114 +1,127 @@
-import React, {Component} from 'react'
-<<<<<<< HEAD:src/Components/auth/Cadastro.js
-// import Button from '@material-ui/core/Button';
-import AuthService from './auth-service';
-import Fab from '@material-ui/core/Fab';
-import { Link } from 'react-router-dom';
-import Grid from '@material-ui/core/Grid';
+import React from 'react';
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-=======
-import SignUp from './SignUp.js'
->>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+import Container from '@material-ui/core/Container';
 
-class Cadastro extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-<<<<<<< HEAD:src/Components/auth/Cadastro.js
-      username: '',
-      email: '',
-      password: ''
-=======
->>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
-    }
-    this.service = new AuthService();
-  }
+const useStyles = makeStyles(theme => ({
+  '@global': {
+    body: {
+      backgroundColor: theme.palette.common.white,
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  logo: {
+    marginBottom  : '35px',
+    backgroundImage: 'url(/img/Logo.svg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '15vh',
+    width: '70vh',
+    backgroundSize: '350px'
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.primary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(3),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
 
-  handleFormSubmit = (event) => {
-    
-    event.preventDefault();
-    const username = this.state.username;
-    const password = this.state.password;
-    const email = this.state.email;
-  
-    this.service.signup(username, password,email)
-    .then( response => {
-        this.setState({
-            username: "", 
-            password: "",
-            email: ""
-        });
-         this.props.getUser(response)
-    })
-    .catch( error => console.log(error) )
-  }
+export default function SignUp() {
+  const classes = useStyles();
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
-
-  render(){ 
-    return (
-<<<<<<< HEAD:src/Components/auth/Cadastro.js
-      <div className="container-fluid">
-        <div className="row">
-        <div className="col-2"></div>
-        <div className="col-8">
-          <div className="box-shadow border-box border-primary mt-5 bg-light rounded">
-        <a href="/"><img className="mt-4 logo" src="/img/Logo.svg"/></a>
-          <h4 className="p-2 text-secondary">Cadastro</h4>
-            <form onSubmit={this.handleFormSubmit} className="d-flex flex-column pt classes.container" noValidate autoComplete="off">
-              <TextField className="mb-2 mt-4"
-                id="standard-name"
-                label="Nome"
-                value={this.state.username}
-                onChange={this.handleChange('username')}
-                margin="normal"
-                type="username"
-              />
-              <TextField className="mt-2"
-                id="standard-name"
-                label="Email"
-                value={this.state.email}
-                onChange={this.handleChange('email')}
-                type="email"
-                margin="normal"
-              />
-              <TextField className="mb-5 mt-2"
-                id="standard-name"
-                label="Senha"
-                value={this.state.password}
-                onChange={this.handleChange('password')}
-                type="password"
-                margin="normal"
-              />
-              <Fab variant="extended" size="medium" type="submit" color="primary" aria-label="add" className="botao mb-3" >Enviar</Fab>
-              <div className="mb-5"></div>
-
-            </form>
-          <Grid item xs={12} md={12}>
-        <ButtonGroup fullWidth aria-label="full width outlined button group" color="primary" variant="text">
-          <Button href="/">Login</Button>
-          <Button href="/Cadastro">Cadastra-se</Button>
-        </ButtonGroup>
-      </Grid>
-          </div>
-        </div>  
-        <div className="col-2"></div>
-        </div>
-        </div>
-     
-      
-=======
-      <div>
-        <SignUp/>
+  return (
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+      <Link href="/" className={classes.logo}></Link>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign up
+        </Typography>
+        <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12}  >
+            <TextField
+              id="Nome"
+              label="Nome"
+              className={classes.textField}
+              required
+              fullWidth
+              type="text"
+              name="nome"
+              autoComplete="nome"
+              margin="normal"
+              // variant="filled"
+            />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="email"
+              label="E-mail"
+              className={classes.textField}
+              required
+              fullWidth
+              type="email"
+              name="email"
+              autoComplete="email"
+              margin="normal"
+              // variant="filled"
+            />
+            </Grid>
+            <Grid item xs={12}>
+            <TextField
+              id="password"
+              label="Password"
+              className={classes.textField}
+              required
+              fullWidth
+              type="password"
+              name="password"
+              autoComplete="password"
+              margin="normal"
+              // variant="filled"
+            />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            href="/Laudos"
+          >
+            Sign Up
+          </Button>
+          <Grid container justify="flex-end">
+            <Grid item xs>
+              <Link href="/" variant="body2">
+                Já possui uma conta? Sign in
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
       </div>
->>>>>>> aa0c9f3f902ed47f737778bfafc34f6df2b3cda6:src/Cadastro.js
-    )
-  }
+    </Container>
+  );
 }
-
-export default Cadastro

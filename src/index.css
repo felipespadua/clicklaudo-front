@@ -9,7 +9,7 @@ body {
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
-  height: 100vh;
+  /* height: 100vh; */
   background-repeat: no-repeat;
   ;
 
@@ -71,14 +71,6 @@ p {
 .MuiAppBar-colorPrimary {
   background-color: #d1d1d1 !important;
 }
-
-.MTableHeader-header-207 {
-  background-color: red !important;
-
-}
-
-
-
 
 
 /* li:hover{

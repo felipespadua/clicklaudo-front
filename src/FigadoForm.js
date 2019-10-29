@@ -75,6 +75,7 @@ class FigadoForm extends Component {
   };
 
   handleChangeBySpeech = name => {
+    console.log(name);
     let checkBoxes = this.typeControl.checkBox;
     let texts = this.typeControl.text;
     let selects = this.typeControl.selects;

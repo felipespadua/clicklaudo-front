@@ -1,12 +1,15 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom'
-import logo from './logo.svg';
 import VoiceRecognition from './Components/VoiceRecognition';
 import './App.css';
 import Login from './Components/auth/Login'
 import Cadastro from './Components/auth/Cadastro'
 import Laudos from './Laudos'
 import MainTable from './MainTable'
+import Medicos from './Medicos'
+import MedicosSolicitante from './MedicosSolicitante'
+import Clinicas from './Clinicas'
+import Convenios from './Convenios'
 import { Fragment } from 'react'
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
@@ -35,7 +38,6 @@ class App extends React.Component {
       })
     }
   }
- 
 
   getTheUser= (userObj) => {
     this.setState({
@@ -53,12 +55,16 @@ class App extends React.Component {
               <Route path="/cadastro" component={Cadastro} />
               <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
               <Route path="/maintable" component={MainTable} />
+              
+              <Route path="/medicos" component={Medicos} />
+              <Route path="/medicosSolicitante" component={MedicosSolicitante} />
+              <Route path="/Convenios" component={Convenios} />
+              <Route path="/Clinicas" component={Clinicas} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
           </Switch>
         </div>
     )
-
     } else {
       console.log("n logado")
       return(
@@ -70,9 +76,9 @@ class App extends React.Component {
               <Route path="/laudos" component={Laudos} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
-          </Switch>
-        </div> 
-      )
+            </Switch>
+          </div> 
+        )
     }
     
   }
