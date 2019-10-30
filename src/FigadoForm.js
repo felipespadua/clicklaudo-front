@@ -127,7 +127,7 @@ class FigadoForm extends Component {
 
   render() {
     return (
-      <div className="mainDivGF">
+      <div className="mainDivGF m-4">
         <form onSubmit={this.handleSubmit}>
           <table>
             <thead>
@@ -154,7 +154,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>Quais são as dimensão apresentadas ?</td>
                 <td>
-                  <FormControl variant="outlined">
+                  <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
                     <Select
                       value={this.state.dimensao}
@@ -236,7 +236,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -244,7 +244,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     // value="ciscoSimplesSit"
                     onChange={this.handleChange("ciscoSimplesSit")}
                     value={this.state.ciscoSimplesSit}
@@ -277,7 +277,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -285,7 +285,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("variosCiscosSit")}
                     value={this.state.variosCiscosSit}
                   />
@@ -310,7 +310,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Tipo ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoTipo")}
                     value={this.state.noduloSolidoTipo}
                   />
@@ -321,7 +321,7 @@ class FigadoForm extends Component {
                     // id="outlined-with-placeholder"
                     label="Contorno"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoContorno")}
                     value={this.state.noduloSolidoContorno}
                   />
@@ -337,7 +337,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>x</td>
@@ -353,7 +353,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -361,7 +361,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoSit")}
                     value={this.state.noduloSolidoSit}
                   />
@@ -392,7 +392,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -400,7 +400,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("calcificacaoGrosseiraSit")}
                     value={this.state.calcificacaoGrosseiraSit}
                   />
