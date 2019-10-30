@@ -9,6 +9,7 @@ import Laudos from "./Laudos";
 // import MainTable from './MainTable'
 import { Fragment } from "react";
 import SimpleExpansionPanel from "./Expansion";
+import LandingPage from "./LandingPage";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ class App extends React.Component {
           <Route path="/laudos" component={Laudos} />
           {/* <Route path="/maintable" component={MainTable} /> */}
           <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+          <Route path="/landingPage" component={LandingPage} />
         </Switch>
       </div>
     );

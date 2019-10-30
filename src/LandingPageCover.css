@@ -1,0 +1,518 @@
+body {
+    overflow-x: hidden;
+    /* overflow-style: none; */
+}
+
+.logocon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+    animation: color 30s linear infinite;
+    user-select: none;
+    position: absolute;
+    z-index: 3;
+}
+
+.menu {
+    position: fixed;
+    z-index: 2;
+    width: 100vw;
+    /* height: 50px; */
+    background: white;
+    /* color: white; */
+    text-align: center;
+    line-height: 50px;
+    font: 300 32px Comfortaa;
+}
+
+/* a {
+    padding: 5px 10px;
+    border: 1px solid;
+    border-radius: 30px;
+    font-family: Comfortaa;
+    color: #f39;
+    transition: background 0.3s;
+}
+
+a:hover {
+    background: #f39;
+    color: #fff;
+    border: 0;
+} */
+
+.logo {
+    /* font: 300 150px Comfortaa; */
+    /* color: #fff; */
+    cursor: default;
+    text-align: center;
+}
+
+#imageLaudos {
+    width: 90%;
+}
+
+
+.hint {
+    position: fixed;
+    z-index: 4;
+    bottom: 10vh;
+    width: 100vw;
+    text-align: center;
+    color: rgba(110, 68, 255, 0.6);
+    font: 300 30px Comfortaa;
+}
+
+.content {
+    /* padding: 30px; */
+    position: relative;
+    top: 23vh;
+    /* height: 200vh; */
+    /* font: 16px Ubuntu; */
+}
+
+/* @-moz-keyframes color {
+    0% {
+        background: #e61919;
+    }
+
+    25% {
+        background: #80e619;
+    }
+
+    50% {
+        background: #19e5e6;
+    }
+
+    75% {
+        background: #7f19e6;
+    }
+
+    100% {
+        background: #e61919;
+    }
+} */
+
+/* @-webkit-keyframes color {
+    0% {
+        background: #e61919;
+    }
+
+    25% {
+        background: #80e619;
+    }
+
+    50% {
+        background: #19e5e6;
+    }
+
+    75% {
+        background: #7f19e6;
+    }
+
+    100% {
+        background: #e61919;
+    }
+}
+
+@-o-keyframes color {
+    0% {
+        background: #e61919;
+    }
+
+    25% {
+        background: #80e619;
+    }
+
+    50% {
+        background: #19e5e6;
+    }
+
+    75% {
+        background: #7f19e6;
+    }
+
+    100% {
+        background: #e61919;
+    }
+}
+
+@keyframes color {
+    0% {
+        background: #e61919;
+    }
+
+    25% {
+        background: #80e619;
+    }
+
+    50% {
+        background: #19e5e6;
+    }
+
+    75% {
+        background: #7f19e6;
+    }
+
+    100% {
+        background: #e61919;
+    }
+} */
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+/**********************************
+NAVIGATION
+***********************************/
+#brand {
+    /* height: 100px; */
+    width: 220px;
+}
+
+/* .header-btns {
+    padding: 0 20px;
+}
+
+.header-btns>button {
+    padding: 0 20px;
+} */
+
+.navigation {
+    margin: 0px 10px 0px 0px;
+    background: none;
+    border: none;
+    /* margin: 0px 10px 0px 0px;
+    background: white;
+    border: none;
+    position: fixed;
+    width: 100%;
+    z-index: 10; */
+}
+
+.scrollNavigation {
+    margin: 0px 10px 0px 0px;
+    background: #333333;
+    border: none;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.row {
+    justify-content: space-between;
+}
+
+.secb {
+    flex-direction: row-reverse;
+}
+
+
+#crunch {
+    color: white;
+}
+
+#menuText {
+    font-weight: 100;
+    font-size: 20px;
+    color: black;
+    padding: 10px 30px 10px 0px;
+}
+
+#navButton {
+    font-weight: 100;
+    font-size: 20px;
+    border: none;
+    padding: 10px 35px 10px 35px;
+    border-radius: 5%;
+    color: white;
+    background: #6e44ff;
+    margin: 0 15px;
+}
+
+#navButton:hover {
+    font-weight: 100;
+    font-size: 25px;
+    background: #6e44ff;
+    border: none;
+    padding: 10px 35px 10px 35px;
+    border-radius: 15%;
+    color: white;
+    margin: 0 9px 0 6px
+}
+
+/* .login-link>a {
+    text-decoration: none;
+    color: white;
+    font-weight: 100;
+    font-size: 20px;
+} */
+
+/************/
+
+p {
+
+    color: white;
+
+
+}
+
+
+
+.intro-header {
+    padding-top: 100px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    /* background-image: linear-gradient(to right bottom, #6e44ff, #863cfb, #9a33f6, #ac26f1, #bc12eb); */
+    /* background-color: #6e44ff; */
+    /* background-size: cover; */
+    background: linear-gradient(rgba(110, 68, 255, 0.80),
+            rgba(110, 68, 255, 0.80)), url(/img/pattern.jpg);
+    background-size: cover;
+
+}
+
+.intro-message {
+    position: relative;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+.intro-message>h1 {
+    margin-top: -100;
+    font-size: 5em;
+    font-weight: bold;
+
+}
+
+/* ----------------------------------------------------Responsive------------------------------------------------------- */
+
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-header {
+        padding-top: 120px;
+        padding-bottom: 0px;
+
+
+    }
+
+    .intro-message>h1 {
+        font-size: 3em;
+    }
+
+    ul.intro-social-buttons>li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons>li:last-child {
+        margin-bottom: 0;
+    }
+
+    #responsive {
+        margin-top: 60px;
+    }
+
+    #brand {
+        height: 80px;
+        width: 160px;
+    }
+
+    #navButton {
+        font-weight: 100;
+        font-size: 20px;
+        border: none;
+        padding: 5px 15px 5px 15px;
+        border-radius: 5%;
+        color: white;
+        background: #6e44ff;
+        margin: 0 5px;
+    }
+
+    #navButton:hover {
+        font-weight: 100;
+        font-size: 25px;
+        background: #6e44ff;
+        border: none;
+        padding: 5px 15px 5px 15px;
+        border-radius: 15%;
+        color: white;
+        margin: 0 2px 0 1px
+    }
+
+    .container-fluid {
+        width: 100%;
+        /* padding-right: 15px; */
+        /* padding-left: 15px; */
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .content-section-a {
+        padding: 50px 0;
+
+    }
+
+    /* #imageLaudos {
+        width: auto;
+    } */
+
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+#button {
+    margin-top: 30px;
+    background: white;
+    color: #6e44ff;
+    border: none;
+    border-radius: 0%;
+    padding: 15px 15px 15px 15px;
+
+}
+
+#button-white {
+    margin-top: 30px;
+    background: white;
+    color: #6e44ff;
+    border: none;
+    border-radius: 0%;
+    padding: 15px 15px 15px 15px;
+
+}
+
+
+#button:hover {
+
+    margin-top: 30px;
+    background: white;
+    color: #6e44ff;
+    border: none;
+    border-radius: 10%;
+    padding: 15px 15px 15px 15px;
+
+}
+
+.network-name {
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: 'lato';
+    letter-spacing: 2px;
+}
+
+.content-section-a {
+    padding: 80px 0;
+    background: #FCFBF9;
+}
+
+.content-section-b {
+    padding: 50px 0;
+    background-color: white;
+
+}
+
+.content-section-c {
+    padding: 80px 0;
+    background: #FCFBF9;
+}
+
+.content-section-d {
+    padding: 50px 0;
+    background-color: #6e44ff;
+
+}
+
+.phone {
+
+    height: 400px;
+    width: 409px;
+    float: left;
+}
+
+.lead {
+    font-size: 26px;
+    font-weight: 400;
+    color: #333333;
+}
+
+.lead-white {
+    font-size: 26px;
+    font-weight: 400;
+    color: white;
+}
+
+.section-heading {
+    margin-bottom: 10px;
+    color: #333333;
+
+}
+
+.section-heading-white {
+    margin-bottom: 10px;
+    color: white;
+
+}
+
+.section-heading-spacer {
+    float: left;
+    width: 100px;
+    border-top: 3px solid #6e44ff;
+}
+
+.section-heading-spacer-white {
+    float: left;
+    width: 100px;
+    border-top: 3px solid #ffffff;
+}
+
+#responsive {
+
+    float: right;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+@media(max-width:1199px) {}
+
+@media(max-width:767px) {}
+
+
+footer {
+    padding: 50px 0;
+    background-color: #f8f8f8;
+}
+
+p.copyright {
+    margin: 15px 0 0;
+}
