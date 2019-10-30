@@ -1,6 +1,5 @@
 import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
@@ -15,12 +14,11 @@ const useStyles = makeStyles(theme => ({
     // backgroundColor:  "#e4d6eb"
     backgroundImage: "url(/img/medical3.jpeg)", 
     color: "white",
-    textAlign: 'center'
-
+    textAlign: 'center',  
   },
 
   main: {
-    marginTop: theme.spacing(12),
+    marginTop: theme.spacing(8),
     marginBottom: theme.spacing(2),
   },
   
@@ -32,17 +30,14 @@ const useStyles = makeStyles(theme => ({
 
 export default function Footer() {
   const classes = useStyles();
-  
-
   return (
     <div className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Container component="main" className={classes.main} maxWidth="sm">
-        
         <Tooltip disableFocusListener title="Voltar ao topo">
             <Button href="#main">Voltar ao topo</Button>
           </Tooltip>
-      </Container>
+      </Container>  
 
     </div>
   );

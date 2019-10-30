@@ -102,7 +102,7 @@ export default function NavBar() {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleMenu}
+                onCl ick={handleMenu}
                 color="primary"
                 href="/Cadastro"
               >

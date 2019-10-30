@@ -14,6 +14,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
 
+import Autocomplete from '@material-ui/lab/Autocomplete';
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -68,6 +71,7 @@ export default function GeneralForm() {
       [name]: event.target.value
     });
   };
+  
 
   const handleSubmit = event => {
     console.log(state);
@@ -89,9 +93,10 @@ export default function GeneralForm() {
   };
 
   return (
+
     <div className="mainDivGF">
-      <form onSubmit={handleSubmit}>
-        <h1>Novo Laudo</h1>
+      <form className="box-shadow p-4 " onSubmit={handleSubmit}>
+        <h2>Novo Laudo</h2>
         <table>
           <thead>
             <tr>
@@ -134,7 +139,7 @@ export default function GeneralForm() {
 
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       <InputLabel
@@ -166,7 +171,7 @@ export default function GeneralForm() {
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
@@ -198,7 +203,7 @@ export default function GeneralForm() {
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
@@ -230,7 +235,7 @@ export default function GeneralForm() {
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
@@ -289,7 +294,7 @@ export default function GeneralForm() {
                     <TextField
                       id="outlined-dense"
                       margin="dense"
-                      variant="outlined"
+                      // variant="outlined"
                       name="nome"
                       type="text"
                       value={state.nome}
@@ -313,7 +318,7 @@ export default function GeneralForm() {
                       InputLabelProps={{
                         shrink: true
                       }}
-                      variant="outlined"
+                      // variant="outlined"
                     />
                   </td>
                 </tr>
@@ -327,7 +332,7 @@ export default function GeneralForm() {
                       id="outlined-tel"
                       margin="dense"
                       // label="Telefone"
-                      variant="outlined"
+                      // variant="outlined"
                       name="telefone"
                       type="tel"
                       value={state.telefone}
@@ -347,21 +352,51 @@ export default function GeneralForm() {
                       name="email"
                       autoComplete="email"
                       margin="dense"
-                      variant="outlined"
+                      // variant="outlin  ed"
                       onChange={handleChange("email")}
                       value={state.email}
                     />
                   </td>
                 </tr>
               </td>
+              
+              
             </tr>
           </tbody>
         </table>
         <br />
-        <Button type="submit" variant="contained" color="primary">
-          Primary
-        </Button>
+       <p>Tipo de exame</p>
+    <Autocomplete
+    options={exam}
+    getOptionLabel= {option => option.title}
+
+    style={{ width: 300 }}
+    renderInput={params => (
+    <TextField {...params} placeholder="Selecione o exame"  fullWidth />
+    )}
+  />
+  <br/>
+  <Button 
+  type="submit"
+  href={exam[0].href}
+  // fullWidth
+  variant="contained"
+  color="primary"
+  className={classes.submit}
+  >
+  Enviar 
+  </Button>
+
       </form>
-    </div>
+    </div>  
   );
 }
+
+
+
+const exam = [
+  { title: 'Figado', href: '/NewFigadoView'},
+  { title: 'Prostata'},
+];
+console.log(exam[0].href, '<====')
+

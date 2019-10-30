@@ -104,7 +104,7 @@ class ProstataForm extends Component {
   render() {
     return (
       <div className="mainDivGF">
-        <form onSubmit={this.handleSubmit}>
+        <form className="box-shadow p-4"   onSubmit={this.handleSubmit}>
           <table>
             <thead>
               <tr>

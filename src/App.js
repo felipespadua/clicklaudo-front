@@ -8,10 +8,11 @@ import Laudos from './Laudos'
 import MainTable from './MainTable'
 import Medicos from './Medicos'
 import MedicosSolicitante from './MedicosSolicitante'
-import Clinicas from './Clinicas'
-import Convenios from './Convenios'
+import Clinicas from './Clinicas' 
 import NewLaudoView from './NewLaudoView'
-import { Fragment } from 'react'
+import NewProstataView from './NewProstataView'
+import Convenios from './Convenios'
+import NewFigadoView from './NewFigadoView'
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
 import ProtectedRoute from './Components/auth/protected-route';
@@ -60,6 +61,8 @@ class App extends React.Component {
               <Route path="/medicosSolicitante" component={MedicosSolicitante} />
               <Route path="/Convenios" component={Convenios} />
               <Route path="/Clinicas" component={Clinicas} />
+              <Route path="/NewFigadoView" component={NewFigadoView} />
+              <Route path="/NewProstataView" component={NewProstataView} />
               <Route path="/NewLaudoView" component={NewLaudoView} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
 
@@ -76,9 +79,13 @@ class App extends React.Component {
               <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
               <Route path="/laudos" component={Laudos} />
               <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+              <Route path="/NewFigadoView" component={NewFigadoView} />
+              <Route path="/medicos" component={Medicos} />
+              <Route path="/Convenios" component={Convenios} />
+              <Route path="/Clinicas" component={Clinicas} />
+              <Route path="/medicosSolicitante" component={MedicosSolicitante} />
               <Route path="/NewLaudoView" component={NewLaudoView} />
-
-
+              <Route path="/NewProstataView" component={NewProstataView} />
             </Switch>
           </div> 
         )
