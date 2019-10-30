@@ -128,7 +128,7 @@ class ProstataForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -142,7 +142,7 @@ class ProstataForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -156,7 +156,7 @@ class ProstataForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
               </tr>
@@ -214,7 +214,7 @@ class ProstataForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
               </tr>
@@ -307,7 +307,7 @@ class ExameTransversal extends React.Component {
             </tr>
             <tr>
               <td>
-                <TextField
+                <TextField 
                   id="outlined-number"
                   label="Largura Nodulo"
                   value={this.props.noduloSize1}

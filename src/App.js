@@ -58,13 +58,13 @@ class App extends React.Component {
               <ProtectedRoute path="/laudos" user={this.state.loggedInUser} component={Laudos} />
               <Route path="/maintable" component={MainTable} />
              <Route path="/medicos" component={Medicos} />
-              <Route path="/medicosSolicitante" component={MedicosSolicitante} />
-              <Route path="/Convenios" component={Convenios} />
-              <Route path="/Clinicas" component={Clinicas} />
-              <Route path="/NewFigadoView" component={NewFigadoView} />
-              <Route path="/NewProstataView" component={NewProstataView} />
-              <Route path="/NewLaudoView" component={NewLaudoView} />
-              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+              <Route path="/medicossolicitante" component={MedicosSolicitante} />
+              <Route path="/convenios" component={Convenios} />
+              <Route path="/clinicas" component={Clinicas} />
+              <Route path="/newfigadoview" component={NewFigadoView} />
+              <Route path="/newprostataview" component={NewProstataView} />
+              <Route path="/newlaudoview" component={NewLaudoView} />
+              <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
 
           </Switch>
         </div>
@@ -78,14 +78,14 @@ class App extends React.Component {
               <Route path="/signup" component={SignUp} />
               <ProtectedRoute user={this.state.loggedInUser} path="/laudos" component={Laudos} />
               <Route path="/laudos" component={Laudos} />
-              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
-              <Route path="/NewFigadoView" component={NewFigadoView} />
+              <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
+              <Route path="/newfigadoview" component={NewFigadoView} />
               <Route path="/medicos" component={Medicos} />
-              <Route path="/Convenios" component={Convenios} />
-              <Route path="/Clinicas" component={Clinicas} />
-              <Route path="/medicosSolicitante" component={MedicosSolicitante} />
-              <Route path="/NewLaudoView" component={NewLaudoView} />
-              <Route path="/NewProstataView" component={NewProstataView} />
+              <Route path="/convenios" component={Convenios} />
+              <Route path="/clinicas" component={Clinicas} />
+              <Route path="/medicossolicitante" component={MedicosSolicitante} />
+              <Route path="/newlaudoview" component={NewLaudoView} />
+              <Route path="/newprostataview" component={NewProstataView} />
             </Switch>
           </div> 
         )

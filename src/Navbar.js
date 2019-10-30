@@ -13,6 +13,9 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';  
+import { BrowserRouter as Router } from "react-router-dom";
+import Menubar from './Menubar.js'
+import BuildIcon from '@material-ui/icons/Build';
 
 
 
@@ -71,18 +74,16 @@ export default function NavBar() {
           <Link href="/" className={classes.logo}></Link>
           <Typography variant="h6" className={classes.title}>
           </Typography> 
-          <Tooltip disableFocusListener title="Home">
+          {/* <Tooltip disableFocusListener title="Home">
             <Button href="/">Home</Button>
           </Tooltip>
           <Tooltip disableFocusListener title="Laudos">
             <Button href="Laudos">Laudos</Button>
-          </Tooltip>
-          {/* <Tooltip disableFocusListener title="Cadastre-se">
-            <Button href="Configuracoes">Configurações</Button>
           </Tooltip> */}
           <div>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Configurações
+
+          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+        <BuildIcon/>
       </Button>
       <Menu
         id="simple-menu"
@@ -96,6 +97,14 @@ export default function NavBar() {
         <Link href="/Convenios"><MenuItem onClick={handleClose}>Convênios</MenuItem></Link>
         <Link href="/Clinicas"><MenuItem onClick={handleClose}>Clinicas</MenuItem></Link>
       </Menu>
+        
+          </div>
+ 
+          <div>
+          <Router>
+              <Menubar/>
+            </Router>
+     
     </div>
             <div>
               <IconButton

@@ -88,3 +88,16 @@ a:hover {
 .MuiButton-containedPrimary {
   background-color: #7c7ef8 !important; 
 }
+
+/* footer {
+  position: fixed;
+  bottom: 0;
+} */
+
+.Component-paginationToolbar-325{
+  padding-bottom: 200px !important;
+}
+
+.Component-paginationToolbar-146{
+  padding-bottom: 200px !important;
+}
