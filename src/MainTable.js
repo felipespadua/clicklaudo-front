@@ -1,23 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import MaterialTable from 'material-table';
 import ApiService from './Services/ApiService'
+import SimpleExpansionPanel from "./Expansion";
 
-
-  export default function MainTable() {
-    const apiHandler = new ApiService()
-    
-    React.useEffect(() => fetchData() )
-
-    const fetchData = async () => {
-      try {
-        const response = await apiHandler.getAllExams()
-        console.log(response)
-        
-      }catch(err){
-
-      }
-    }
-
+  export default function MainTable(props) {
+   
     const [state, setState] = React.useState({
       bg: {
         // backgroundColor: "#f0f0f0",
@@ -26,8 +14,7 @@ import ApiService from './Services/ApiService'
       columns: [
         { title: 'Exame', field: 'exam' },
         { title: 'Paciente', field: 'pacient' },
-        { title: 'Status', 
-          field: 'status',
+        { title: 'Status', field: 'status',
           render: rowData => (
               rowData.status === "Aberto" ? <p style={{color: 'green'}}>{rowData.status}</p> : <p style={{color: 'red'}}>{rowData.status}</p>
   
@@ -35,18 +22,41 @@ import ApiService from './Services/ApiService'
         }
       ],
       data: [
-        { exam: '2374849', pacient: 'Rafael Sousa Dias', 'status': 'Fechado' },
-        {
-          exam: '2384832',pacient: 'João da Silva', 'status': 'Aberto', 'time': ''
-        },
         
       ],
 
       
     });
-
+    React.useEffect(() =>{
+     
+      const apiHandler = new ApiService()
+      apiHandler.getAllExams()
+      .then(
+        function(itemResponse) {
+        
+          
+           setState({
+            ...state,
+            data: itemResponse.map(item => ({ exam: item.examId,pacient: item.pacient, status: item.state}))
+            })
+        }, 
+        function(error) {
+            console.log(error)
+        }
+    );
+    },[]);
     
+     
+  
+  
+    
+  
+    
+    
+    
+  
     return (
+      
       <MaterialTable 
         style={state.bg}
         column= {{
@@ -57,12 +67,16 @@ import ApiService from './Services/ApiService'
         title="Procurar laudos"
         columns={state.columns}
         data={state.data}
-        onRowClick={((evt, selectedRow) =>{
-          
+        onRowClick={((evt, selectedRow,) =>{
+         console.log(props)
           return setState( {...state, selectedRow })
+           
+            
+          
           }) }
+          
         options={{
-          rowStyle: rowData => ({
+            rowStyle: rowData => ({
             backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? '#f0f5f5' : '#FFF',
             // color: (rowData.status === "Aberto" ? '#00b300' : '#ff3300')
             

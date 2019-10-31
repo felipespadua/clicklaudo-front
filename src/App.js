@@ -61,7 +61,7 @@ class App extends React.Component {
               <Route path="/Convenios" component={Convenios} />
               <Route path="/Clinicas" component={Clinicas} />
               <Route path="/NewLaudoView" component={NewLaudoView} />
-              <Route path="/simpleExpansion" component={SimpleExpansionPanel} />
+              <Route path="/simpleExpansion"   component={SimpleExpansionPanel} />
 
           </Switch>
         </div>
