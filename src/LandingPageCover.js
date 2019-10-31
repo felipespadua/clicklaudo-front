@@ -105,7 +105,7 @@ class LandingPageCover extends Component {
                     <hr className="section-heading-spacer" />
                     <div className="clearfix"></div>
                     <p className="lead">
-                      O sistema Clicklaudos permite laudar de forma extremamente
+                      O sistema OnReport permite laudar de forma extremamente
                       rápida e ao mesmo tempo segura, encurtando o tempo de
                       entrega dos resultados sem prejuízo da qualidade do laudo.
                     </p>
@@ -135,8 +135,8 @@ class LandingPageCover extends Component {
                     <div className="clearfix"></div>
 
                     <p className="lead">
-                      O Clicklaudos auxilia na agilidade da liberação, assim,
-                      sua clínica não só terá um grande diferencial em relação à
+                      O OnReport auxilia na agilidade da liberação, assim, sua
+                      clínica não só terá um grande diferencial em relação à
                       concorrência, como terá um aumento significativo de renda.
                     </p>
                   </div>
@@ -163,7 +163,7 @@ class LandingPageCover extends Component {
                     <hr className="section-heading-spacer" />
                     <div className="clearfix"></div>
                     <p className="lead">
-                      O recurso mais renomado do Clicklaudos é a funcionalidade
+                      O recurso mais renomado do OnReport é a funcionalidade
                       <strong> Speech to Text</strong> ,no qual o médico dita
                       para o sistema como o laudo deve ser preenchido. Assim o
                       profissional pode realizar a consulta e o laudo ao mesmo
@@ -226,7 +226,7 @@ class LandingPageCover extends Component {
               <div className="container">
                 <div className="row">
                   <p className="copyright text-muted small">
-                    Copyright &copy; Clicklaudos 2019. All Rights Reserved
+                    Copyright &copy; OnReport 2019. All Rights Reserved
                   </p>
                 </div>
               </div>
