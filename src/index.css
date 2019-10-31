@@ -49,6 +49,7 @@ code {
 
 .botao:hover {
   color: white;
+  transform: scale(0.8); 
 }
 
 .m-botton {

@@ -10,6 +10,10 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import Link from '@material-ui/core/Link';
+import AccountBoxOutlinedIcon from '@material-ui/icons/AccountBoxOutlined';
+import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
+import HomeWorkOutlinedIcon from '@material-ui/icons/HomeWorkOutlined';
+import ReceiptOutlinedIcon from '@material-ui/icons/ReceiptOutlined';
 
 export const mainListItems = (
   <div>
@@ -23,7 +27,7 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+      <AssignmentIcon />  
       </ListItemIcon>
       <Link href="/Laudos">
       <ListItemText primary="Laudos" />
@@ -37,7 +41,7 @@ export const secondaryListItems = (
     <ListSubheader inset>Configurações</ListSubheader>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <AccountCircleOutlinedIcon />
       </ListItemIcon>
       <Link href="/medicos">
       <ListItemText primary="Medicos" />
@@ -45,7 +49,7 @@ export const secondaryListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <AccountBoxOutlinedIcon />
       </ListItemIcon>
       <Link href="/medicossolicitante"> 
       <ListItemText primary="Medico Auxiliar" />
@@ -53,7 +57,7 @@ export const secondaryListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <HomeWorkOutlinedIcon />
       </ListItemIcon>
       <Link href="clinicas">
       <ListItemText primary="Clinicas" />
@@ -61,7 +65,7 @@ export const secondaryListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <AssignmentIcon />
+        <ReceiptOutlinedIcon />
       </ListItemIcon>
       <Link href="/convenios">
       <ListItemText primary="Convenios" />

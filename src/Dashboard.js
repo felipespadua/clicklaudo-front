@@ -19,7 +19,7 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import ChartSemana from './ChartSemana'
 import Deposits from './Deposits';
-import Orders from './Orders';
+import ChartDias from './ChartDias'
 import Link from '@material-ui/core/Link';
 
 
@@ -31,6 +31,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
   },
   toolbar: {
+		color: 'black',
     paddingRight: 24, // keep right padding when drawer closed
 	},
   toolbarIcon: {
@@ -131,7 +132,7 @@ export default function Dashboard() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-
+						Dashboard
           </Typography>
           {/* <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -166,6 +167,11 @@ export default function Dashboard() {
             <Grid item xs={12} md={8} lg={12}>
               <Paper className={fixedHeightPaper}>
                 <ChartSemana />
+              </Paper>
+            </Grid>
+						<Grid item xs={12} md={8} lg={12}>
+              <Paper className={fixedHeightPaper}>
+                <ChartDias />
               </Paper>
             </Grid>
             {/* Recent Deposits */}

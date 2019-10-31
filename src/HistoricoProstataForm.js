@@ -168,7 +168,7 @@ export default function GeneralForm(props) {
 
     <div className="mainDivGF">
       <form className="box-shadow p-4 "  onSubmit={handleSubmit}>
-        <h3>Novo Laudo</h3>
+        <h3>Historico do Laudo Prostata</h3>
         <table>
           <thead>
             <tr>
@@ -191,6 +191,7 @@ export default function GeneralForm(props) {
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
+                          disabled
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -219,6 +220,7 @@ export default function GeneralForm(props) {
                         htmlFor="outlined-age-simple"
                       ></InputLabel>
                       <Select
+                      disabled
                         native
                         margin="dense"
                         value={state.clinica}
@@ -250,6 +252,7 @@ export default function GeneralForm(props) {
                   Medico
                 </InputLabel> */}
                       <Select
+                        disabled
                         native
                         value={state.medico}
                         onChange={handleChange("medico")}
@@ -282,6 +285,7 @@ export default function GeneralForm(props) {
                   Convenio
                 </InputLabel> */}
                       <Select
+                        disabled
                         native
                         value={state.convenio}
                         onChange={handleChange("convenio")}
@@ -314,6 +318,7 @@ export default function GeneralForm(props) {
                   Convenio
                 </InputLabel> */}
                       <Select
+                        disabled
                         native
                         name="medicoSolicitante"
                         value={state.medicoSolicitante}
@@ -344,6 +349,7 @@ export default function GeneralForm(props) {
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
+                          disabled
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -364,6 +370,7 @@ export default function GeneralForm(props) {
                   </td>
                   <td>
                     <TextField
+                      disabled
                       id="outlined-dense"
                       margin="dense"
                       // variant="outlined"
@@ -381,6 +388,7 @@ export default function GeneralForm(props) {
                   </td>
                   <td>
                     <TextField
+                      disabled
                       id="outlined-number"
                       name="idade"
                       margin="dense"
@@ -401,6 +409,7 @@ export default function GeneralForm(props) {
                   </td>
                   <td>
                     <TextField
+                      disabled
                       id="outlined-tel"
                       margin="dense"
                       // label="Telefone"
@@ -419,6 +428,7 @@ export default function GeneralForm(props) {
                   </td>
                   <td>
                     <TextField
+                      disabled
                       id="outlined-email-input"
                    
                       name="email"
@@ -442,6 +452,7 @@ export default function GeneralForm(props) {
                     >
                     
                       <Select
+                        disabled
                         native
                         value={state.selecionarExame}
                         onChange={handleChange("selecionarExame")}
@@ -470,21 +481,13 @@ export default function GeneralForm(props) {
           </tbody>
         </table>
         <br />
+        <p>Observações:</p>
+        <br/>
+        <p className="mb-4">Conclusão:</p>
      
   
   <br/>
-  <Button className="botao"
-  type="submit"
-  onClick={()=> addUser(onclick)}
   
-  
-  // fullWidth
-  variant="contained"
-  color="primary"
-  className={classes.submit}
-  >
-  novo laudo
-  </Button>
 
 
        

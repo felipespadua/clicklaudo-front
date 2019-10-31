@@ -17,6 +17,10 @@ import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
 import ProtectedRoute from './Components/auth/protected-route';
 import Dashboard from './Dashboard' 
+import HistoricoFigado from './HistoricoFigado' 
+import HistoricoProstata from './HistoricoProstata' 
+
+
 // import { Switch } from? '@material-ui/core';
 
 class App extends React.Component {
@@ -67,6 +71,11 @@ class App extends React.Component {
               <Route path="/newlaudoview" render={(props)=> <NewLaudoView {...props}/>} />
               <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/historicofigado" component={HistoricoFigado} /> 
+              <Route path="/historicoprostata" component={HistoricoProstata} /> 
+
+              
+              
 
 
           </Switch>
@@ -90,6 +99,10 @@ class App extends React.Component {
               <Route path="/newlaudoview" render={(props)=> <NewLaudoView {...props}/>} />
               <Route path="/newprostataview" component={NewProstataView} />
               <Route path="/dashboard" component={Dashboard} />
+              <Route path="/historicoprostata" component={HistoricoProstata} />
+              <Route path="/historicofigado" component={HistoricoFigado} />
+
+
             </Switch>
           </div> 
         )

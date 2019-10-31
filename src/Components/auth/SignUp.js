@@ -8,21 +8,20 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import AuthService from './auth-service';
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
-  '@global': {
-    body: {
-      backgroundColor: theme.palette.common.white,
-    },
+  root: {
+    height: "100vh"
   },
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+  image: {
+    backgroundImage: "url(/img/medical5.jpeg)",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center"
   },
+
   logo: {
     marginBottom  : '35px',
     backgroundImage: 'url(/img/Logo.svg)',
@@ -32,17 +31,23 @@ const useStyles = makeStyles(theme => ({
     width: '70vh',
     backgroundSize: '350px'
   },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.primary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(3, 0, 2)
+  }
 }));
 
 export default function SignUp(props) {
@@ -76,19 +81,19 @@ export default function SignUp(props) {
   
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <div className={classes.paper}>
-      <Link href="/" className={classes.logo}></Link>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
+      <Grid item xs={false} sm={4} md={7} className={classes.image} />
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+        <div className={classes.paper}>
+        <Link href="/" className={classes.logo}></Link>
+          <Avatar className={classes.avatar}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign Up
+          </Typography>
         <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12}  >
             <TextField
               id="Nome"
               label="Nome"
@@ -103,8 +108,6 @@ export default function SignUp(props) {
               onChange={ e => handleChange(e)}
               // variant="filled"
             />
-            </Grid>
-            <Grid item xs={12}>
             <TextField
               id="username"
               label="username"
@@ -119,8 +122,6 @@ export default function SignUp(props) {
               onChange={ e => handleChange(e)}
               // variant="filled"
             />
-            </Grid>
-            <Grid item xs={12}>
             <TextField
               id="password"
               label="Password"
@@ -135,8 +136,6 @@ export default function SignUp(props) {
               onChange={ e => handleChange(e)}
               // variant="filled"
             />
-            </Grid>
-          </Grid>
           <Button
             type="submit"
             fullWidth
@@ -155,6 +154,7 @@ export default function SignUp(props) {
           </Grid>
         </form>
       </div>
-    </Container>
+      </Grid>
+    </Grid>
   );
 }
