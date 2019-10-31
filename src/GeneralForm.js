@@ -16,7 +16,8 @@ import TextField from "@material-ui/core/TextField";
 import "./App.css";
 import ApiService from './Services/ApiService'
 import Autocomplete from '@material-ui/lab/Autocomplete';
-
+import Link from "@material-ui/core/Link";
+import { Redirect } from 'react-router-dom'
 
 
 
@@ -36,25 +37,16 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function GeneralForm() {
+export default function GeneralForm(props) {
 
   useEffect(()=> function addUser(onclick){
- 
+
   })
     
  
 
   useEffect((onClick)=> function handleSubmit(onClick) {
-    const apiHandler = new ApiService()
-    
-    const {clinica,medico,medicoSolicitante,data,selecionarExame} = state
-
-      if(selecionarExame==="prostata"){
-        apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
-      }
-      if(selecionarExame==="figado"){
-        apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
-      }
+  
       
     
 
@@ -74,9 +66,10 @@ export default function GeneralForm() {
     idade: "",
     telefone: "",
     email: "",
-    selecionarExame: ""
+    selecionarExame: "",
+    hrefExam: "/abc"
   });
-
+  
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
@@ -98,16 +91,25 @@ export default function GeneralForm() {
   };
 
   const handleChange = name => event => {
-    console.log(name);
-    setState({
-      ...state,
-      [name]: event.target.value
-    });
+   console.log(props)
+    if(name === "selecionarExame"){
+      console.log(event.target)
+      setState({
+        ...state,
+        [name]: event.target.value,
+      });
+    }else {
+      setState({
+        ...state,
+        [name]: event.target.value
+      });
+    }
   };
   
 
   const handleSubmit = event => {
-    console.log(state);
+  
+  
  
     event.preventDefault();
     //axios
@@ -126,23 +128,41 @@ export default function GeneralForm() {
     });
   };
   const addUser = event => {
+   
     const apiHandler = new ApiService()
    
     const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
     
-    if(dataDeNasc,nome,idade,telefone,email,convenio){
+  
       apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
-    }
+      .then(function(itemResponse) {
+        console.log('PACIENT!!!!!!!!',itemResponse)
+        console.log(selecionarExame)
+        if(selecionarExame==="/newprostataview"){
+          apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+        .then(function(response) {
+          console.log('PROSTATA!!!!!!!!!!!!!',response)
+        props.rest.history.push(`${selecionarExame}`)
+          
+        })
+        }
+        if(selecionarExame==="figado"){
+          apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+        }
+      
+        
+       
+      });
+     
   
 
-      if(selecionarExame==="prostata"){
-        apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
-      }
-      if(selecionarExame==="figado"){
-        apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
-      }
+    
   
   }
+
+
+
+
 
   return (
 
@@ -410,21 +430,35 @@ export default function GeneralForm() {
                     />
                   </td>
                 </tr>
+               
                 <tr>
                   <td>
                     <label htmlFor="">selecionar exame</label>
                   </td>
                   <td>
-                    <TextField
-                      id="outlined-email-input"
+                    <FormControl
+                      // variant="outlined"
+                      className={classes.formControl}
+                    >
                     
-                      name="selecionarExame"
-                      autoComplete="selecionarExame"
-                      margin="dense"
-                      variant="outlined"
-                      onChange={handleChange("selecionarExame")}
-                      value={state.selecionarExame}
-                    />
+                      <Select
+                        native
+                        value={state.selecionarExame}
+                        onChange={handleChange("selecionarExame")}
+                        name="selecionarExame"
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "convenio",
+                          id: "outlined-convenio"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={"/newfigadoview"}>figado</option>
+                        <option value={"/newprostataview"}>prostata</option>
+                        
+                      </Select>
+                    </FormControl>
                   </td>
                 </tr>
              
@@ -436,26 +470,21 @@ export default function GeneralForm() {
           </tbody>
         </table>
         <br />
-       <p>Tipo de exame</p>
-    <Autocomplete
-    options={exam}
-    getOptionLabel= {option => option.title}
-
-    style={{ width: 300 }}
-    renderInput={params => (
-    <TextField {...params} placeholder="Selecione o exame"  fullWidth />
-    )}
-  />
+     
+  
   <br/>
-  <Button 
+  <Button
   type="submit"
-  onClick={()=> addUser(onclick)} 
-  href={exam[0].href}
+  onClick={()=> addUser(onclick)}
+  
+  
   // fullWidth
   variant="contained"
   color="primary"
   className={classes.submit}
-  />
+  >
+  novo laudo
+  </Button>
 
 
        
@@ -466,9 +495,6 @@ export default function GeneralForm() {
 
 
 
-const exam = [
-  { title: 'Figado', href: '/NewFigadoView'},
-  { title: 'Prostata'},
-];
-console.log(exam[0].href, '<====')
+
+
 

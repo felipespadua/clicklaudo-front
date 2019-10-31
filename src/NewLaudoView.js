@@ -112,7 +112,7 @@ class NewLaudoView extends Component {
             <Router>
               <div id="main"></div>
               <Navbar/>
-                <GeneralForm/>
+                <GeneralForm rest={this.props}/>
                 <Footer/>
             </Router> 
       </div>

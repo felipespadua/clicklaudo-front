@@ -63,7 +63,7 @@ class App extends React.Component {
               <Route path="/clinicas" component={Clinicas} />
               <Route path="/newfigadoview" component={NewFigadoView} />
               <Route path="/newprostataview" component={NewProstataView} />
-              <Route path="/newlaudoview" component={NewLaudoView} />
+              <Route path="/newlaudoview" render={(props)=> <NewLaudoView {...props}/>} />
               <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
 
           </Switch>
@@ -84,7 +84,7 @@ class App extends React.Component {
               <Route path="/convenios" component={Convenios} />
               <Route path="/clinicas" component={Clinicas} />
               <Route path="/medicossolicitante" component={MedicosSolicitante} />
-              <Route path="/newlaudoview" component={NewLaudoView} />
+              <Route path="/newlaudoview" render={(props)=> <NewLaudoView {...props}/>} />
               <Route path="/newprostataview" component={NewProstataView} />
             </Switch>
           </div> 
