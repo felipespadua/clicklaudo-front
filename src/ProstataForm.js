@@ -115,14 +115,24 @@ class ProstataForm extends Component {
                 </td>
               </tr>
             </thead>
+            <br />
             <tbody>
+              <tr>
+                <td>
+                  <VoiceRecognition
+                    prevState={this.state}
+                    handleChangeVR={this.handleChangeBySpeech}
+                  />
+                </td>
+              </tr>
+              <br />
               {/* ---------------------------------------- */}
               <tr>
-                <td>Quais suas Dimensoes ?</td>
+                <td>Quais suas dimensões ?</td>
                 <td>
                   <TextField
                     id="outlined-number"
-                    label="Largura Prostata"
+                    label="Largura prostata"
                     value={this.state.size1}
                     onChange={this.handleChange("size1")}
                     type="number"
@@ -136,7 +146,7 @@ class ProstataForm extends Component {
                 <td>
                   <TextField
                     id="outlined-number"
-                    label="Altura Prostata"
+                    label="Altura prostata"
                     value={this.state.size2}
                     onChange={this.handleChange("size2")}
                     type="number"
@@ -150,7 +160,7 @@ class ProstataForm extends Component {
                 <td>
                   <TextField
                     id="outlined-number"
-                    label="Espessura Prostata"
+                    label="Espessura prostata"
                     value={this.state.size3}
                     onChange={this.handleChange("size3")}
                     type="number"
@@ -164,7 +174,7 @@ class ProstataForm extends Component {
               </tr>
               {/* -------------------------------------- */}
               <tr>
-                <td>Qual o tipo do Contorno ?</td>
+                <td>Qual o tipo do contorno ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -201,7 +211,7 @@ class ProstataForm extends Component {
                         value={this.state.residuo}
                       />
                     }
-                    label="Possui Residuo ?"
+                    label="Possui resíduo ?"
                   />
                 </td>
                 <td>
@@ -232,7 +242,7 @@ class ProstataForm extends Component {
                         value={this.state.exameViaTransretal}
                       />
                     }
-                    label="Exame Via Transretal ?"
+                    label="Exame via transretal ?"
                   />
                 </td>
               </tr>
@@ -248,7 +258,7 @@ class ProstataForm extends Component {
           )}
           <br />
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            Enviar
           </Button>
         </form>
       </div>
@@ -279,7 +289,7 @@ class ExameTransversal extends React.Component {
                       value={this.props.noduloPeriferica}
                     />
                   }
-                  label="Possui nodulo na zona periferica?                 Qual o seu tipo ?"
+                  label="Possui nódulo na zona periférica?                 Qual o seu tipo ?"
                 />
 
                 <FormControl variant="outlined">
@@ -300,9 +310,10 @@ class ExameTransversal extends React.Component {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    Hiperecogenico , Isoecogenico ou Hipoecogenico
+                    <MenuItem value={"Hiperecogenico"}>Hiperecogenico</MenuItem>
+                    <MenuItem value={"Hipoecogenico"}>Hipoecogenico</MenuItem>
+                    <MenuItem value={"Isoecogenico"}>Isoecogenico</MenuItem>
                   </Select>
                 </FormControl>
               </td>
@@ -311,7 +322,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField 
                   id="outlined-number"
-                  label="Largura Nodulo"
+                  label="Largura nódulo"
                   value={this.props.noduloSize1}
                   onChange={this.props.handleChangeByToggle("noduloSize1")}
                   type="number"
@@ -325,7 +336,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField
                   id="outlined-number"
-                  label="Altura Nodulo"
+                  label="Altura nódulo"
                   value={this.props.noduloSize2}
                   onChange={this.props.handleChangeByToggle("noduloSize2")}
                   type="number"
@@ -339,7 +350,7 @@ class ExameTransversal extends React.Component {
               <td>
                 <TextField
                   id="outlined-number"
-                  label="Espessura Nodulo(mm)"
+                  label="Espessura nódulo(mm)"
                   value={this.props.noduloSize3}
                   onChange={this.props.handleChangeByToggle("noduloSize3")}
                   type="number"
@@ -352,7 +363,7 @@ class ExameTransversal extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>Aonde esta situado o nodulo?</td>
+              <td>Aonde está situado o nódulo?</td>
               <td>
                 <FormControl variant="outlined">
                   <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -372,9 +383,13 @@ class ExameTransversal extends React.Component {
                     <MenuItem value="">
                       <em>None</em>
                     </MenuItem>
-                    <MenuItem value={10}>Ten</MenuItem>
-                    <MenuItem value={20}>Twenty</MenuItem>
-                    <MenuItem value={30}>Thirty</MenuItem>
+                    <MenuItem value={"Zona Periférica"}>
+                      Zona Periférica
+                    </MenuItem>
+                    <MenuItem value={"Zona Central"}>Zona Central</MenuItem>
+                    <MenuItem value={"Zona de Transição"}>
+                      Zona de Transição
+                    </MenuItem>
                   </Select>
                 </FormControl>
               </td>

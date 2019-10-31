@@ -1,24 +1,25 @@
-import React from 'react';
-import {Switch, Route} from 'react-router-dom'
-import VoiceRecognition from './Components/VoiceRecognition';
-import './App.css';
-import Login from './Components/auth/Login'
-import SignUp from './Components/auth/SignUp'
-import Laudos from './Laudos'
-import MainTable from './MainTable'
-import Medicos from './Medicos'
-import MedicosSolicitante from './MedicosSolicitante'
-import Clinicas from './Clinicas'
-import NewLaudoView from './NewLaudoView'
-import NewProstataView from './NewProstataView'
-import Convenios from './Convenios'
-import NewFigadoView from './NewFigadoView'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import VoiceRecognition from "./Components/VoiceRecognition";
+import "./App.css";
+import Login from "./Components/auth/Login";
+import SignUp from "./Components/auth/SignUp";
+import Laudos from "./Laudos";
+import MainTable from "./MainTable";
+import Medicos from "./Medicos";
+import MedicosSolicitante from "./MedicosSolicitante";
+import Clinicas from "./Clinicas";
+import NewLaudoView from "./NewLaudoView";
+import NewProstataView from "./NewProstataView";
+import Convenios from "./Convenios";
+import NewFigadoView from "./NewFigadoView";
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
-import ProtectedRoute from './Components/auth/protected-route';
-import Preview from './Components/Preview';
+import ProtectedRoute from "./Components/auth/protected-route";
+import Preview from "./Components/Preview";
 
 // import { Switch } from? '@material-ui/core';
+import LandingPage from "./LandingPage";
 
 class App extends React.Component {
     constructor(props) {

@@ -215,7 +215,7 @@ export default function GeneralForm(props) {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Clinica:</label>
+                    <label htmlFor="">Clínica:</label>
                   </td>
 
                   <td>
@@ -248,7 +248,7 @@ export default function GeneralForm(props) {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Medico:</label>
+                    <label htmlFor="">Médico:</label>
                   </td>
                   <td>
                     <FormControl
@@ -280,7 +280,7 @@ export default function GeneralForm(props) {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Convenio:</label>
+                    <label htmlFor="">Convênio:</label>
                   </td>
                   <td>
                     <FormControl
@@ -312,7 +312,7 @@ export default function GeneralForm(props) {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Medico Solicitante:</label>
+                    <label htmlFor="">Médico Solicitante:</label>
                   </td>
                   <td>
                     <FormControl
