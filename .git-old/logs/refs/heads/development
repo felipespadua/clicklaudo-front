@@ -1,0 +1,15 @@
+0000000000000000000000000000000000000000 3b10bdc54aa792cc92cc6607c4cf57209fb31fb0 marcos azevedo <marcosaalacerda@gmail.com> 1572113083 -0300	branch: Created from refs/remotes/origin/development
+3b10bdc54aa792cc92cc6607c4cf57209fb31fb0 252211aed9697c4af8d169f0f83deed3434a0b52 marcos azevedo <marcosaalacerda@gmail.com> 1572113123 -0300	pull: Fast-forward
+252211aed9697c4af8d169f0f83deed3434a0b52 beb2eb4c700f9399d60001dede5d253d90920da3 marcos azevedo <marcosaalacerda@gmail.com> 1572295683 -0300	commit: protected routes
+beb2eb4c700f9399d60001dede5d253d90920da3 7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb marcos azevedo <marcosaalacerda@gmail.com> 1572296237 -0300	commit (merge): first protected routes
+7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb 6af6eda9b1b27d59e0f49da4efa555634b99f290 marcos azevedo <marcosaalacerda@gmail.com> 1572362100 -0300	pull: Fast-forward
+6af6eda9b1b27d59e0f49da4efa555634b99f290 9166226f55a1b1de986f8943ee554a002b6ed546 marcos azevedo <marcosaalacerda@gmail.com> 1572367393 -0300	pull: Fast-forward
+9166226f55a1b1de986f8943ee554a002b6ed546 9ead23a8feb8f9755d8baeb61c15c70c757b8217 marcos azevedo <marcosaalacerda@gmail.com> 1572368768 -0300	commit: login
+9ead23a8feb8f9755d8baeb61c15c70c757b8217 606d2b9e869b6c1544f2941b473f05413f5ea81e marcos azevedo <marcosaalacerda@gmail.com> 1572368882 -0300	commit (merge): login
+606d2b9e869b6c1544f2941b473f05413f5ea81e 18d48d4e795f5a3e0d5b0f46b1246799104aee50 marcos azevedo <marcosaalacerda@gmail.com> 1572374637 -0300	pull: Fast-forward
+18d48d4e795f5a3e0d5b0f46b1246799104aee50 4defbe03c6378f8ec5659622316943a60c2d220f marcos azevedo <marcosaalacerda@gmail.com> 1572374718 -0300	pull: Fast-forward
+4defbe03c6378f8ec5659622316943a60c2d220f 928c4b060fcc735ccab15fdd8d90b21c98cd43a4 marcos azevedo <marcosaalacerda@gmail.com> 1572374805 -0300	commit: sign in working
+928c4b060fcc735ccab15fdd8d90b21c98cd43a4 eb01d0f5b16a2748401caa88187f2a32446306dd marcos azevedo <marcosaalacerda@gmail.com> 1572385921 -0300	commit: sign
+eb01d0f5b16a2748401caa88187f2a32446306dd d88313cd4e9afc0a6642e773804addf72a92af05 marcos azevedo <marcosaalacerda@gmail.com> 1572528309 -0300	commit: try final version
+d88313cd4e9afc0a6642e773804addf72a92af05 9da4b3700f986220872e66ca924a8ecabcd202fd marcos azevedo <marcosaalacerda@gmail.com> 1572529549 -0300	commit: solve merge devRafa
+9da4b3700f986220872e66ca924a8ecabcd202fd 96dfd48d7736d7e46ab44bebb64bbfeabc5c649d marcos azevedo <marcosaalacerda@gmail.com> 1572529647 -0300	commit: solve merge devRafa
