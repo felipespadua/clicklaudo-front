@@ -81,10 +81,8 @@ export default function Login (props) {
     .catch( error => console.log(error) )
   }
   const handleChange = (event) => {  
-
     const {name, value} = event.target;
-    console.log(name,value)
-    setState({[name]: value});
+    setState({ ...state , [name]: value});
   }
   
   
@@ -137,13 +135,12 @@ export default function Login (props) {
               variant="contained"
               color="primary"
               className={classes.submit}
-              href="/Laudos"
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/cadastro" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Não possui uma conta? Sign Up"}
                 </Link>
               </Grid>

@@ -134,7 +134,7 @@ export default function SignInSide(props) {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/cadastro" variant="body2">
+                <Link href="/SignUp" variant="body2">
                   {"Não possui uma conta? Sign Up"}
                 </Link>
               </Grid>
