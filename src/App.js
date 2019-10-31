@@ -16,6 +16,7 @@ import NewFigadoView from './NewFigadoView'
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
 import ProtectedRoute from './Components/auth/protected-route';
+import Dashboard from './Dashboard' 
 // import { Switch } from? '@material-ui/core';
 
 class App extends React.Component {
@@ -65,6 +66,8 @@ class App extends React.Component {
               <Route path="/newprostataview" component={NewProstataView} />
               <Route path="/newlaudoview" component={NewLaudoView} />
               <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
+              <Route path="/dashboard" component={Dashboard} />
+
 
           </Switch>
         </div>
@@ -86,6 +89,7 @@ class App extends React.Component {
               <Route path="/medicossolicitante" component={MedicosSolicitante} />
               <Route path="/newlaudoview" component={NewLaudoView} />
               <Route path="/newprostataview" component={NewProstataView} />
+              <Route path="/dashboard" component={Dashboard} />
             </Switch>
           </div> 
         )
