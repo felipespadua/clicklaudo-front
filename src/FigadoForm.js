@@ -136,8 +136,18 @@ class FigadoForm extends Component {
                 </td>
               </tr>
             </thead>
+            <br />
             <tbody>
               {/* ---------------------------------------- */}
+              <tr>
+                <td>
+                  <VoiceRecognition
+                    prevState={this.state}
+                    handleChangeVR={this.handleChangeBySpeech}
+                  />
+                </td>
+              </tr>
+              <br />
               <tr>
                 <td>
                   <FormControlLabel
@@ -175,12 +185,12 @@ class FigadoForm extends Component {
                     </Select>
                   </FormControl>
                 </td>
-                <td>
+                {/* <td>
                   <VoiceRecognition
                     prevState={this.state}
                     handleChangeVR={this.handleChangeBySpeech}
                   />
-                </td>
+                </td> */}
               </tr>
               {/* -------------------------------------- */}
               <tr>
@@ -511,7 +521,7 @@ class FigadoForm extends Component {
               <tr>
                 <td>
                   <Button variant="contained" color="primary" type="submit">
-                    Submit
+                    Enviar
                   </Button>
                 </td>
               </tr>

@@ -113,7 +113,17 @@ class ProstataForm extends Component {
                 </td>
               </tr>
             </thead>
+            <br />
             <tbody>
+              <tr>
+                <td>
+                  <VoiceRecognition
+                    prevState={this.state}
+                    handleChangeVR={this.handleChangeBySpeech}
+                  />
+                </td>
+              </tr>
+              <br />
               {/* ---------------------------------------- */}
               <tr>
                 <td>Quais suas dimensões ?</td>
@@ -162,7 +172,7 @@ class ProstataForm extends Component {
               </tr>
               {/* -------------------------------------- */}
               <tr>
-                <td>Qual o tipo do Contorno ?</td>
+                <td>Qual o tipo do contorno ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -199,7 +209,7 @@ class ProstataForm extends Component {
                         value={this.state.residuo}
                       />
                     }
-                    label="Possui Resíduo ?"
+                    label="Possui resíduo ?"
                   />
                 </td>
                 <td>
@@ -230,7 +240,7 @@ class ProstataForm extends Component {
                         value={this.state.exameViaTransretal}
                       />
                     }
-                    label="Exame Via Transretal ?"
+                    label="Exame via transretal ?"
                   />
                 </td>
               </tr>
@@ -246,7 +256,7 @@ class ProstataForm extends Component {
           )}
           <br />
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            Enviar
           </Button>
         </form>
       </div>

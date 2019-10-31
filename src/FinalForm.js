@@ -117,7 +117,7 @@ class FinalForm extends Component {
             </tbody>
           </table>
           <Button variant="contained" color="primary" type="submit">
-            Submit
+            Enviar
           </Button>
         </form>
       </div>
