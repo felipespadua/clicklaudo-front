@@ -11,23 +11,19 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    minHeight: '20vh',
-    backgroundImage: 'url(/img/fundoFooter.jpeg)',
+    minHeight: '10vh',
+    // backgroundImage: 'url(/img/fundoFooter.jpeg  )',
     // backgroundColor:  "#e4d6eb", 
     color: "white",
     textAlign: 'center',  
   },
 
   main: {
-    marginTop: theme.spacing(8),
-    marginBottom: theme.spacing(2),
-  },
-  
-  
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(8),
+  },  
 
 }));
-
-
 
 export default function Footer() {
   const classes = useStyles();
@@ -38,10 +34,10 @@ export default function Footer() {
       <footer className={classes.footer}>
         <Container maxWidth="sm">
     
-        <Tooltip className="mt-4" disableFocusListener title="Voltar ao topo">
-        {/* <img src="/img/fundoFooter.jpeg" alt=""/> */}
+        {/* <Tooltip className="mt-4" disableFocusListener title="Voltar ao topo">
+        <img src="/img/fundoFooter.jpeg" alt=""/>
             <Button href="#main">Voltar ao topo</Button>
-          </Tooltip>
+          </Tooltip> */}
         </Container>
       </footer>
     </div>

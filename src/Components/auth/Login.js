@@ -32,9 +32,9 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: 'url(/img/Logo.svg)',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    height: '15vh',
-    width: '70vh',
-    backgroundSize: '350px'
+    height: '11vh',
+    width: '43vh',
+    backgroundSize: '280px'
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -89,7 +89,7 @@ export default function Login (props) {
   
     return (
       <Grid container component="main" className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>

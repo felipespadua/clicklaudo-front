@@ -95,16 +95,16 @@ export default function GeneralForm() {
   return (
 
     <div className="mainDivGF">
-      <form className="box-shadow p-4 " onSubmit={handleSubmit}>
-        <h2>Novo Laudo</h2>
+      <form className="box-shadow p-4 "  onSubmit={handleSubmit}>
+        <h3>Novo Laudo</h3>
         <table>
           <thead>
             <tr>
               <td>
-                <h2>Exame</h2>
+                <h3>Exame</h3>
               </td>
               <td className="pacienteTd">
-                <h2>Paciente</h2>
+                <h3>Paciente</h3>
               </td>
             </tr>
           </thead>
