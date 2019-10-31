@@ -32,14 +32,36 @@ body {
   color: #09d3ac;
 }
 
-/* .mainTd {
+.mainTd {
   padding-left: 2rem;
 }
 */
 .pacienteTd {
   padding: 0;
   padding-left: 2rem;
-} */
+}
+/* parte nova */
+.App {
+  background-color: white;
+  /* display: flex; */
+  justify-content: center;
+  height: 80vh;
+  /* width: 80vw; */
+  flex-direction: column;
+}
+
+.mainDivGF {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.exameTransDiv {
+  border: 1px solid gray;
+  padding: 10px;
+} 
+/* ate aqui */
 
 .Convenios {
   width: 50em;

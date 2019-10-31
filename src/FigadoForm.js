@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-// import InputLabel from "@material-ui/core/InputLabel";
-// import MenuItem from "@material-ui/core/MenuItem";
-// import FormControl from "@material-ui/core/FormControl";
-// import Select from "@material-ui/core/Select";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
 
@@ -79,12 +79,12 @@ class FigadoForm extends Component {
     let checkBoxes = this.typeControl.checkBox;
     let texts = this.typeControl.text;
     let selects = this.typeControl.selects;
-    if(checkBoxes.includes(name)){
+    if (checkBoxes.includes(name)) {
       this.setState({ ...this.state, [name]: !this.state.name });
     }
-  }
+  };
 
-  handleChangeSelect = event => {
+  handleChangeSelect = name => event => {
     console.log(event.target);
     this.setState({
       [event.target.name]: event.target.value
@@ -127,7 +127,7 @@ class FigadoForm extends Component {
 
   render() {
     return (
-      <div className="mainDivGF">
+      <div className="mainDivGF m-4">
         <form onSubmit={this.handleSubmit}>
           <table>
             <thead>
@@ -146,28 +146,42 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.homogeneo}
                         onChange={this.handleChange("homogeneo")}
-                        value="homogeneo"
+                        value={this.state.homogeneo}
                       />
                     }
                     label="Homogeneo"
                   />
                 </td>
+                <td>Quais são as dimensão apresentadas ?</td>
                 <td>
-                  <TextField
-                    // id="outlined-with-placeholder"
-                    label="Tipo de Dimensao?"
-                    margin="dense"
-                    variant="outlined"
-                    onChange={this.handleChange("dimensao")}
-                    value={this.state.dimensao}
-                  />
+                  <FormControl variant="">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.dimensao}
+                      onChange={this.handleChangeSelect("dimensao")}
+                      // labelWidth={this.labelWidth}
+                      name="dimensao"
+                      inputProps={{
+                        name: "dimensao",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Normais"}>Normais</MenuItem>
+                      <MenuItem value={"Reduzidas"}>Reduzidas</MenuItem>
+                      <MenuItem value={"Aumentadas"}>Aumentadas</MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
                 <td>
                   <VoiceRecognition
-                  prevState= {this.state}
-                  handleChangeVR={this.handleChangeBySpeech}
+                    prevState={this.state}
+                    handleChangeVR={this.handleChangeBySpeech}
                   />
-              </td>
+                </td>
               </tr>
               {/* -------------------------------------- */}
               <tr>
@@ -177,7 +191,7 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.esteatotico}
                         onChange={this.handleChange("esteatotico")}
-                        value="esteatotico"
+                        value={this.state.esteatotico}
                       />
                     }
                     label="Esteatotico"
@@ -189,7 +203,7 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.hepatopiaCronica}
                         onChange={this.handleChange("hepatopiaCronica")}
-                        value="hepatopiaCronica"
+                        value={this.state.hepatopiaCronica}
                       />
                     }
                     label="Hepatopia Cronica"
@@ -204,7 +218,7 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.ciscoSimples}
                         onChange={this.handleChange("ciscoSimples")}
-                        value="ciscoSimples"
+                        value={this.state.ciscoSimples}
                       />
                     }
                     label="Cisco Simples"
@@ -222,7 +236,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -230,7 +244,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     // value="ciscoSimplesSit"
                     onChange={this.handleChange("ciscoSimplesSit")}
                     value={this.state.ciscoSimplesSit}
@@ -246,7 +260,7 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.variosCiscos}
                         onChange={this.handleChange("variosCiscos")}
-                        value="variosCiscos"
+                        value={this.state.variosCiscos}
                       />
                     }
                     label="Varios Ciscos"
@@ -263,7 +277,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -271,7 +285,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("variosCiscosSit")}
                     value={this.state.variosCiscosSit}
                   />
@@ -285,7 +299,7 @@ class FigadoForm extends Component {
                       <Checkbox
                         checked={this.state.noduloSolido}
                         onChange={this.handleChange("noduloSolido")}
-                        value="noduloSolido"
+                        value={this.state.noduloSolido}
                       />
                     }
                     label="Nodulo Solido"
@@ -296,7 +310,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Tipo ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoTipo")}
                     value={this.state.noduloSolidoTipo}
                   />
@@ -307,7 +321,7 @@ class FigadoForm extends Component {
                     // id="outlined-with-placeholder"
                     label="Contorno"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoContorno")}
                     value={this.state.noduloSolidoContorno}
                   />
@@ -323,7 +337,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>x</td>
@@ -339,7 +353,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -347,7 +361,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("noduloSolidoSit")}
                     value={this.state.noduloSolidoSit}
                   />
@@ -360,9 +374,7 @@ class FigadoForm extends Component {
                     control={
                       <Checkbox
                         checked={this.state.calcificacaoGrosseira}
-                        onChange={this.handleChange(
-                          "calcificacaoGrosseira"
-                        )}
+                        onChange={this.handleChange("calcificacaoGrosseira")}
                         value="calcificacaoGrosseira"
                       />
                     }
@@ -380,7 +392,7 @@ class FigadoForm extends Component {
                       shrink: true
                     }}
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                   />
                 </td>
                 <td>
@@ -388,7 +400,7 @@ class FigadoForm extends Component {
                     id="outlined-with-placeholder"
                     label="Situado ?"
                     margin="dense"
-                    variant="outlined"
+                    // variant="outlined"
                     onChange={this.handleChange("calcificacaoGrosseiraSit")}
                     value={this.state.calcificacaoGrosseiraSit}
                   />

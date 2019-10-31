@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router } from "react-router-dom";
-import MainTableConvenios from './MainTableConvenios.js'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import ProstataForm from './ProstataForm';
 
-class Convenios extends Component {
+class NewProstataView extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -18,12 +18,12 @@ class Convenios extends Component {
             <Router>
               <div id="main"></div>
               <Navbar/>
-              <MainTableConvenios/>
-              <Footer/>
+                <ProstataForm/>
+                <Footer/>
             </Router> 
       </div>
     )
   }
 }
 
-export default Convenios
+  export default NewProstataView
