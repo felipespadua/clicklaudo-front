@@ -9,6 +9,8 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
+import Preview from "./Components/Preview";
+import NewWindow from 'react-new-window'
 
 class FigadoForm extends Component {
   constructor(props) {
@@ -121,7 +123,8 @@ class FigadoForm extends Component {
       calcificacaoGrosseiraMM: 0,
       calcificacaoGrosseiraSit: "",
 
-      age: ""
+      age: "",
+
     });
   }
 
@@ -412,6 +415,13 @@ class FigadoForm extends Component {
                   <Button variant="contained" color="primary" type="submit">
                     Submit
                   </Button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Button variant="contained" href="/preview" color="primary" type="submit">
+                      Preview
+                    </Button>
                 </td>
               </tr>
               {/* ------------------------------------------ */}
