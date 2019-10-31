@@ -131,23 +131,32 @@ export default function GeneralForm(props) {
    
     const apiHandler = new ApiService()
    
-    const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
-    
+    const {nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
+    console.log(nome,idade,telefone)
   
-      apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
+      apiHandler.newPacient(nome,idade,telefone,email,convenio)
       .then(function(itemResponse) {
-        console.log('PACIENT!!!!!!!!',itemResponse)
-        console.log(selecionarExame)
+        
+        const pacient = itemResponse._id
+        console.log(pacient)
         if(selecionarExame==="/newprostataview"){
-          apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+          console.log("i")
+          apiHandler.newProstate(clinica,medico,medicoSolicitante,data,pacient)
         .then(function(response) {
-          console.log('PROSTATA!!!!!!!!!!!!!',response)
-        props.rest.history.push(`${selecionarExame}`)
+          console.log('PROSTATA!!!!!!!!!!!!!', props.rest)
+        props.rest.history.push(`${selecionarExame}/${response._id}`)
+        //return <Redirect to={`${selecionarExame}/${response._id}`}/>
           
         })
         }
-        if(selecionarExame==="figado"){
-          apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+        if(selecionarExame==="/newfigadoview"){
+          console.log(pacient)
+          apiHandler.newLiver(clinica,medico,medicoSolicitante,data,pacient)
+          .then(function(response) {
+            console.log('figado!!!!!!!!!!!!',response,pacient)
+          props.rest.history.push(`${selecionarExame}/${response._id}`)
+            
+          })
         }
       
         

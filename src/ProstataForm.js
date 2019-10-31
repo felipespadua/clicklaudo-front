@@ -47,6 +47,7 @@ class ProstataForm extends Component {
 
   handleChange = name => event => {
     console.log(event.target);
+    
     if (event.target.type === "checkbox") {
       this.setState({ ...this.state, [name]: event.target.checked });
     } else {
@@ -102,6 +103,7 @@ class ProstataForm extends Component {
   //   }
 
   render() {
+    console.log('PROPS!!!!!',this.props.rest.match.params)
     return (
       <div className="mainDivGF">
         <form className="box-shadow p-4"   onSubmit={this.handleSubmit}>

@@ -12,6 +12,8 @@ import VoiceRecognition from "./Components/VoiceRecognition";
 import Preview from "./Components/Preview";
 import NewWindow from 'react-new-window'
 
+
+
 class FigadoForm extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +61,8 @@ class FigadoForm extends Component {
       ],
       select: []
     };
-
+    
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -129,6 +132,7 @@ class FigadoForm extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div className="mainDivGF m-4">
         <form onSubmit={this.handleSubmit}>
