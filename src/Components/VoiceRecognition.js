@@ -1,8 +1,10 @@
 import { Component } from 'react';
 import React from 'react';
 import socketIOClient from "socket.io-client";
+import { ReactMic } from 'react-mic';
 import { isThisHour } from 'date-fns/esm';
 import { nominalTypeHack } from 'prop-types';
+import '../../src/VR.css';
 // import io from "socket.io"
 let globalStream = undefined;
 let input = undefined;
@@ -47,7 +49,6 @@ class VoiceRecognition extends Component {
         processor.connect(context.destination);
         context.resume();
 
-        //verificar isso
         let onAudioProcess = (e) => {
             this.microphoneProcess(e);
         }   
@@ -162,7 +163,7 @@ class VoiceRecognition extends Component {
         // console.log(data.results[0].alternatives[0])
     //    console.log(data.results[0])
        if(data.results[0].isFinal === false){
-           console.log(data.results[0])
+        //    console.log(data.results[0])
            let alternatives = data.results[0].alternatives
         //    let words = alternatives.map(alternative => {
         //        return alternative.words
@@ -175,13 +176,16 @@ class VoiceRecognition extends Component {
            console.log(words)
 
            words.forEach(word => {
-            //    console.log(word, "WORD")
+                if(word === "C1" || word === "c1" || word === "ser um"){
+                    this.props.handleChangeVR("homogeneo")
+                }
+
                let normalizedKeys = Object.keys(this.props.prevState).map(key => {
                    return this.normalizeText(key)
                })
                let index = normalizedKeys.indexOf(this.normalizeText(word))
                if(index !== -1){
-                   console.log(word)
+
                     this.props.handleChangeVR(Object.keys(this.props.prevState)[index])
                }
            });
@@ -232,9 +236,17 @@ class VoiceRecognition extends Component {
         return (
             <div className="wrapper">
                 <audio></audio>
+                <div id="audioSpans">
+                    {/* <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span> */}
+                </div>
                 <button id="startRecButton" onClick={(e) => this.startRecording(e)} type="button"> Start recording</button>
                 <button id="stopRecButton"  onClick={(e) => this.stopRecording(e)} type="button"> Stop recording</button>
             </div>
+            
         );
     }
 }
