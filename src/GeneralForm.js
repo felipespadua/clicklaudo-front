@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -9,12 +9,15 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
+
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
-
+import ApiService from './Services/ApiService'
 import Autocomplete from '@material-ui/lab/Autocomplete';
+
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +34,33 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+
 export default function GeneralForm() {
+
+  useEffect(()=> function addUser(onclick){
+ 
+  })
+    
+ 
+
+  useEffect((onClick)=> function handleSubmit(onClick) {
+    const apiHandler = new ApiService()
+    
+    const {clinica,medico,medicoSolicitante,data,selecionarExame} = state
+
+      if(selecionarExame==="prostata"){
+        apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+      }
+      if(selecionarExame==="figado"){
+        apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+      }
+      
+    
+
+   
+  });
+
   const classes = useStyles();
   const [state, setState] = React.useState({
     data: new Date(),
@@ -44,7 +73,8 @@ export default function GeneralForm() {
     nome: "",
     idade: "",
     telefone: "",
-    email: ""
+    email: "",
+    selecionarExame: ""
   });
 
   const inputLabel = React.useRef(null);
@@ -52,7 +82,10 @@ export default function GeneralForm() {
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
+  const completePacient = objPacient =>{
+      console.log(objPacient)
 
+  }
   //   const [selectedDate, setSelectedDate] = React.useState(
   //     new Date("2014-08-18T21:11:54")
   //   );
@@ -65,7 +98,7 @@ export default function GeneralForm() {
   };
 
   const handleChange = name => event => {
-    // console.log(event);
+    console.log(name);
     setState({
       ...state,
       [name]: event.target.value
@@ -75,6 +108,7 @@ export default function GeneralForm() {
 
   const handleSubmit = event => {
     console.log(state);
+ 
     event.preventDefault();
     //axios
     setState({
@@ -91,6 +125,24 @@ export default function GeneralForm() {
       email: ""
     });
   };
+  const addUser = event => {
+    const apiHandler = new ApiService()
+   
+    const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
+    
+    if(dataDeNasc,nome,idade,telefone,email,convenio){
+      apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
+    }
+  
+
+      if(selecionarExame==="prostata"){
+        apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+      }
+      if(selecionarExame==="figado"){
+        apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+      }
+  
+  }
 
   return (
 
@@ -158,9 +210,9 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"ten"}>Ten</option>
+                        <option value={"two"}>Twenty</option>
+                        <option value={"tree"}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -190,7 +242,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"ten"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -222,7 +274,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"unimed"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -254,7 +306,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"ten"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -348,7 +400,7 @@ export default function GeneralForm() {
                   <td>
                     <TextField
                       id="outlined-email-input"
-                      type="email"
+                   
                       name="email"
                       autoComplete="email"
                       margin="dense"
@@ -358,6 +410,25 @@ export default function GeneralForm() {
                     />
                   </td>
                 </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">selecionar exame</label>
+                  </td>
+                  <td>
+                    <TextField
+                      id="outlined-email-input"
+                    
+                      name="selecionarExame"
+                      autoComplete="selecionarExame"
+                      margin="dense"
+                      variant="outlined"
+                      onChange={handleChange("selecionarExame")}
+                      value={state.selecionarExame}
+                    />
+                  </td>
+                </tr>
+             
+               
               </td>
               
               
@@ -378,15 +449,16 @@ export default function GeneralForm() {
   <br/>
   <Button 
   type="submit"
+  onClick={()=> addUser(onclick)} 
   href={exam[0].href}
   // fullWidth
   variant="contained"
   color="primary"
   className={classes.submit}
-  >
-  Enviar 
-  </Button>
+  />
 
+
+       
       </form>
     </div>  
   );

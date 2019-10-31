@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 import MaterialTable from 'material-table';
 import ApiService from './Services/ApiService'
+import SimpleExpansionPanel from "./Expansion";
 
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import EditIcon from '@material-ui/icons/Edit';
@@ -9,21 +11,10 @@ import Link from "@material-ui/core/Link";
 import Grid from "@material-ui/core/Grid";
 
 
-  export default function MainTable() {
-    const apiHandler = new ApiService()
-    
-    React.useEffect(() => fetchData() )
+  
 
-    const fetchData = async () => {
-      try {
-        const response = await apiHandler.getAllExams()
-        console.log(response)
-        
-      }catch(err){
-
-      }
-    }
-
+  export default function MainTable(props) {
+   
     const [state, setState] = React.useState({
       bg: {
         // backgroundColor: "#f0f0f0",
@@ -38,8 +29,7 @@ import Grid from "@material-ui/core/Grid";
       },
         { title: 'Exame', field: 'exam' },
         { title: 'Paciente', field: 'pacient' },
-        { title: 'Status', 
-          field: 'status',
+        { title: 'Status', field: 'status',
           render: rowData => (
               rowData.status === "Aberto" ? <p style={{color: 'green'}}>{rowData.status}</p> : <p style={{color: 'red'}}>{rowData.status}</p>
   
@@ -53,29 +43,40 @@ import Grid from "@material-ui/core/Grid";
     },
       ],
       data: [
-        { exam: '2374849', pacient: 'Rafael Sousa Dias', 'status': 'Fechado' },
-        {
-          exam: '2384832',pacient: 'João da Silva', 'status': 'Aberto'
-        },
-        {
-          exam: '3423442',pacient: 'Marcos Lacerda', 'status': 'Aberto'
-        },
-        {
-          exam: '1231231',pacient: 'Pedro Antonio', 'status': 'Fechado'
-        },
-        {
-          exam: '2342343',pacient: 'Felipe Sekkar', 'status': 'Aberto'
-        },
-        {
-          exam: '2893489',pacient: 'Millene Pilhada', 'status': 'Aberto'
-        },
+        
       ],
       
 
       
     });
-
+    React.useEffect(() =>{
+     
+      const apiHandler = new ApiService()
+      apiHandler.getAllExams()
+      .then(
+        function(itemResponse) {
+        
+          
+           setState({
+            ...state,
+            data: itemResponse.map(item => ({ exam: item.examId,pacient: item.pacient, status: item.state}))
+            })
+        }, 
+        function(error) {
+            console.log(error)
+        }
+    );
+    },[]);
     
+     
+  
+  
+    
+  
+    
+    
+    
+  
     return (
       <Grid className="">
 
@@ -89,12 +90,16 @@ import Grid from "@material-ui/core/Grid";
         title="Procurar laudos"
         columns={state.columns}
         data={state.data}
-        // onRowClick={((evt, selectedRow) =>{
+        onRowClick={((evt, selectedRow,) =>{
+         console.log(props)
+          return setState( {...state, selectedRow })
+           
+            
           
-        //   return setState( {...state, selectedRow })
-        //   }) }
+          }) }
+          
         options={{
-          rowStyle: rowData => ({
+            rowStyle: rowData => ({
             backgroundColor: (state.selectedRow && state.selectedRow.tableData.id === rowData.tableData.id) ? '#f0f5f5' : '#FFF',
             // color: (rowData.status === "Aberto" ? '#00b300' : '#ff3300')
             
