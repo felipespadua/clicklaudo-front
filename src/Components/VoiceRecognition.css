@@ -1,0 +1,32 @@
+#startRecButton {
+    background-color: #28a745;
+    color: white;
+
+}
+
+#startRecButtonOn {
+    background-color: #28a745;
+    color: white;
+    /* ---------------------------- */
+    animation: shadow-pulse 1s infinite;
+}
+
+#stopRecButton {
+    background-color: #f44336;
+    margin-left: 15px;
+}
+
+@keyframes shadow-pulse {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 0 15px rgba(0, 0, 0, 0);
+    }
+}
+
+
+
+
+/* ------------------------------------------------------------------------------------------ */
