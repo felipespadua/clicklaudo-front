@@ -35,11 +35,12 @@ body {
 .mainTd {
   padding-left: 2rem;
 }
-*/
-.pacienteTd {
+
+*/ .pacienteTd {
   padding: 0;
   padding-left: 2rem;
 }
+
 /* parte nova */
 .App {
   background-color: white;
@@ -60,7 +61,8 @@ body {
 .exameTransDiv {
   border: 1px solid gray;
   padding: 10px;
-} 
+}
+
 /* ate aqui */
 
 .Convenios {
