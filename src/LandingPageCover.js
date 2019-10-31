@@ -44,9 +44,9 @@ class LandingPageCover extends Component {
               </div>
               {/* ------------------------------------------------- */}
               <div>
-                <a href="/">
+                <a href="/login">
                   <button
-                    href="/"
+                    href="/login"
                     id="navButton"
                     className="navbar-text navbar-right btn btn-info"
                   >
@@ -54,9 +54,9 @@ class LandingPageCover extends Component {
                   </button>
                 </a>
 
-                <a href="/cadastro">
+                <a href="/signup">
                   <button
-                    href="/cadastro"
+                    href="/signup"
                     id="navButton"
                     className="navbar-text navbar-right btn btn-info"
                   >
