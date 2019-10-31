@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -9,12 +9,16 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
+
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
-
+import ApiService from './Services/ApiService'
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Link from "@material-ui/core/Link";
+import { Redirect } from 'react-router-dom'
+
 
 
 const useStyles = makeStyles(theme => ({
@@ -31,7 +35,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function GeneralForm() {
+
+
+export default function GeneralForm(props) {
+
+  useEffect(()=> function addUser(onclick){
+
+  })
+    
+ 
+
+  useEffect((onClick)=> function handleSubmit(onClick) {
+  
+      
+    
+
+   
+  });
+
   const classes = useStyles();
   const [state, setState] = React.useState({
     data: new Date(),
@@ -44,15 +65,20 @@ export default function GeneralForm() {
     nome: "",
     idade: "",
     telefone: "",
-    email: ""
+    email: "",
+    selecionarExame: "",
+    hrefExam: "/abc"
   });
-
+  
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
+  const completePacient = objPacient =>{
+      console.log(objPacient)
 
+  }
   //   const [selectedDate, setSelectedDate] = React.useState(
   //     new Date("2014-08-18T21:11:54")
   //   );
@@ -65,16 +91,26 @@ export default function GeneralForm() {
   };
 
   const handleChange = name => event => {
-    // console.log(event);
-    setState({
-      ...state,
-      [name]: event.target.value
-    });
+   console.log(props)
+    if(name === "selecionarExame"){
+      console.log(event.target)
+      setState({
+        ...state,
+        [name]: event.target.value,
+      });
+    }else {
+      setState({
+        ...state,
+        [name]: event.target.value
+      });
+    }
   };
   
 
   const handleSubmit = event => {
-    console.log(state);
+  
+  
+ 
     event.preventDefault();
     //axios
     setState({
@@ -91,6 +127,42 @@ export default function GeneralForm() {
       email: ""
     });
   };
+  const addUser = event => {
+   
+    const apiHandler = new ApiService()
+   
+    const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
+    
+  
+      apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
+      .then(function(itemResponse) {
+        console.log('PACIENT!!!!!!!!',itemResponse)
+        console.log(selecionarExame)
+        if(selecionarExame==="/newprostataview"){
+          apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+        .then(function(response) {
+          console.log('PROSTATA!!!!!!!!!!!!!',response)
+        props.rest.history.push(`${selecionarExame}`)
+          
+        })
+        }
+        if(selecionarExame==="figado"){
+          apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+        }
+      
+        
+       
+      });
+     
+  
+
+    
+  
+  }
+
+
+
+
 
   return (
 
@@ -158,9 +230,9 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"ten"}>Ten</option>
+                        <option value={"two"}>Twenty</option>
+                        <option value={"tree"}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -190,7 +262,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"ten"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -222,7 +294,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"unimed"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -254,7 +326,7 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
+                        <option value={"ten"}>Ten</option>
                         <option value={20}>Twenty</option>
                         <option value={30}>Thirty</option>
                       </Select>
@@ -348,7 +420,7 @@ export default function GeneralForm() {
                   <td>
                     <TextField
                       id="outlined-email-input"
-                      type="email"
+                   
                       name="email"
                       autoComplete="email"
                       margin="dense"
@@ -358,6 +430,39 @@ export default function GeneralForm() {
                     />
                   </td>
                 </tr>
+               
+                <tr>
+                  <td>
+                    <label htmlFor="">selecionar exame</label>
+                  </td>
+                  <td>
+                    <FormControl
+                      // variant="outlined"
+                      className={classes.formControl}
+                    >
+                    
+                      <Select
+                        native
+                        value={state.selecionarExame}
+                        onChange={handleChange("selecionarExame")}
+                        name="selecionarExame"
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "convenio",
+                          id: "outlined-convenio"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={"/newfigadoview"}>figado</option>
+                        <option value={"/newprostataview"}>prostata</option>
+                        
+                      </Select>
+                    </FormControl>
+                  </td>
+                </tr>
+             
+               
               </td>
               
               
@@ -365,28 +470,24 @@ export default function GeneralForm() {
           </tbody>
         </table>
         <br />
-       <p>Tipo de exame</p>
-    <Autocomplete
-    options={exam}
-    getOptionLabel= {option => option.title}
-
-    style={{ width: 300 }}
-    renderInput={params => (
-    <TextField {...params} placeholder="Selecione o exame"  fullWidth />
-    )}
-  />
+     
+  
   <br/>
-  <Button 
+  <Button
   type="submit"
-  href={exam[0].href}
+  onClick={()=> addUser(onclick)}
+  
+  
   // fullWidth
   variant="contained"
   color="primary"
   className={classes.submit}
   >
-  Enviar 
+  novo laudo
   </Button>
 
+
+       
       </form>
     </div>  
   );
@@ -394,9 +495,6 @@ export default function GeneralForm() {
 
 
 
-const exam = [
-  { title: 'Figado', href: '/NewFigadoView'},
-  { title: 'Prostata'},
-];
-console.log(exam[0].href, '<====')
+
+
 
