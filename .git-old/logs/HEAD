@@ -1,0 +1,48 @@
+0000000000000000000000000000000000000000 2c7670ead349214f9c371423f800a8e1f0b49c28 marcos azevedo <marcosaalacerda@gmail.com> 1572112762 -0300	clone: from https://github.com/felipespadua/clicklaudo-front.git
+2c7670ead349214f9c371423f800a8e1f0b49c28 3b10bdc54aa792cc92cc6607c4cf57209fb31fb0 marcos azevedo <marcosaalacerda@gmail.com> 1572113083 -0300	checkout: moving from master to development
+3b10bdc54aa792cc92cc6607c4cf57209fb31fb0 252211aed9697c4af8d169f0f83deed3434a0b52 marcos azevedo <marcosaalacerda@gmail.com> 1572113123 -0300	pull: Fast-forward
+252211aed9697c4af8d169f0f83deed3434a0b52 beb2eb4c700f9399d60001dede5d253d90920da3 marcos azevedo <marcosaalacerda@gmail.com> 1572295683 -0300	commit: protected routes
+beb2eb4c700f9399d60001dede5d253d90920da3 7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb marcos azevedo <marcosaalacerda@gmail.com> 1572296237 -0300	commit (merge): first protected routes
+7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb 2c7670ead349214f9c371423f800a8e1f0b49c28 marcos azevedo <marcosaalacerda@gmail.com> 1572297923 -0300	checkout: moving from development to master
+2c7670ead349214f9c371423f800a8e1f0b49c28 49b84c31669ab2b85cd29e2af7fc8591b812a6ff marcos azevedo <marcosaalacerda@gmail.com> 1572297931 -0300	pull: Fast-forward
+49b84c31669ab2b85cd29e2af7fc8591b812a6ff 6bd8c69879c6d1363ff81f86ccdc3baf56dc61d7 marcos azevedo <marcosaalacerda@gmail.com> 1572298030 -0300	commit (merge): start axios from front
+6bd8c69879c6d1363ff81f86ccdc3baf56dc61d7 b2d753a7c6ce77f871e1c2ed123c859a13a0c694 marcos azevedo <marcosaalacerda@gmail.com> 1572298229 -0300	commit: top
+b2d753a7c6ce77f871e1c2ed123c859a13a0c694 b76c23621584a651c0301f5e86ffbc35bd85a53d marcos azevedo <marcosaalacerda@gmail.com> 1572301011 -0300	commit: top
+b76c23621584a651c0301f5e86ffbc35bd85a53d 853437ad216d8090d18f7da25f07f232d79a63ea marcos azevedo <marcosaalacerda@gmail.com> 1572301339 -0300	checkout: moving from master to devRafa
+853437ad216d8090d18f7da25f07f232d79a63ea 7097651d684de8ccf764f49f4ff1ecbe600bdbdb marcos azevedo <marcosaalacerda@gmail.com> 1572301358 -0300	pull: Fast-forward
+7097651d684de8ccf764f49f4ff1ecbe600bdbdb b76c23621584a651c0301f5e86ffbc35bd85a53d marcos azevedo <marcosaalacerda@gmail.com> 1572301427 -0300	checkout: moving from devRafa to master
+b76c23621584a651c0301f5e86ffbc35bd85a53d 3fdd882b57cc72d1b8dc207b3952f39ce93c5504 marcos azevedo <marcosaalacerda@gmail.com> 1572301600 -0300	commit (merge): done
+3fdd882b57cc72d1b8dc207b3952f39ce93c5504 dacf38655ca7e3551d42d61e74b0a11fca0c8c3f marcos azevedo <marcosaalacerda@gmail.com> 1572304144 -0300	pull: Fast-forward
+dacf38655ca7e3551d42d61e74b0a11fca0c8c3f 6457dad45af9dc0e25847c66b5aa6ce1df37e25a marcos azevedo <marcosaalacerda@gmail.com> 1572304210 -0300	checkout: moving from master to devMarcos
+6457dad45af9dc0e25847c66b5aa6ce1df37e25a dacf38655ca7e3551d42d61e74b0a11fca0c8c3f marcos azevedo <marcosaalacerda@gmail.com> 1572304297 -0300	checkout: moving from devMarcos to master
+dacf38655ca7e3551d42d61e74b0a11fca0c8c3f 72990ef3f7fb043b201af714f8d02cca2748b14e marcos azevedo <marcosaalacerda@gmail.com> 1572305475 -0300	commit: start axios
+72990ef3f7fb043b201af714f8d02cca2748b14e 7097651d684de8ccf764f49f4ff1ecbe600bdbdb marcos azevedo <marcosaalacerda@gmail.com> 1572305499 -0300	checkout: moving from master to devRafa
+7097651d684de8ccf764f49f4ff1ecbe600bdbdb db2020865250972b5633171d62fc2eefe3579f51 marcos azevedo <marcosaalacerda@gmail.com> 1572305506 -0300	pull: Fast-forward
+db2020865250972b5633171d62fc2eefe3579f51 72990ef3f7fb043b201af714f8d02cca2748b14e marcos azevedo <marcosaalacerda@gmail.com> 1572305515 -0300	checkout: moving from devRafa to master
+72990ef3f7fb043b201af714f8d02cca2748b14e 5f7c15b659802de4db0b2e52aa08f1a4a6e626eb marcos azevedo <marcosaalacerda@gmail.com> 1572305647 -0300	commit (merge): a
+5f7c15b659802de4db0b2e52aa08f1a4a6e626eb db2020865250972b5633171d62fc2eefe3579f51 marcos azevedo <marcosaalacerda@gmail.com> 1572305908 -0300	checkout: moving from master to devRafa
+db2020865250972b5633171d62fc2eefe3579f51 5f7c15b659802de4db0b2e52aa08f1a4a6e626eb marcos azevedo <marcosaalacerda@gmail.com> 1572305926 -0300	checkout: moving from devRafa to master
+5f7c15b659802de4db0b2e52aa08f1a4a6e626eb dc49131066a88384b67d0e095f6e630e280187ef marcos azevedo <marcosaalacerda@gmail.com> 1572360415 -0300	commit: login ajustes
+dc49131066a88384b67d0e095f6e630e280187ef 7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb marcos azevedo <marcosaalacerda@gmail.com> 1572362095 -0300	checkout: moving from master to development
+7cacfd8d230ef0a04e8e0b346e8c6c1bf53818bb 6af6eda9b1b27d59e0f49da4efa555634b99f290 marcos azevedo <marcosaalacerda@gmail.com> 1572362100 -0300	pull: Fast-forward
+6af6eda9b1b27d59e0f49da4efa555634b99f290 9166226f55a1b1de986f8943ee554a002b6ed546 marcos azevedo <marcosaalacerda@gmail.com> 1572367393 -0300	pull: Fast-forward
+9166226f55a1b1de986f8943ee554a002b6ed546 9166226f55a1b1de986f8943ee554a002b6ed546 marcos azevedo <marcosaalacerda@gmail.com> 1572368656 -0300	checkout: moving from development to development
+9166226f55a1b1de986f8943ee554a002b6ed546 9ead23a8feb8f9755d8baeb61c15c70c757b8217 marcos azevedo <marcosaalacerda@gmail.com> 1572368768 -0300	commit: login
+9ead23a8feb8f9755d8baeb61c15c70c757b8217 606d2b9e869b6c1544f2941b473f05413f5ea81e marcos azevedo <marcosaalacerda@gmail.com> 1572368882 -0300	commit (merge): login
+606d2b9e869b6c1544f2941b473f05413f5ea81e 18d48d4e795f5a3e0d5b0f46b1246799104aee50 marcos azevedo <marcosaalacerda@gmail.com> 1572374637 -0300	pull: Fast-forward
+18d48d4e795f5a3e0d5b0f46b1246799104aee50 4defbe03c6378f8ec5659622316943a60c2d220f marcos azevedo <marcosaalacerda@gmail.com> 1572374718 -0300	pull: Fast-forward
+4defbe03c6378f8ec5659622316943a60c2d220f 928c4b060fcc735ccab15fdd8d90b21c98cd43a4 marcos azevedo <marcosaalacerda@gmail.com> 1572374805 -0300	commit: sign in working
+928c4b060fcc735ccab15fdd8d90b21c98cd43a4 6457dad45af9dc0e25847c66b5aa6ce1df37e25a marcos azevedo <marcosaalacerda@gmail.com> 1572375738 -0300	checkout: moving from development to devMarcos
+6457dad45af9dc0e25847c66b5aa6ce1df37e25a dc49131066a88384b67d0e095f6e630e280187ef marcos azevedo <marcosaalacerda@gmail.com> 1572375761 -0300	merge master: Fast-forward
+dc49131066a88384b67d0e095f6e630e280187ef dc49131066a88384b67d0e095f6e630e280187ef marcos azevedo <marcosaalacerda@gmail.com> 1572378717 -0300	checkout: moving from devMarcos to master
+dc49131066a88384b67d0e095f6e630e280187ef dc49131066a88384b67d0e095f6e630e280187ef marcos azevedo <marcosaalacerda@gmail.com> 1572378782 -0300	checkout: moving from master to devMarcos
+dc49131066a88384b67d0e095f6e630e280187ef 4003f810989ddfa86cce710a9a5475189e679999 marcos azevedo <marcosaalacerda@gmail.com> 1572378798 -0300	commit: d
+4003f810989ddfa86cce710a9a5475189e679999 928c4b060fcc735ccab15fdd8d90b21c98cd43a4 marcos azevedo <marcosaalacerda@gmail.com> 1572378821 -0300	checkout: moving from devMarcos to development
+928c4b060fcc735ccab15fdd8d90b21c98cd43a4 eb01d0f5b16a2748401caa88187f2a32446306dd marcos azevedo <marcosaalacerda@gmail.com> 1572385921 -0300	commit: sign
+eb01d0f5b16a2748401caa88187f2a32446306dd d88313cd4e9afc0a6642e773804addf72a92af05 marcos azevedo <marcosaalacerda@gmail.com> 1572528309 -0300	commit: try final version
+d88313cd4e9afc0a6642e773804addf72a92af05 db2020865250972b5633171d62fc2eefe3579f51 marcos azevedo <marcosaalacerda@gmail.com> 1572528332 -0300	checkout: moving from development to devRafa
+db2020865250972b5633171d62fc2eefe3579f51 d88313cd4e9afc0a6642e773804addf72a92af05 marcos azevedo <marcosaalacerda@gmail.com> 1572528687 -0300	checkout: moving from devRafa to development
+d88313cd4e9afc0a6642e773804addf72a92af05 db2020865250972b5633171d62fc2eefe3579f51 marcos azevedo <marcosaalacerda@gmail.com> 1572528703 -0300	checkout: moving from development to devRafa
+db2020865250972b5633171d62fc2eefe3579f51 4003f810989ddfa86cce710a9a5475189e679999 marcos azevedo <marcosaalacerda@gmail.com> 1572528861 -0300	checkout: moving from devRafa to devMarcos
+4003f810989ddfa86cce710a9a5475189e679999 db2020865250972b5633171d62fc2eefe3579f51 marcos azevedo <marcosaalacerda@gmail.com> 1572528993 -0300	checkout: moving from devMarcos to devRafa
+db2020865250972b5633171d62fc2eefe3579f51 d88313cd4e9afc0a6642e773804addf72a92af05 marcos azevedo <marcosaalacerda@gmail.com> 1572529026 -0300	checkout: moving from devRafa to development
