@@ -133,7 +133,7 @@ class ProstataForm extends Component {
               <br />
               {/* ---------------------------------------- */}
               <tr>
-                <td>Quais suas dimensões ?</td>
+                <td style={{fontWeight:"400"}}>Quais suas dimensões ? (C1)</td>
                 <td>
                   <TextField
                     required
@@ -182,7 +182,7 @@ class ProstataForm extends Component {
               </tr>
               {/* -------------------------------------- */}
               <tr>
-                <td>Qual o tipo do contorno ?</td>
+                <td style={{fontWeight:"400"}}>Qual o tipo do contorno ? (C2) </td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -219,7 +219,7 @@ class ProstataForm extends Component {
                         value={this.state.residuo}
                       />
                     }
-                    label="Possui resíduo ?"
+                    label="Possui resíduo ? (C3) "
                   />
                 </td>
                 <td>
@@ -251,7 +251,7 @@ class ProstataForm extends Component {
                         value={this.state.exameViaTransretal}
                       />
                     }
-                    label="Exame via transretal ?"
+                    label="Exame via transretal ? (C4)"
                   />
                 </td>
               </tr>
@@ -298,7 +298,7 @@ class ExameTransversal extends React.Component {
                       value={this.props.noduloPeriferica}
                     />
                   }
-                  label="Possui nódulo na zona periférica?                 Qual o seu tipo ?"
+                  label="Possui nódulo na zona periférica?               Qual o seu tipo ? (C5) "
                 />
 
                 <FormControl variant="outlined">
@@ -375,7 +375,7 @@ class ExameTransversal extends React.Component {
               </td>
             </tr>
             <tr>
-              <td>Aonde está situado o nódulo?</td>
+              <td style={{fontWeight:"400"}}> Aonde está o nódulo?  (C6)</td>
               <td>
                 <FormControl variant="outlined">
                   <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -416,7 +416,7 @@ class ExameTransversal extends React.Component {
                       value={this.props.biopsia}
                     />
                   }
-                  label="Realizada a Biopsia?"
+                  label="Realizada a Biopsia? (C7)"
                 />
               </td>
               <td>

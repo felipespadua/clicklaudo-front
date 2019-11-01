@@ -173,7 +173,7 @@ class FigadoForm extends Component {
               <br />
               <tr>
                 <td>
-                  <FormControlLabel
+                  <FormControlLabel 
                     control={
                       <Checkbox
                         checked={this.state.esteatotico}
@@ -181,10 +181,13 @@ class FigadoForm extends Component {
                         value={this.state.esteatotico}
                       />
                     }
-                    label="Esteatótico"
+                    
+                    label="Esteatótico (C1)"
+                  
+                  
                   />
                 </td>
-                <td>Quais são as dimensões apresentadas ?</td>
+                <td style={{fontWeight:"400"}}>Quais são as dimensões apresentadas ? </td>
                 <td>
                   <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -227,7 +230,7 @@ class FigadoForm extends Component {
                         value={this.state.homogeneo}
                       />
                     }
-                    label="Homogêneo"
+                    label="Homogêneo (C2)"
                   />
                 </td>
                 <td>
@@ -239,7 +242,7 @@ class FigadoForm extends Component {
                         value={this.state.hepatopiaCronica}
                       />
                     }
-                    label="Hepatopatia Crônica"
+                    label="Hepatopatia Crônica (C7)"
                   />
                 </td>
               </tr>
@@ -254,7 +257,7 @@ class FigadoForm extends Component {
                         value={this.state.ciscoSimples}
                       />
                     }
-                    label="Cisco Simples"
+                    label="Cisco Simples (C3)"
                   />
                 </td>
                 <td>
@@ -273,7 +276,7 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>Qual o segmento hepático do cisto ?</td>
+                <td style={{fontWeight:"400"}}>Qual o segmento hepático do cisto ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -317,7 +320,7 @@ class FigadoForm extends Component {
                         value={this.state.variosCiscos}
                       />
                     }
-                    label="Varios Ciscos"
+                    label="Varios Ciscos (C4)"
                   />
                 </td>
                 <td>
@@ -335,7 +338,7 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>Qual o segmento hepático do cisto ?</td>
+                <td style={{fontWeight:"400"}} >Qual o segmento hepático do cisto ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -378,7 +381,7 @@ class FigadoForm extends Component {
                         value={this.state.noduloSolido}
                       />
                     }
-                    label="Nódulo Sólido"
+                    label="Nódulo Sólido (C4)"
                   />
                 </td>
                 <td>
@@ -435,7 +438,7 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>X</td>
+                
                 <td>
                   {" "}
                   <TextField
@@ -452,7 +455,7 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>Qual o segmento hepático do Nódulo ?</td>
+                <td style={{fontWeight:"400"}} >Qual o segmento hepático do Nódulo ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -495,7 +498,7 @@ class FigadoForm extends Component {
                         value="calcificacaoGrosseira"
                       />
                     }
-                    label="Calcificação Grosseira"
+                    label="Calcificação Grosseira (C5)"
                   />
                 </td>
                 <td>
@@ -513,7 +516,7 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>Qual o segmento hepático da Calcificação ?</td>
+                <td style={{fontWeight:"400"}} >Qual o segmento hepático da Calcificação ?</td>
                 <td>
                   <FormControl variant="outlined">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>

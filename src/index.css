@@ -79,7 +79,8 @@ p {
 } */
 
 a:hover {
-  color: black;
+  color:black !important ;
+  text-decoration: none !important;
 }
 
 .makeStyles-avatar-5 {
