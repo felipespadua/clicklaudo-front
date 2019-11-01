@@ -13,12 +13,13 @@ class NewProstataView extends Component {
   }
 
   render(){
+    console.log(this.props)
     return (
           <div>
             <Router>
               <div id="main"></div>
               <Navbar/>
-                <ProstataForm/>
+                <ProstataForm rest={this.props}/>
                 <Footer/>
             </Router> 
       </div>

@@ -9,6 +9,10 @@ import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
+import Preview from "./Components/Preview";
+import NewWindow from "react-new-window";
+import ApiService from './Services/ApiService'
+
 
 class FigadoForm extends Component {
   constructor(props) {
@@ -57,7 +61,8 @@ class FigadoForm extends Component {
       ],
       select: []
     };
-
+    
+    
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -66,7 +71,7 @@ class FigadoForm extends Component {
   }
 
   handleChange = name => event => {
-    console.log(event.target);
+   
     if (event.target.type === "checkbox") {
       this.setState({ ...this.state, [name]: event.target.checked });
     } else {
@@ -84,6 +89,7 @@ class FigadoForm extends Component {
     }
   };
 
+
   handleChangeSelect = name => event => {
     console.log(event.target);
     this.setState({
@@ -92,7 +98,16 @@ class FigadoForm extends Component {
     console.log(this.state);
   };
 
+     updateUser = (onclick) => {
+      const apiHandler = new ApiService()
+      const id = this.props.rest.match.params.id;
+      
+      const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
+      apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+    }
+
   handleSubmit(event) {
+    
     console.log(this.state);
     event.preventDefault();
     this.setState({
@@ -121,11 +136,13 @@ class FigadoForm extends Component {
       calcificacaoGrosseiraMM: 0,
       calcificacaoGrosseiraSit: "",
 
-      age: ""
+      
     });
   }
 
   render() {
+
+  
     return (
       <div className="mainDivGF p-5 mt-5">
         <form onSubmit={this.handleSubmit}>
@@ -137,8 +154,18 @@ class FigadoForm extends Component {
                 </td>
               </tr>
             </thead>
+            <br />
             <tbody>
               {/* ---------------------------------------- */}
+              <tr>
+                <td>
+                  <VoiceRecognition
+                    prevState={this.state}
+                    handleChangeVR={this.handleChangeBySpeech}
+                  />
+                </td>
+              </tr>
+              <br />
               <tr>
                 <td>
                   <FormControlLabel
@@ -149,10 +176,10 @@ class FigadoForm extends Component {
                         value={this.state.homogeneo}
                       />
                     }
-                    label="Homogeneo"
+                    label="Homogêneo"
                   />
                 </td>
-                <td>Quais são as dimensão apresentadas ?</td>
+                <td>Quais são as dimensões apresentadas ?</td>
                 <td>
                   <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
@@ -171,18 +198,18 @@ class FigadoForm extends Component {
                       <MenuItem value="">
                         <em>None</em>
                       </MenuItem>
-                      <MenuItem value={"Normais"}>Normais</MenuItem>
-                      <MenuItem value={"Reduzidas"}>Reduzidas</MenuItem>
-                      <MenuItem value={"Aumentadas"}>Aumentadas</MenuItem>
+                      <MenuItem value={"Normais"}>Normais </MenuItem>
+                      <MenuItem value={"Reduzidas"}>Reduzidas </MenuItem>
+                      <MenuItem value={"Aumentadas"}>Aumentadas </MenuItem>
                     </Select>
                   </FormControl>
                 </td>
-                <td>
+                {/* <td>
                   <VoiceRecognition
                     prevState={this.state}
                     handleChangeVR={this.handleChangeBySpeech}
                   />
-                </td>
+                </td> */}
               </tr>
               {/* -------------------------------------- */}
               <tr>
@@ -195,7 +222,7 @@ class FigadoForm extends Component {
                         value={this.state.esteatotico}
                       />
                     }
-                    label="Esteatotico"
+                    label="Esteatótico"
                   />
                 </td>
                 <td>
@@ -207,7 +234,7 @@ class FigadoForm extends Component {
                         value={this.state.hepatopiaCronica}
                       />
                     }
-                    label="Hepatopia Cronica"
+                    label="Hepatopatia Crônica"
                   />
                 </td>
               </tr>
@@ -230,7 +257,7 @@ class FigadoForm extends Component {
                   <TextField
                     required
                     id="outlined-number"
-                    label="Tamanho em MM"
+                    label="Tamanho(mm)"
                     value={this.state.cistoSimplesMM}
                     onChange={this.handleChange("cistoSimplesMM")}
                     type="number"
@@ -241,17 +268,36 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
+                <td>Qual o segmento hepático do cisto ?</td>
                 <td>
-                  <TextField
-                    required
-                    id="outlined-with-placeholder"
-                    label="Situado ?"
-                    margin="dense"
-                    // variant="outlined"
-                    // value="ciscoSimplesSit"
-                    onChange={this.handleChange("ciscoSimplesSit")}
-                    value={this.state.ciscoSimplesSit}
-                  />
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.ciscoSimplesSit}
+                      onChange={this.handleChangeSelect("ciscoSimplesSit")}
+                      // labelWidth={this.labelWidth}
+                      name="ciscoSimplesSit"
+                      inputProps={{
+                        name: "ciscoSimplesSit",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Segmento hepático I"}>I </MenuItem>
+                      <MenuItem value={"Segmento hepático II"}>II </MenuItem>
+                      <MenuItem value={"Segmento hepático III"}>III </MenuItem>
+                      <MenuItem value={"Segmento hepático IV"}>IV </MenuItem>
+                      <MenuItem value={"Segmento hepático V"}>V </MenuItem>
+                      <MenuItem value={"Segmento hepático VI"}>VI </MenuItem>
+                      <MenuItem value={"Segmento hepático VII"}>VII </MenuItem>
+                      <MenuItem value={"Segmento hepático VIII"}>
+                        VIII{" "}
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
               </tr>
               {/* --------------------------------------- */}
@@ -273,7 +319,7 @@ class FigadoForm extends Component {
                   <TextField
                     required
                     id="outlined-number"
-                    label="Tamanho do maior (mm)"
+                    label="Tamanho do maior(mm)"
                     value={this.state.variosCiscosMM}
                     onChange={this.handleChange("variosCiscosMM")}
                     type="number"
@@ -284,16 +330,36 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
+                <td>Qual o segmento hepático do cisto ?</td>
                 <td>
-                  <TextField
-                    required
-                    id="outlined-with-placeholder"
-                    label="Situado ?"
-                    margin="dense"
-                    // variant="outlined"
-                    onChange={this.handleChange("variosCiscosSit")}
-                    value={this.state.variosCiscosSit}
-                  />
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.variosCiscosSit}
+                      onChange={this.handleChangeSelect("variosCiscosSit")}
+                      // labelWidth={this.labelWidth}
+                      name="variosCiscosSit"
+                      inputProps={{
+                        name: "variosCiscosSit",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Segmento hepático I"}>I </MenuItem>
+                      <MenuItem value={"Segmento hepático II"}>II </MenuItem>
+                      <MenuItem value={"Segmento hepático III"}>III </MenuItem>
+                      <MenuItem value={"Segmento hepático IV"}>IV </MenuItem>
+                      <MenuItem value={"Segmento hepático V"}>V </MenuItem>
+                      <MenuItem value={"Segmento hepático VI"}>VI </MenuItem>
+                      <MenuItem value={"Segmento hepático VII"}>VII </MenuItem>
+                      <MenuItem value={"Segmento hepático VIII"}>
+                        VIII{" "}
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
               </tr>
               {/* --------------------------------------- */}
@@ -307,19 +373,35 @@ class FigadoForm extends Component {
                         value={this.state.noduloSolido}
                       />
                     }
-                    label="Nodulo Solido"
+                    label="Nódulo Sólido"
                   />
                 </td>
                 <td>
-                  <TextField
-                    required
-                    id="outlined-with-placeholder"
-                    label="Tipo ?"
-                    margin="dense"
-                    // variant="outlined"
-                    onChange={this.handleChange("noduloSolidoTipo")}
-                    value={this.state.noduloSolidoTipo}
-                  />
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.noduloSolidoTipo}
+                      onChange={this.handleChangeSelect("noduloSolidoTipo")}
+                      // labelWidth={this.labelWidth}
+                      name="noduloSolidoTipo"
+                      inputProps={{
+                        name: "noduloSolidoTipo",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Hiperecogênico "}>
+                        Hiperecogênico{" "}
+                      </MenuItem>
+                      <MenuItem value={"Hipoecogênico"}>
+                        Hipoecogênico{" "}
+                      </MenuItem>
+                      <MenuItem value={"Isoecogênico"}>Isoecogênico </MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
                 <td>
                   {" "}
@@ -337,7 +419,7 @@ class FigadoForm extends Component {
                   <TextField
                     required
                     id="outlined-number"
-                    label="Tamanho Horizontal (mm))"
+                    label="Tamanho Horizontal(mm)"
                     value={this.state.noduloSolidoHMM}
                     onChange={this.handleChange("noduloSolidoHMM")}
                     type="number"
@@ -348,13 +430,13 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
-                <td>x</td>
+                <td>X</td>
                 <td>
                   {" "}
                   <TextField
                     required
                     id="outlined-number"
-                    label="Tamanho Vertical (mm)"
+                    label="Tamanho Vertical(mm)"
                     value={this.state.noduloSolidoVMM}
                     onChange={this.handleChange("noduloSolidoVMM")}
                     type="number"
@@ -365,16 +447,36 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
+                <td>Qual o segmento hepático do Nódulo ?</td>
                 <td>
-                  <TextField
-                    required
-                    id="outlined-with-placeholder"
-                    label="Situado ?"
-                    margin="dense"
-                    // variant="outlined"
-                    onChange={this.handleChange("noduloSolidoSit")}
-                    value={this.state.noduloSolidoSit}
-                  />
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.noduloSolidoSit}
+                      onChange={this.handleChangeSelect("noduloSolidoSit")}
+                      // labelWidth={this.labelWidth}
+                      name="noduloSolidoSit"
+                      inputProps={{
+                        name: "noduloSolidoSit",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Segmento hepático I"}>I </MenuItem>
+                      <MenuItem value={"Segmento hepático II"}>II </MenuItem>
+                      <MenuItem value={"Segmento hepático III"}>III </MenuItem>
+                      <MenuItem value={"Segmento hepático IV"}>IV </MenuItem>
+                      <MenuItem value={"Segmento hepático V"}>V </MenuItem>
+                      <MenuItem value={"Segmento hepático VI"}>VI </MenuItem>
+                      <MenuItem value={"Segmento hepático VII"}>VII </MenuItem>
+                      <MenuItem value={"Segmento hepático VIII"}>
+                        VIII{" "}
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
               </tr>
               {/* ---------------------------------------- */}
@@ -388,14 +490,14 @@ class FigadoForm extends Component {
                         value="calcificacaoGrosseira"
                       />
                     }
-                    label="Calcificacao Grosseira"
+                    label="Calcificação Grosseira"
                   />
                 </td>
                 <td>
                   <TextField
                     required
                     id="outlined-number"
-                    label="Tamanho em MM"
+                    label="Tamanho(mm)"
                     value={this.state.calcificacaoGrosseiraMM}
                     onChange={this.handleChange("calcificacaoGrosseiraMM")}
                     type="number"
@@ -406,24 +508,59 @@ class FigadoForm extends Component {
                     // variant="outlined"
                   />
                 </td>
+                <td>Qual o segmento hepático da Calcificação ?</td>
                 <td>
-                  <TextField
-                    required
-                    id="outlined-with-placeholder"
-                    label="Situado ?"
-                    margin="dense"
-                    // variant="outlined"
-                    onChange={this.handleChange("calcificacaoGrosseiraSit")}
-                    value={this.state.calcificacaoGrosseiraSit}
-                  />
+                  <FormControl variant="outlined">
+                    <InputLabel htmlFor="outlined-age-simple"></InputLabel>
+                    <Select
+                      value={this.state.calcificacaoGrosseiraSit}
+                      onChange={this.handleChangeSelect(
+                        "calcificacaoGrosseiraSit"
+                      )}
+                      // labelWidth={this.labelWidth}
+                      name="calcificacaoGrosseiraSit"
+                      inputProps={{
+                        name: "calcificacaoGrosseiraSit",
+                        id: "outlined-age-simple"
+                      }}
+                      margin="dense"
+                    >
+                      <MenuItem value="">
+                        <em>None</em>
+                      </MenuItem>
+                      <MenuItem value={"Segmento hepático I"}>I </MenuItem>
+                      <MenuItem value={"Segmento hepático II"}>II </MenuItem>
+                      <MenuItem value={"Segmento hepático III"}>III </MenuItem>
+                      <MenuItem value={"Segmento hepático IV"}>IV </MenuItem>
+                      <MenuItem value={"Segmento hepático V"}>V </MenuItem>
+                      <MenuItem value={"Segmento hepático VI"}>VI </MenuItem>
+                      <MenuItem value={"Segmento hepático VII"}>VII </MenuItem>
+                      <MenuItem value={"Segmento hepático VIII"}>
+                        VIII{" "}
+                      </MenuItem>
+                    </Select>
+                  </FormControl>
                 </td>
               </tr>
+              <br />
               {/* ----------------------------------------- */}
               <tr>
                 <td>
-                  <Button variant="contained" color="primary" type="submit">
-                    Submit
+                  <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
+                    Enviar
                   </Button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {/* <Button
+                    variant="contained"
+                    href="/preview"
+                    color="primary"
+                    type="submit"
+                  >
+                    Preview
+                  </Button> */}
                 </td>
               </tr>
               {/* ------------------------------------------ */}

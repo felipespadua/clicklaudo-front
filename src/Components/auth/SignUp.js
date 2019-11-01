@@ -23,13 +23,13 @@ const useStyles = makeStyles(theme => ({
   },
 
   logo: {
-    marginBottom  : '35px',
-    backgroundImage: 'url(/img/Logo.svg)',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    height: '15vh',
-    width: '70vh',
-    backgroundSize: '350px'
+    marginBottom: "35px",
+    backgroundImage: "url(/img/Logo.svg)",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    height: "15vh",
+    width: "70vh",
+    backgroundSize: "350px"
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -53,32 +53,29 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp(props) {
   const classes = useStyles();
 
-  const [state,setState]=React.useState({
-     username: '', password: '', name: "",
+  const [state, setState] = React.useState({
+    username: "",
+    password: "",
+    name: ""
+  });
+  const service = new AuthService();
 
-  })
- const service = new AuthService()
-
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = event => {
     event.preventDefault();
-    const { username, password, name } = state
-    service.signup(username, password, name)
-    .then( response => {
-        setState({ username: "", password: "", name:"" });
-       
-     
-        props.history.push("/")
-        
-    })
-    .catch( error => console.log(error,"ERRO") )
-  }
-  const handleChange = (event) => {  
+    const { username, password, name } = state;
+    service
+      .signup(username, password, name)
+      .then(response => {
+        setState({ username: "", password: "", name: "" });
 
-    const {name, value} = event.target;
-    setState({ ...state, [name]: value});
-  }
-  
-  
+        props.history.push("/login");
+      })
+      .catch(error => console.log(error, "ERRO"));
+  };
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setState({ ...state, [name]: value });
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
