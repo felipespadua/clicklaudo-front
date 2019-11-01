@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./FinalForm.css";
 import Button from "@material-ui/core/Button";
+import ApiService from './Services/ApiService';
 
 class FinalForm extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class FinalForm extends Component {
     this.typeControl = {
       text: ["observacoes", "conclusoes"]
     };
-
+    this.apiHandler = new ApiService();
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -55,6 +56,10 @@ class FinalForm extends Component {
     });
   }
 
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <div className="mainDivGF">
@@ -63,7 +68,7 @@ class FinalForm extends Component {
             <thead>
               <tr>
                 <td>
-                  <h2>Conclusões</h2>
+                  <h2>Resultado do exame</h2>
                 </td>
               </tr>
             </thead>
@@ -117,7 +122,13 @@ class FinalForm extends Component {
             </tbody>
           </table>
           <Button variant="contained" color="primary" type="submit">
-            Enviar
+            Concluir
+          </Button>
+          <Button variant="contained" color="primary" type="submit">
+            Baixar PDF do laudo
+          </Button>
+          <Button variant="contained" color="primary" type="submit">
+            Enviar laudo para o cliente
           </Button>
         </form>
       </div>

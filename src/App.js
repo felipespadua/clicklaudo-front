@@ -17,9 +17,9 @@ import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
 import ProtectedRoute from "./Components/auth/protected-route";
 import Preview from "./Components/Preview";
-
 // import { Switch } from? '@material-ui/core';
 import LandingPage from "./LandingPage";
+import FinalView from "./FinalView";
 
 class App extends React.Component {
   constructor(props) {
@@ -78,6 +78,7 @@ class App extends React.Component {
             />
             <Route path="/simpleexpansion" component={SimpleExpansionPanel} />
             <Route exact path="/" component={LandingPage} />
+            <Route exact path="/finalform" component={FinalView} />
           </Switch>
         </div>
       );
@@ -109,6 +110,7 @@ class App extends React.Component {
             />
             <Route path="/newprostataview" component={NewProstataView} />
             <Route exact path="/" component={LandingPage} />
+            <Route exact path="/finalform" component={FinalView} />
           </Switch>
         </div>
       );

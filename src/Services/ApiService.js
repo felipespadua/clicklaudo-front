@@ -35,6 +35,11 @@ class ApiService {
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
  
+  deleteExam = id => {
+    return this.service.delete(`/exam/${id}`)
+    .then(response => response.data)
+    .catch(err => console.log(err))
+  }
 
 }
 
