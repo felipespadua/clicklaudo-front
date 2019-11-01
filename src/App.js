@@ -67,6 +67,7 @@ class App extends React.Component {
                             render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
                         <Route path="/signup" component={SignUp}/>
                         <ProtectedRoute
+                            exact
                             path="/laudos"
                             user={this.state.loggedInUser}
                             component={Laudos}/>
@@ -81,12 +82,12 @@ class App extends React.Component {
                         render={(props) => <NewFigadoView {...props}/>}/>
                         <Route
                             exact
+                            path="/finalLiver/:id"
+                            render={(props) => <FinalView {...props}/>}/>
+                        <Route
+                            exact
                             path="/newprostataview/:id"
                             render={(props) => <NewProstataView {...props}/>}/>
-                                <Route
-                            exact
-                            path="/newfigadoview/laudofinal/:id"
-                            render={(props) => <FinalForm {...props}/>}/>
                         <Route path="/newlaudoview" render={(props) => <NewLaudoView {...props}/>}/>
                         <Route path="/simpleexpansion" component={SimpleExpansionPanel}/>
                         <Route path="/dashboard" component={Dashboard} />
@@ -109,6 +110,7 @@ class App extends React.Component {
                         <Route path="/signup" component={SignUp}/>
                         <ProtectedRoute
                             user={this.state.loggedInUser}
+                            exact
                             path="/laudos"
                             component={Laudos}/>
                         <Route path="/laudos" component={Laudos}/>
@@ -130,7 +132,7 @@ class App extends React.Component {
                         <Route
                             exact
                             path="/finalLiver/:id"
-                            render={(props) => <FinalForm {...props}/>}/>
+                            render={(props) => <FinalView {...props}/>}/>
                         <Route
                             exact
                             path="/newprostataview/:id"
