@@ -52,7 +52,7 @@ class LandingPageCover extends Component {
             </nav>
           </div>
         </div>
-        <div>
+        <div id="skrollr-body">
           <div
             className="logocon"
             data-0="opacity: 1; display: flex"
