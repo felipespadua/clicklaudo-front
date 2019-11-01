@@ -52,6 +52,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <Switch>
+            <Route exact path="/" component={LandingPageCover} />
             <Route
               exact
               path="/login"
@@ -68,7 +69,7 @@ class App extends React.Component {
             <Route path="/medicossolicitante" component={MedicosSolicitante} />
             <Route path="/convenios" component={Convenios} />
             <Route path="/clinicas" component={Clinicas} />
-            <Route exact path="/" component={LandingPageCover} />
+            <Route path="/landingPage" component={LandingPageCover} />
             <Route
               exact
               path="/newfigadoview/:id"
@@ -92,6 +93,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <Switch>
+            <Route exact path="/" component={LandingPageCover} />
             <Route
               exact
               path="/login"
@@ -109,8 +111,8 @@ class App extends React.Component {
             <Route path="/medicos" component={Medicos} />
             <Route path="/convenios" component={Convenios} />
             <Route path="/clinicas" component={Clinicas} />
-            <Route exact path="/" component={LandingPageCover} />
             <Route path="/medicossolicitante" component={MedicosSolicitante} />
+            <Route path="/landingPage" component={LandingPageCover} />
             <Route
               path="/newlaudoview"
               render={props => <NewLaudoView {...props} />}
