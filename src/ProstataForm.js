@@ -73,12 +73,22 @@ class ProstataForm extends Component {
     console.log(this.state);
   };
 
-  updateUser = (onclick) => {
-    const apiHandler = new ApiService()
-    const id = this.props.rest.match.params.id;
-    
-    const { homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} = this.state;
-    apiHandler.updateProstate(homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)
+  updateUser = async (onclick) =>  {
+    console.log(this.props)
+    try{
+      const apiHandler = new ApiService()
+      const id = this.props.rest.match.params.id;
+      const { homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} = this.state;
+      const response = await apiHandler.updateProstate(homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)
+      this.props.history.push(`newprostataview/${response._id}`)
+    }catch(err){
+      console.log(err)
+    }
+    //.then(function(itemResponse) {
+    //  console.log(this.props)
+      //this.props.history.push(`newprostataview/${itemResponse._id}`)
+   
+    //})
   }
 
   handleSubmit(event) {
@@ -112,6 +122,7 @@ class ProstataForm extends Component {
   //   }
 
   render() {
+ 
     console.log('PROPS!!!!!',this.props.rest.match.params)
     return (
       <div className="mainDivGF">
@@ -266,7 +277,7 @@ class ProstataForm extends Component {
             />
           )}
           <br />
-          <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
+          <Button onClick={() => this.updateUser} variant="contained" color="primary" type="submit">
             Enviar
           </Button>
         </form>
