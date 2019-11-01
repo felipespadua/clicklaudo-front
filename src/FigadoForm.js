@@ -98,13 +98,18 @@ class FigadoForm extends Component {
     console.log(this.state);
   };
 
-     updateUser = (onclick) => {
+     updateUser = async (onclick) =>  {
+      try{
       const apiHandler = new ApiService()
       const id = this.props.rest.match.params.id;
-      
-      const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
-      apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+       const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
+     const response = await apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+     console.log(response)
+     this.props.rest.history.push(`/finalLiver/${response.response._id}`)
+    }catch(err){
+      console.log(err)
     }
+  }
 
   handleSubmit(event) {
     
@@ -144,9 +149,9 @@ class FigadoForm extends Component {
 
   
     return (
-      <div className="mainDivGF m-4">
+      <div className="mainDivGF p-5 mt-5">
         <form onSubmit={this.handleSubmit}>
-          <table>
+          <table className="marginBottom">
             <thead>
               <tr>
                 <td>
@@ -171,12 +176,12 @@ class FigadoForm extends Component {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={this.state.homogeneo}
-                        onChange={this.handleChange("homogeneo")}
-                        value={this.state.homogeneo}
+                        checked={this.state.esteatotico}
+                        onChange={this.handleChange("esteatotico")}
+                        value={this.state.esteatotico}
                       />
                     }
-                    label="Homogêneo"
+                    label="Esteatótico"
                   />
                 </td>
                 <td>Quais são as dimensões apresentadas ?</td>
@@ -184,6 +189,7 @@ class FigadoForm extends Component {
                   <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
                     <Select
+                      required  
                       value={this.state.dimensao}
                       onChange={this.handleChangeSelect("dimensao")}
                       // labelWidth={this.labelWidth}
@@ -216,12 +222,12 @@ class FigadoForm extends Component {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={this.state.esteatotico}
-                        onChange={this.handleChange("esteatotico")}
-                        value={this.state.esteatotico}
+                        checked={this.state.homogeneo}
+                        onChange={this.handleChange("homogeneo")}
+                        value={this.state.homogeneo}
                       />
                     }
-                    label="Esteatótico"
+                    label="Homogêneo"
                   />
                 </td>
                 <td>
@@ -254,6 +260,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho(mm)"
                     value={this.state.cistoSimplesMM}
@@ -315,6 +322,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho do maior(mm)"
                     value={this.state.variosCiscosMM}
@@ -403,6 +411,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     // id="outlined-with-placeholder"
                     label="Contorno"
                     margin="dense"
@@ -413,6 +422,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho Horizontal(mm)"
                     value={this.state.noduloSolidoHMM}
@@ -429,6 +439,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho Vertical(mm)"
                     value={this.state.noduloSolidoVMM}
@@ -489,6 +500,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho(mm)"
                     value={this.state.calcificacaoGrosseiraMM}
@@ -539,7 +551,7 @@ class FigadoForm extends Component {
               {/* ----------------------------------------- */}
               <tr>
                 <td>
-                  <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
+                  <Button onClick={()=> this.updateUser()} variant="contained" color="primary" type="submit">
                     Enviar
                   </Button>
                 </td>

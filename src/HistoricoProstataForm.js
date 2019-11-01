@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -14,12 +14,12 @@ import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
-import ApiService from "./Services/ApiService";
-import Autocomplete from "@material-ui/lab/Autocomplete";
+import ApiService from './Services/ApiService'
+import Autocomplete from '@material-ui/lab/Autocomplete';
 import Link from "@material-ui/core/Link";
 import { Redirect } from 'react-router-dom'
-import Paper from "@material-ui/core/Paper";
-import CssBaseline from '@material-ui/core/CssBaseline';
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,26 +35,25 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
+
 export default function GeneralForm(props) {
-  useEffect(() => function addUser(onclick) {});
 
-  useEffect(onClick => function handleSubmit(onClick) {});
+  useEffect(()=> function addUser(onclick){
 
+  })
+    
+ 
+
+  useEffect((onClick)=> function handleSubmit(onClick) {
   
-  // const useStyles = makeStyles(theme => ({
-  //   root: {
-  //     height: "100vh"
-  //   },
-  //   image: {
-  //     backgroundImage: "url(/img/medical5.jpeg)",
-  //     backgroundRepeat: "no-repeat",
-  //     backgroundSize: "cover",
-  //     backgroundPosition: "center"
-  //   },
-  // }));
+      
+    
+
+   
+  });
 
   const classes = useStyles();
-
   const [state, setState] = React.useState({
     data: new Date(),
     clinica: "",
@@ -70,15 +69,16 @@ export default function GeneralForm(props) {
     selecionarExame: "",
     hrefExam: "/abc"
   });
-
+  
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-  const completePacient = objPacient => {
-    console.log(objPacient);
-  };
+  const completePacient = objPacient =>{
+      console.log(objPacient)
+
+  }
   //   const [selectedDate, setSelectedDate] = React.useState(
   //     new Date("2014-08-18T21:11:54")
   //   );
@@ -91,23 +91,26 @@ export default function GeneralForm(props) {
   };
 
   const handleChange = name => event => {
-    console.log(props);
-    if (name === "selecionarExame") {
-      console.log(event.target);
+   console.log(props)
+    if(name === "selecionarExame"){
+      console.log(event.target)
       setState({
         ...state,
-        [name]: event.target.value
+        [name]: event.target.value,
       });
-    } else {
+    }else {
       setState({
         ...state,
         [name]: event.target.value
       });
     }
   };
+  
 
   const handleSubmit = event => {
   
+  
+ 
     event.preventDefault();
     //axios
     setState({
@@ -125,59 +128,47 @@ export default function GeneralForm(props) {
     });
   };
   const addUser = event => {
-    const apiHandler = new ApiService();
-
-    const {
-      nome,
-      idade,
-      telefone,
-      email,
-      convenio,
-      clinica,
-      medico,
-      medicoSolicitante,
-      data,
-      selecionarExame
-    } = state;
-
-    apiHandler
-      .newPacient(nome, idade, telefone, email, convenio)
+   
+    const apiHandler = new ApiService()
+   
+    const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
+    
+  
+      apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
       .then(function(itemResponse) {
-        const pacient = itemResponse._id;
-        console.log(pacient);
-        if (selecionarExame === "/newprostataview") {
-          console.log("i");
-          apiHandler
-            .newProstate(clinica, medico, medicoSolicitante, data, pacient)
-            .then(function(response) {
-              console.log("PROSTATA!!!!!!!!!!!!!", props.rest);
-              props.rest.history.push(`${selecionarExame}/${response._id}`);
-              //return <Redirect to={`${selecionarExame}/${response._id}`}/>
-            });
+        console.log('PACIENT!!!!!!!!',itemResponse)
+        console.log(selecionarExame)
+        if(selecionarExame==="/newprostataview"){
+          apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
+        .then(function(response) {
+          console.log('PROSTATA!!!!!!!!!!!!!',response)
+        props.rest.history.push(`${selecionarExame}`)
+          
+        })
         }
-        if (selecionarExame === "/newfigadoview") {
-          console.log(pacient);
-          apiHandler
-            .newLiver(clinica, medico, medicoSolicitante, data, pacient)
-            .then(function(response) {
-              console.log("figado!!!!!!!!!!!!", response, pacient);
-              props.rest.history.push(`${selecionarExame}/${response._id}`);
-            });
+        if(selecionarExame==="figado"){
+          apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
         }
+      
+        
+       
       });
+     
+  
+
+    
+  
   }
 
+
+
+
+
   return (
-    // <Grid container component="main" className={classes.root}>
-    //   <CssBaseline />
-      
-    //   <Grid item xs={false} sm={3} md={6} className={classes.image} />
-    //   <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
-    //     <div className={classes.paper}></div>
 
     <div className="mainDivGF">
-      <form className="box-shadow rounded p-4 marginBottom mt-5 "  onSubmit={handleSubmit}>
-        <h3>Novo Laudo</h3>
+      <form className="box-shadow p-4 marginBottom mt-5"  onSubmit={handleSubmit}>
+        <h3>Historico do Laudo Prostata</h3>
         <table>
           <thead>
             <tr>
@@ -185,7 +176,7 @@ export default function GeneralForm(props) {
                 <h3>Exame</h3>
               </td>
               <td className="pacienteTd">
-                <h3 className="mt=5" >Paciente</h3>
+                <h3>Paciente</h3>
               </td>
             </tr>
           </thead>
@@ -200,7 +191,7 @@ export default function GeneralForm(props) {
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
-                        required
+                          disabled
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -216,7 +207,7 @@ export default function GeneralForm(props) {
                 </tr>
                 <tr>
                   <td>
-                    <label  htmlFor="">Clinica:</label>
+                    <label htmlFor="">Clinica:</label>
                   </td>
 
                   <td>
@@ -225,12 +216,11 @@ export default function GeneralForm(props) {
                       className={classes.formControl}
                     >
                       <InputLabel
-                      
                         ref={inputLabel}
                         htmlFor="outlined-age-simple"
                       ></InputLabel>
                       <Select
-                      required
+                      disabled
                         native
                         margin="dense"
                         value={state.clinica}
@@ -242,22 +232,16 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"Femme - Laboratório da Mulher"}>
-                          Femme - Laboratório da Mulher
-                        </option>
-                        <option value={"Clínica Popular Cuidar Mais"}>
-                          Clínica Popular Cuidar Mais
-                        </option>
-                        <option value={"Centro Diagnostico"}>
-                          Centro Diagnóstico
-                        </option>
+                        <option value={"ten"}>Ten</option>
+                        <option value={"two"}>Twenty</option>
+                        <option value={"tree"}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Médico:</label>
+                    <label htmlFor="">Medico:</label>
                   </td>
                   <td>
                     <FormControl
@@ -268,7 +252,7 @@ export default function GeneralForm(props) {
                   Medico
                 </InputLabel> */}
                       <Select
-                      required
+                        disabled
                         native
                         value={state.medico}
                         onChange={handleChange("medico")}
@@ -281,23 +265,16 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"Roberto Sangalo"}>
-                          Roberto Sangalo
-                        </option>
-                        <option value={"Pablo Vasconcellos"}>
-                          Pablo Vasconcellos
-                        </option>
-                        <option value={"Aretuza Grande"}>Aretuza Grande</option>
-                        <option value={"Katrina Swift"}>Katrina Swift</option>
-                        <option value={"Gloria Maria"}>Gloria Maria</option>
-                        <option value={"Vitor Carlos"}>Vitor Carlos</option>
+                        <option value={"ten"}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Convênio:</label>
+                    <label htmlFor="">Convenio:</label>
                   </td>
                   <td>
                     <FormControl
@@ -308,7 +285,7 @@ export default function GeneralForm(props) {
                   Convenio
                 </InputLabel> */}
                       <Select
-                        required
+                        disabled
                         native
                         value={state.convenio}
                         onChange={handleChange("convenio")}
@@ -321,18 +298,16 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"Unimed"}>Unimed</option>
-                        <option value={"Bradesco"}>Bradesco</option>
-                        <option value={"Sul Americano"}>Sul Americano</option>
-                        <option value={"Notre Dame"}>Notre Dame</option>
-                        <option value={"Amil"}>Amil</option>
+                        <option value={"unimed"}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Médico Solicitante:</label>
+                    <label htmlFor="">Medico Solicitante:</label>
                   </td>
                   <td>
                     <FormControl
@@ -343,7 +318,7 @@ export default function GeneralForm(props) {
                   Convenio
                 </InputLabel> */}
                       <Select
-                        required
+                        disabled
                         native
                         name="medicoSolicitante"
                         value={state.medicoSolicitante}
@@ -356,13 +331,9 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"Albert Scharle"}>Albert Scharle</option>
-                        <option value={"Stuart David"}>Stuart David</option>
-                        <option value={"Lucas Viena"}>Lucas Viena</option>
-                        <option value={"Maria Antonieta"}>
-                          Maria Antonieta
-                        </option>
-                        <option value={"David Junior"}>David Junior</option>
+                        <option value={"ten"}>Ten</option>
+                        <option value={20}>Twenty</option>
+                        <option value={30}>Thirty</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -372,13 +343,13 @@ export default function GeneralForm(props) {
               <td className="mainTd">
                 <tr>
                   <td>
-                    <label className="mt-4" htmlFor="">Data de Nasc: </label>
+                    <label htmlFor="">Data de Nasc: </label>
                   </td>
                   <td>
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
-                          required
+                          disabled
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -392,13 +363,14 @@ export default function GeneralForm(props) {
                     </MuiPickersUtilsProvider>
                   </td>
                 </tr>
+
                 <tr>
                   <td>
-                    <label className="mt-2" htmlFor="">Nome:</label>
+                    <label htmlFor="">Nome:</label>
                   </td>
                   <td>
                     <TextField
-                      required
+                      disabled
                       id="outlined-dense"
                       margin="dense"
                       // variant="outlined"
@@ -409,13 +381,14 @@ export default function GeneralForm(props) {
                     />
                   </td>
                 </tr>
+
                 <tr>
                   <td>
                     <label htmlFor="">Idade:</label>
                   </td>
                   <td>
                     <TextField
-                      required
+                      disabled
                       id="outlined-number"
                       name="idade"
                       margin="dense"
@@ -436,7 +409,7 @@ export default function GeneralForm(props) {
                   </td>
                   <td>
                     <TextField
-                      required
+                      disabled
                       id="outlined-tel"
                       margin="dense"
                       // label="Telefone"
@@ -448,14 +421,16 @@ export default function GeneralForm(props) {
                     />
                   </td>
                 </tr>
+
                 <tr>
                   <td>
                     <label htmlFor="">E-mail:</label>
                   </td>
                   <td>
                     <TextField
-                      required
+                      disabled
                       id="outlined-email-input"
+                   
                       name="email"
                       autoComplete="email"
                       margin="dense"
@@ -465,17 +440,19 @@ export default function GeneralForm(props) {
                     />
                   </td>
                 </tr>
+               
                 <tr>
                   <td>
-                    <label htmlFor="">Exame: </label>
+                    <label htmlFor="">selecionar exame</label>
                   </td>
                   <td>
                     <FormControl
                       // variant="outlined"
                       className={classes.formControl}
                     >
+                    
                       <Select
-                        required
+                        disabled
                         native
                         value={state.selecionarExame}
                         onChange={handleChange("selecionarExame")}
@@ -488,30 +465,39 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"/newfigadoview"}>Figado</option>
-                        <option value={"/newprostataview"}>Prostata</option>
+                        <option value={"/newfigadoview"}>figado</option>
+                        <option value={"/newprostataview"}>prostata</option>
+                        
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
+             
+               
               </td>
+              
+              
             </tr>
           </tbody>
         </table>
         <br />
+        <p>Observações:</p>
+        <br/>
+        <p className="mb-4">Conclusão:</p>
+     
+  
+  <br/>
+  
 
-        <br />
-        <Button
-          type="submit"
-          onClick={() => addUser(onclick)}
-          // fullWidth
-          variant="contained"
-          color="primary"
-          className={classes.submit}
-        >
-          novo laudo
-        </Button>
+
+       
       </form>
-    </div>
+    </div>  
   );
 }
+
+
+
+
+
+

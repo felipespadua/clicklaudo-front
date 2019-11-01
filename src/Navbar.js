@@ -16,6 +16,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Menubar from './Menubar.js';
 import BuildIcon from '@material-ui/icons/Build';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -62,7 +63,7 @@ export default function NavBar() {
 	};
 
 	return (
-		<div className={classes.root}>
+		<div className={classes.root && 'fixed-top'}>
 			<FormGroup />
 			<AppBar position="static">
 				<Toolbar>
@@ -75,10 +76,11 @@ export default function NavBar() {
             <Button href="Laudos">Laudos</Button>
           </Tooltip> */}
 					<div>
-            <Button aria-controls="simple-menu" aria-haspopup="true" href="/newlaudoview">
+						<Button aria-controls="simple-menu" aria-haspopup="true" href="/newlaudoview">
 							<PostAddOutlinedIcon />
-              Novo Exame
+							Novo Exame
 						</Button>
+
 						<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
 							<BuildIcon />
 						</Button>
@@ -100,6 +102,10 @@ export default function NavBar() {
 							</Link>
 							<Link href="/Clinicas">
 								<MenuItem onClick={handleClose}>Clinicas</MenuItem>
+							</Link>
+							<Divider />
+							<Link href="/dashboard">
+								<MenuItem onClick={handleClose}>Dashboard</MenuItem>
 							</Link>
 						</Menu>
 					</div>

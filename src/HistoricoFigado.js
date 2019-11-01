@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import { BrowserRouter as Router } from "react-router-dom";
+import HistoricoFigadoForm from './HistoricoFigadoForm'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import GeneralForm from './GeneralForm';
 
-class NewLaudoView extends Component {
+class Historico extends Component {
   constructor(props){
     super(props)
     this.state = {
@@ -18,7 +18,7 @@ class NewLaudoView extends Component {
             <Router>
               <div id="main"></div>
               <Navbar/>
-                <GeneralForm rest={this.props}/>
+                <HistoricoFigadoForm/>
                 <Footer/>
             </Router> 
       </div>
@@ -26,4 +26,4 @@ class NewLaudoView extends Component {
   }
 }
 
-  export default NewLaudoView
+  export default Historico

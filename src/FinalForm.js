@@ -9,7 +9,8 @@ class FinalForm extends Component {
     super(props);
     this.state = {
       observacoes: "",
-      conclusoes: ""
+      conclusoes: "",
+      phrases: {}
     };
     this.typeControl = {
       text: ["observacoes", "conclusoes"]
@@ -56,11 +57,75 @@ class FinalForm extends Component {
     });
   }
 
-  componentDidMount(){
-    
+  populateFields(data,phrases) {
+    const { homogeneo, esteatotico, 
+      dimensao, hepatopiaCronica, 
+      ciscoSimples, cistoSimplesMM, 
+      ciscoSimplesSit, variosCiscos, 
+      variosCiscosMM, variosCiscosSit, 
+      noduloSolido, noduloSolidoContorno, 
+      noduloSolidoHMM, noduloSolidoVMM,
+      noduloSolidoTipo, calcificacaoGrosseira, 
+      calcificacaoGrosseiraMM, calcificacaoGrosseiraSit} = data
+    console.log(data,"data")
+    console.log(phrases,"phrases")
+    let campoObservasoes = ""
+    let campoConclusoes = ""
+    let { observations, conclusions } = phrases
+    let auxString = ""
+    if(homogeneo){
+      if(dimensao != null && dimensao != ""){
+        campoObservasoes += observations[0].homogeneo.text.replace(/especificad@/g, dimensao.toLowerCase())
+      }
+      campoConclusoes += conclusions[0].homogeneo.text
+    }
+    if(esteatotico){
+      if(dimensao != null && dimensao != ""){
+        campoObservasoes += observations[0].esteatotico.text.replace(/especificad@/g, dimensao.toLowerCase())
+        campoConclusoes += conclusions[0].esteatotico.text.replace(/especificad@/g, dimensao.toLowerCase())
+      }
+    }
+    if(hepatopiaCronica){
+      campoObservasoes += observations[0].hepatopatiaCronica.text
+      campoConclusoes += conclusions[0].hepatopariaCronica.text
+    }
+    if(ciscoSimples){
+      auxString = observations[0].cistoSimples.text.replace(/especificad@/, cistoSimplesMM)
+      campoObservasoes += auxString.replace(/especificad@/, ciscoSimplesSit.toLowerCase())
+      campoConclusoes += conclusions[0].cistoSimples.text.replace(/especificad@/, ciscoSimplesSit.toLowerCase())
+    }
+    if(noduloSolido){
+      auxString  = observations[0].noduloSolido.text.replace(/especificad@/, `${noduloSolidoHMM} x ${noduloSolidoVMM}`)
+      campoObservasoes += auxString.replace(/especificad@/, noduloSolidoTipo)
+      campoConclusoes += conclusions[0].noduloSolido.text
+    } 
+    if(calcificacaoGrosseira){                                                
+      auxString = observations[0].calcificacaoGrosseira.text.replace(/especificad@/, calcificacaoGrosseiraMM)
+      campoObservasoes += auxString.replace(/especificad@/, calcificacaoGrosseiraSit.toLowerCase())
+      campoConclusoes += conclusions[0].calcificacaoGrosseira.text.replace(/especificad@/, calcificacaoGrosseiraSit.toLowerCase())
+    }
+    this.setState({
+      observacoes: campoObservasoes,
+      conclusoes: campoConclusoes
+    })
+  } 
+
+  componentDidMount() {
+    const apiHandler = new ApiService()
+    const id = this.props.match.params.id
+    apiHandler.getOneLiver(id)
+    .then((data) => {
+      apiHandler.getPhrases("liver")
+        .then(phrases => {
+          this.populateFields(data,phrases)
+        })
+        .catch(err => console.log(err))
+    }).catch(err => console.log(err))
   }
 
   render() {
+    
+    console.log(this.props)
     return (
       <div className="mainDivGF">
         <form onSubmit={this.handleSubmit}>
