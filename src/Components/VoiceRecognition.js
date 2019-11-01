@@ -179,8 +179,30 @@ class VoiceRecognition extends Component {
 
       words.forEach(word => {
         if (word === "C1" || word === "c1" || word === "ser um") {
+          this.props.handleChangeVR("esteatotico");
+        }
+        if (word === "C2" || word === "c2" || word === "ser dois") {
           this.props.handleChangeVR("homogeneo");
         }
+        if (word === "C3" || word === "c3" || word === "ser tres") {
+          this.props.handleChangeVR("ciscoSimples");
+        }
+        if (word === "C4" || word === "c4" || word === "ser quatro") {
+          this.props.handleChangeVR("variosCiscos");
+        }
+        if (word === "C5" || word === "c5" || word === "ser cinco") {
+          this.props.handleChangeVR("calcificacaoGrosseira");
+        }
+        if (word === "C6" || word === "c6" || word === "ser seis") {
+          this.props.handleChangeVR("dimensao");
+        }
+        if (word === "C7" || word === "c7" || word === "ser sete") {
+          this.props.handleChangeVR("hepatopiaCronica");
+        }
+        
+
+
+
 
         let normalizedKeys = Object.keys(this.props.prevState).map(key => {
           return this.normalizeText(key);

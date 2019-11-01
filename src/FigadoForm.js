@@ -187,7 +187,7 @@ class FigadoForm extends Component {
                   
                   />
                 </td>
-                <td style={{fontWeight:"400"}}>Quais são as dimensões apresentadas ? </td>
+                <td style={{fontWeight:"400"}}>Quais são as dimensões apresentadas ? (C6) </td>
                 <td>
                   <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
