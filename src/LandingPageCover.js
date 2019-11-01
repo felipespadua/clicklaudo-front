@@ -10,7 +10,7 @@ class LandingPageCover extends Component {
 
   render() {
     return (
-      <div>
+      <div id="skrollr-body">
         <div
           className="logocon"
           data-0="opacity: 1; display: flex"
