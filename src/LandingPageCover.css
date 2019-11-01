@@ -359,14 +359,7 @@ p {
     }
 
     #navButton:hover {
-        font-weight: 100;
-        font-size: 20px;
-        background: #6e44ff;
-        border: none;
-        padding: 5px 15px 5px 15px;
-        border-radius: 15%;
-        color: white;
-        margin: 0 2px 0 1px
+        background: #6135f6;
     }
 
     .container-fluid {
@@ -544,14 +537,7 @@ p {
     }
 
     #navButton:hover {
-        font-weight: 100;
-        font-size: 12px;
-        background: #6e44ff;
-        border: none;
-        padding: 5px 15px 5px 15px;
-        border-radius: 15%;
-        color: white;
-        margin: 0 2px 0 1px
+        background: #6135f6;
     }
 
     .container-fluid {
