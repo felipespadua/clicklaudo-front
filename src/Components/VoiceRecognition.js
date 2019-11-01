@@ -18,7 +18,7 @@ let processor = undefined;
 class VoiceRecognition extends Component {
   constructor(props) {
     super(props);
-    this.socket = socketIOClient("http://localhost:5000");
+    this.socket = socketIOClient(process.env.REACT_APP_API_URL);
     this.bufferSize = 2048;
     this.AudioContext = undefined;
     this.finalWord = false;
