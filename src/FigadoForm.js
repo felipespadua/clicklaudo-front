@@ -520,6 +520,7 @@ class FigadoForm extends Component {
                   </FormControl>
                 </td>
               </tr>
+              <br />
               {/* ----------------------------------------- */}
               <tr>
                 <td>
@@ -530,14 +531,14 @@ class FigadoForm extends Component {
               </tr>
               <tr>
                 <td>
-                  <Button
+                  {/* <Button
                     variant="contained"
                     href="/preview"
                     color="primary"
                     type="submit"
                   >
                     Preview
-                  </Button>
+                  </Button> */}
                 </td>
               </tr>
               {/* ------------------------------------------ */}

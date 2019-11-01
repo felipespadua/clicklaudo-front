@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -14,12 +14,10 @@ import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
-import ApiService from './Services/ApiService'
-import Autocomplete from '@material-ui/lab/Autocomplete';
+import ApiService from "./Services/ApiService";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 import Link from "@material-ui/core/Link";
-import { Redirect } from 'react-router-dom'
-
-
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,23 +33,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
-
 export default function GeneralForm(props) {
+  useEffect(() => function addUser(onclick) {});
 
-  useEffect(()=> function addUser(onclick){
-
-  })
-    
- 
-
-  useEffect((onClick)=> function handleSubmit(onClick) {
-  
-      
-    
-
-   
-  });
+  useEffect(onClick => function handleSubmit(onClick) {});
 
   const classes = useStyles();
   const [state, setState] = React.useState({
@@ -69,16 +54,15 @@ export default function GeneralForm(props) {
     selecionarExame: "",
     hrefExam: "/abc"
   });
-  
+
   const inputLabel = React.useRef(null);
   const [labelWidth, setLabelWidth] = React.useState(0);
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-  const completePacient = objPacient =>{
-      console.log(objPacient)
-
-  }
+  const completePacient = objPacient => {
+    console.log(objPacient);
+  };
   //   const [selectedDate, setSelectedDate] = React.useState(
   //     new Date("2014-08-18T21:11:54")
   //   );
@@ -91,26 +75,22 @@ export default function GeneralForm(props) {
   };
 
   const handleChange = name => event => {
-   console.log(props)
-    if(name === "selecionarExame"){
-      console.log(event.target)
+    console.log(props);
+    if (name === "selecionarExame") {
+      console.log(event.target);
       setState({
         ...state,
-        [name]: event.target.value,
+        [name]: event.target.value
       });
-    }else {
+    } else {
       setState({
         ...state,
         [name]: event.target.value
       });
     }
   };
-  
 
   const handleSubmit = event => {
-  
-  
- 
     event.preventDefault();
     //axios
     setState({
@@ -128,46 +108,44 @@ export default function GeneralForm(props) {
     });
   };
   const addUser = event => {
-   
-    const apiHandler = new ApiService()
-   
-    const { dataDeNasc,nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
-    
-  
-      apiHandler.newPacient(dataDeNasc,nome,idade,telefone,email,convenio)
+    const apiHandler = new ApiService();
+
+    const {
+      dataDeNasc,
+      nome,
+      idade,
+      telefone,
+      email,
+      convenio,
+      clinica,
+      medico,
+      medicoSolicitante,
+      data,
+      selecionarExame
+    } = state;
+
+    apiHandler
+      .newPacient(dataDeNasc, nome, idade, telefone, email, convenio)
       .then(function(itemResponse) {
-        console.log('PACIENT!!!!!!!!',itemResponse)
-        console.log(selecionarExame)
-        if(selecionarExame==="/newprostataview"){
-          apiHandler.newProstate(clinica,medico,medicoSolicitante,data)
-        .then(function(response) {
-          console.log('PROSTATA!!!!!!!!!!!!!',response)
-        props.rest.history.push(`${selecionarExame}`)
-          
-        })
+        console.log("PACIENT!!!!!!!!", itemResponse);
+        console.log(selecionarExame);
+        if (selecionarExame === "/newprostataview") {
+          apiHandler
+            .newProstate(clinica, medico, medicoSolicitante, data)
+            .then(function(response) {
+              console.log("PROSTATA!!!!!!!!!!!!!", response);
+              props.rest.history.push(`${selecionarExame}`);
+            });
         }
-        if(selecionarExame==="figado"){
-          apiHandler.newLiver(clinica,medico,medicoSolicitante,data)
+        if (selecionarExame === "figado") {
+          apiHandler.newLiver(clinica, medico, medicoSolicitante, data);
         }
-      
-        
-       
       });
-     
-  
-
-    
-  
-  }
-
-
-
-
+  };
 
   return (
-
     <div className="mainDivGF">
-      <form className="box-shadow p-4 "  onSubmit={handleSubmit}>
+      <form className="box-shadow p-4 " onSubmit={handleSubmit}>
         <h3>Novo Laudo</h3>
         <table>
           <thead>
@@ -230,9 +208,15 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"ten"}>Ten</option>
-                        <option value={"two"}>Twenty</option>
-                        <option value={"tree"}>Thirty</option>
+                        <option value={"Femme - Laboratório da Mulher"}>
+                          Femme - Laboratório da Mulher
+                        </option>
+                        <option value={"Clínica Popular Cuidar Mais"}>
+                          Clínica Popular Cuidar Mais
+                        </option>
+                        <option value={"Centro Diagnostico"}>
+                          Centro Diagnóstico
+                        </option>
                       </Select>
                     </FormControl>
                   </td>
@@ -262,9 +246,16 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"ten"}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Roberto Sangalo"}>
+                          Roberto Sangalo
+                        </option>
+                        <option value={"Pablo Vasconcellos"}>
+                          Pablo Vasconcellos
+                        </option>
+                        <option value={"Aretuza Grande"}>Aretuza Grande</option>
+                        <option value={"Katrina Swift"}>Katrina Swift</option>
+                        <option value={"Gloria Maria"}>Gloria Maria</option>
+                        <option value={"Vitor Carlos"}>Vitor Carlos</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -294,9 +285,11 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"unimed"}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Unimed"}>Unimed</option>
+                        <option value={"Bradesco"}>Bradesco</option>
+                        <option value={"Sul Americano"}>Sul Americano</option>
+                        <option value={"Notre Dame"}>Notre Dame</option>
+                        <option value={"Amil"}>Amil</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -326,9 +319,13 @@ export default function GeneralForm(props) {
                         }}
                       >
                         <option value="" />
-                        <option value={"ten"}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Albert Scharle"}>Albert Scharle</option>
+                        <option value={"Stuart David"}>Stuart David</option>
+                        <option value={"Lucas Viena"}>Lucas Viena</option>
+                        <option value={"Maria Antonieta"}>
+                          Maria Antonieta
+                        </option>
+                        <option value={"David Junior"}>David Junior</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -420,7 +417,6 @@ export default function GeneralForm(props) {
                   <td>
                     <TextField
                       id="outlined-email-input"
-                   
                       name="email"
                       autoComplete="email"
                       margin="dense"
@@ -430,7 +426,7 @@ export default function GeneralForm(props) {
                     />
                   </td>
                 </tr>
-               
+
                 <tr>
                   <td>
                     <label htmlFor="">selecionar exame</label>
@@ -440,7 +436,6 @@ export default function GeneralForm(props) {
                       // variant="outlined"
                       className={classes.formControl}
                     >
-                    
                       <Select
                         native
                         value={state.selecionarExame}
@@ -456,45 +451,28 @@ export default function GeneralForm(props) {
                         <option value="" />
                         <option value={"/newfigadoview"}>figado</option>
                         <option value={"/newprostataview"}>prostata</option>
-                        
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
-             
-               
               </td>
-              
-              
             </tr>
           </tbody>
         </table>
         <br />
-     
-  
-  <br/>
-  <Button
-  type="submit"
-  onClick={()=> addUser(onclick)}
-  
-  
-  // fullWidth
-  variant="contained"
-  color="primary"
-  className={classes.submit}
-  >
-  novo laudo
-  </Button>
 
-
-       
+        <br />
+        <Button
+          type="submit"
+          onClick={() => addUser(onclick)}
+          // fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+        >
+          novo laudo
+        </Button>
       </form>
-    </div>  
+    </div>
   );
 }
-
-
-
-
-
-

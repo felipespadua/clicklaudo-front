@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import skrollr from "skrollr";
 import "./LandingPageCover.css";
+import Button from "@material-ui/core/Button";
 
 class LandingPageCover extends Component {
   componentDidMount() {
