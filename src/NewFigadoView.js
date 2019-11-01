@@ -18,7 +18,7 @@ class NewFigadoView extends Component {
             <Router>
               <div id="main"></div>
               <Navbar/>
-                <FigadoForm/>
+              <FigadoForm rest={this.props}/>
                 <Footer/>
             </Router> 
       </div>

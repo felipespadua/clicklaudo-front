@@ -14,28 +14,38 @@ class ApiService {
     .then(response => response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
-  newLiver = (clinica,medico,medicoSolicitante,data) => {
-    console.log(data)
-    return this.service.post('/newliver', {clinica,medico,medicoSolicitante,data})
+  newLiver = (clinica,medico,medicoSolicitante,data,pacient) => {
+    
+    return this.service.post('/newliver', {clinica,medico,medicoSolicitante,data,pacient})
     .then(response => response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
-  newProstate = (clinica,medico,medicoSolicitante,data) => {
-    console.log(data)
-    return this.service.post('/newprostate', {clinica,medico,medicoSolicitante,data})
-    .then(response => response.data)
+  newProstate = (clinica,medico,medicoSolicitante,data,pacient) => {
+   
+    return this.service.post('/newprostate', {clinica,medico,medicoSolicitante,data,pacient})
+    .then(response =>
+      
+      response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
 
 
-  newPacient = (dataDeNasc,nome,idade,telefone,email,convenio) => {
-
-    return this.service.post('/newpacient',{dataDeNasc,nome,idade,telefone,email,convenio})
+  newPacient = (nome,idade,telefone,email,convenio) => {
+    
+    return this.service.post('/newpacient',{nome,idade,telefone,email,convenio})
     .then(response => response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
- 
-
+  updateLiver = (dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)=>{
+    return this.service.put(`/newfigadoview/${id}`,{dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} )
+    .then(response => response.data)
+    .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
+  }
+  updateProstate = (homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)=>{
+    return this.service.put(`/newprostataview/${id}`,{homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} )
+    .then(response => response.data)
+    .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
+  }
 }
 
 export default ApiService;
