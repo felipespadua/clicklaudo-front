@@ -11,26 +11,7 @@ class LandingPageCover extends Component {
   render() {
     return (
       <div>
-        <div
-          className="logocon"
-          data-0="opacity: 1; display: flex"
-          data-99="opacity: 0; display: none"
-          data-100="display: none"
-        >
-          <div className="logo">
-            <img src="/img/OnReport_roxo.svg" alt="" id="imageLaudos" />
-          </div>
-        </div>
-        <div id="skrollr-body">
-          <div
-            className="hint"
-            data-0="bottom: 10vh"
-            data-50="bottom:10vh"
-            data-100="bottom: -85px"
-          >
-            <img src="/img/arrow-down.png" alt="" />
-          </div>
-
+        <div>
           <div className="menu">
             <nav className="navigation navbar navbar-default navbar-fixed-top">
               <div className="container-fluid">
@@ -70,6 +51,27 @@ class LandingPageCover extends Component {
               </div>
             </nav>
           </div>
+        </div>
+        <div>
+          <div
+            className="logocon"
+            data-0="opacity: 1; display: flex"
+            data-99="opacity: 0; display: none"
+            data-100="display: none"
+          >
+            <div className="logo">
+              <img src="/img/OnReport_roxo.svg" alt="" id="imageLaudos" />
+            </div>
+          </div>
+          <div
+            className="hint"
+            data-0="bottom: 10vh"
+            data-50="bottom:10vh"
+            data-100="bottom: -85px"
+          >
+            <img src="/img/arrow-down.png" alt="" />
+          </div>
+
           <div className="content">
             <div>
               {/* <!-- Header Banner --> */}
