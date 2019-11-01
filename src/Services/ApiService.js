@@ -63,7 +63,9 @@ class ApiService {
     .then(response => response.data)
     .catch(err => console.log(err))
   }
-
+  downloadPdf = () => {
+    
+  }
 }
 
 export default ApiService;

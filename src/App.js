@@ -80,12 +80,12 @@ class App extends React.Component {
                         render={(props) => <NewFigadoView {...props}/>}/>
                         <Route
                             exact
+                            path="/finalLiver/:id"
+                            render={(props) => <FinalView {...props}/>}/>
+                        <Route
+                            exact
                             path="/newprostataview/:id"
                             render={(props) => <NewProstataView {...props}/>}/>
-                                <Route
-                            exact
-                            path="/newfigadoview/laudofinal/:id"
-                            render={(props) => <FinalForm {...props}/>}/>
                         <Route path="/newlaudoview" render={(props) => <NewLaudoView {...props}/>}/>
                         <Route path="/simpleexpansion" component={SimpleExpansionPanel}/>
                         <Route path="/dashboard" component={Dashboard} />
@@ -129,7 +129,7 @@ class App extends React.Component {
                         <Route
                             exact
                             path="/finalLiver/:id"
-                            render={(props) => <FinalForm {...props}/>}/>
+                            render={(props) => <FinalView {...props}/>}/>
                         <Route
                             exact
                             path="/newprostataview/:id"
