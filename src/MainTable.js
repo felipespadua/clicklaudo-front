@@ -47,9 +47,9 @@ export default function MainTable(props) {
 				title: 'Delete',
 				field: 'delete',
 				render: (rowData) => (
-					<button onClick={() => deleteExam(rowData.id)}>
-						DELETE
-					</button>
+					<Button onClick={() => deleteExam(rowData.id)}>
+						<DeleteIcon/>
+					</Button>
 				)
 			}
 		],

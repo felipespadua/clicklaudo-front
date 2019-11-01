@@ -10,6 +10,7 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
 import "./App.css";
+import ApiService from './Services/ApiService'
 
 class ProstataForm extends Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class ProstataForm extends Component {
 
   handleChange = name => event => {
     console.log(event.target);
+    
     if (event.target.type === "checkbox") {
       this.setState({ ...this.state, [name]: event.target.checked });
     } else {
@@ -70,6 +72,24 @@ class ProstataForm extends Component {
     });
     console.log(this.state);
   };
+
+  updateUser = async (onclick) =>  {
+    console.log(this.props)
+    try{
+      const apiHandler = new ApiService()
+      const id = this.props.rest.match.params.id;
+      const { homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} = this.state;
+      const response = await apiHandler.updateProstate(homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)
+      this.props.history.push(`newprostataview/${response._id}`)
+    }catch(err){
+      console.log(err)
+    }
+    //.then(function(itemResponse) {
+    //  console.log(this.props)
+      //this.props.history.push(`newprostataview/${itemResponse._id}`)
+   
+    //})
+  }
 
   handleSubmit(event) {
     console.log(this.state);
@@ -102,6 +122,8 @@ class ProstataForm extends Component {
   //   }
 
   render() {
+ 
+    console.log('PROPS!!!!!',this.props.rest.match.params)
     return (
       <div className="mainDivGF">
         <form className="box-shadow p-4"   onSubmit={this.handleSubmit}>
@@ -255,7 +277,7 @@ class ProstataForm extends Component {
             />
           )}
           <br />
-          <Button variant="contained" color="primary" type="submit">
+          <Button onClick={() => this.updateUser} variant="contained" color="primary" type="submit">
             Enviar
           </Button>
         </form>
