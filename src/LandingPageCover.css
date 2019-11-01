@@ -255,14 +255,15 @@ a:hover {
 }
 
 #navButton:hover {
-    font-weight: 100;
-    font-size: 25px;
-    background: #6e44ff;
-    border: none;
-    padding: 10px 35px 10px 35px;
-    border-radius: 15%;
-    color: white;
-    margin: 0 9px 0 6px
+    /* font-weight: bold; */
+    /* font-size: 15px; */
+    background: #6135f6;
+    /* border: none; */
+    /* padding: 10px 35px 10px 35px; */
+    /* border-radius: 35%; */
+    /* color: white; */
+    /* margin: 0 9px 0 6px */
+    /* box-shadow: inset 0 0 0 5px #000; */
 }
 
 /* .login-link>a {
