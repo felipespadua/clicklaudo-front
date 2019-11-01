@@ -176,9 +176,9 @@ class FigadoForm extends Component {
                   <FormControlLabel 
                     control={
                       <Checkbox
-                        checked={this.state.esteatotico}
-                        onChange={this.handleChange("esteatotico")}
-                        value={this.state.esteatotico}
+                        checked={this.state.homogeneo}
+                        onChange={this.handleChange("homogeneo")}
+                        value={this.state.homogeneo}
                       />
                     }
                     
@@ -225,9 +225,9 @@ class FigadoForm extends Component {
                   <FormControlLabel
                     control={
                       <Checkbox
-                        checked={this.state.homogeneo}
-                        onChange={this.handleChange("homogeneo")}
-                        value={this.state.homogeneo}
+                        checked={this.state.esteatotico}
+                        onChange={this.handleChange("esteatotico")}
+                        value={this.state.esteatotico}
                       />
                     }
                     label="Homogêneo (C2)"

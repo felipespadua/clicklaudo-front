@@ -18,7 +18,7 @@ class FinalView extends Component {
             <Router>
               <div id="main"></div>
               <Navbar/>
-                <FinalForm/>
+                <FinalForm {...this.props}/>
                 <Footer/>
             </Router> 
       </div>
