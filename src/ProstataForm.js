@@ -10,6 +10,7 @@ import Select from "@material-ui/core/Select";
 import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
 import "./App.css";
+import ApiService from './Services/ApiService'
 
 class ProstataForm extends Component {
   constructor(props) {
@@ -71,6 +72,14 @@ class ProstataForm extends Component {
     });
     console.log(this.state);
   };
+
+  updateUser = (onclick) => {
+    const apiHandler = new ApiService()
+    const id = this.props.rest.match.params.id;
+    
+    const { homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} = this.state;
+    apiHandler.updateProstate(homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)
+  }
 
   handleSubmit(event) {
     console.log(this.state);
@@ -257,7 +266,7 @@ class ProstataForm extends Component {
             />
           )}
           <br />
-          <Button variant="contained" color="primary" type="submit">
+          <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
             Enviar
           </Button>
         </form>

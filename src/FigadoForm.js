@@ -11,7 +11,7 @@ import Button from "@material-ui/core/Button";
 import VoiceRecognition from "./Components/VoiceRecognition";
 import Preview from "./Components/Preview";
 import NewWindow from "react-new-window";
-
+import ApiService from './Services/ApiService'
 
 
 class FigadoForm extends Component {
@@ -71,7 +71,7 @@ class FigadoForm extends Component {
   }
 
   handleChange = name => event => {
-    console.log(event.target);
+   
     if (event.target.type === "checkbox") {
       this.setState({ ...this.state, [name]: event.target.checked });
     } else {
@@ -89,6 +89,7 @@ class FigadoForm extends Component {
     }
   };
 
+
   handleChangeSelect = name => event => {
     console.log(event.target);
     this.setState({
@@ -97,7 +98,16 @@ class FigadoForm extends Component {
     console.log(this.state);
   };
 
+     updateUser = (onclick) => {
+      const apiHandler = new ApiService()
+      const id = this.props.rest.match.params.id;
+      
+      const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
+      apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+    }
+
   handleSubmit(event) {
+    
     console.log(this.state);
     event.preventDefault();
     this.setState({
@@ -126,12 +136,13 @@ class FigadoForm extends Component {
       calcificacaoGrosseiraMM: 0,
       calcificacaoGrosseiraSit: "",
 
-      age: ""
+      
     });
   }
 
   render() {
-    console.log(this.props)
+
+  
     return (
       <div className="mainDivGF m-4">
         <form onSubmit={this.handleSubmit}>
@@ -527,7 +538,7 @@ class FigadoForm extends Component {
               {/* ----------------------------------------- */}
               <tr>
                 <td>
-                  <Button variant="contained" color="primary" type="submit">
+                  <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
                     Enviar
                   </Button>
                 </td>

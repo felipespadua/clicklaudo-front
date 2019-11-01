@@ -68,7 +68,10 @@ class App extends React.Component {
                         <Route path="/medicossolicitante" component={MedicosSolicitante}/>
                         <Route path="/convenios" component={Convenios}/>
                         <Route path="/clinicas" component={Clinicas}/>
-                        <Route exact path="/newfigadoview/:id" component={NewFigadoView}/>
+                        <Route 
+                        exact 
+                        path="/newfigadoview/:id" 
+                        render={(props) => <NewFigadoView {...props}/>}/>
                         <Route
                             exact
                             path="/newprostataview/:id"

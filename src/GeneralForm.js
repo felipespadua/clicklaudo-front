@@ -132,7 +132,7 @@ export default function GeneralForm(props) {
     const apiHandler = new ApiService()
    
     const {nome,idade,telefone,email,convenio,clinica,medico,medicoSolicitante,data,selecionarExame} = state
-    console.log(nome,idade,telefone)
+  
   
       apiHandler.newPacient(nome,idade,telefone,email,convenio)
       .then(function(itemResponse) {

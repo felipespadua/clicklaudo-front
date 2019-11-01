@@ -36,8 +36,16 @@ class ApiService {
     .then(response => response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
- 
-
+  updateLiver = (dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)=>{
+    return this.service.put(`/newfigadoview/${id}`,{dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} )
+    .then(response => response.data)
+    .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
+  }
+  updateProstate = (homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)=>{
+    return this.service.put(`/newprostataview/${id}`,{homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} )
+    .then(response => response.data)
+    .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
+  }
 }
 
 export default ApiService;
