@@ -18,7 +18,6 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import ChartSemana from './ChartSemana'
-import Deposits from './Deposits';
 import ChartDias from './ChartDias'
 import Link from '@material-ui/core/Link';
 

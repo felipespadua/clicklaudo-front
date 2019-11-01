@@ -102,10 +102,10 @@ export default function Login (props) {
           </Typography>
           <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
             <TextField
+              required
               id="username"
               label="Username"
               className={classes.textField}
-              required
               fullWidth
               type="text"
               name="username"
@@ -113,13 +113,14 @@ export default function Login (props) {
               margin="normal"
               value={state.username} 
               onChange={ e => handleChange(e)}
+              input="submit"
               // variant="filled"
             />
             <TextField
+              required
               id="password"
               label="Password"
               className={classes.textField}
-              required
               fullWidth
               type="password"
               name="password"
@@ -129,6 +130,7 @@ export default function Login (props) {
               onChange={ e => handleChange(e)}
               // variant="filled"
             />
+            
             <Button
               type="submit"
               fullWidth

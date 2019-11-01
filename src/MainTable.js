@@ -78,7 +78,7 @@ import Grid from "@material-ui/core/Grid";
     
   
     return (
-      <Grid className="">
+      <Grid className="mt-5 pt-4">
 
       <MaterialTable 
         style={state.bg}

@@ -21,7 +21,7 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-    <Link href="/">
+    <Link href="/laudos">
       <ListItemText primary="Home" />
       </Link>
     </ListItem>

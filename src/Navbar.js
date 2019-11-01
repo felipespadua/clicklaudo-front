@@ -15,6 +15,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { BrowserRouter as Router } from "react-router-dom";
 import Menubar from './Menubar.js'
 import BuildIcon from '@material-ui/icons/Build';
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -65,7 +66,7 @@ export default function NavBar() {
   };
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root && 'fixed-top'}>
       <FormGroup>
       </FormGroup>
       <AppBar position="static">
@@ -81,7 +82,7 @@ export default function NavBar() {
           </Tooltip> */}
           <div>
 
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+          <Button aria-controls="simple-menu"  aria-haspopup="true" onClick={handleClick}>
         <BuildIcon/>
       </Button>
       <Menu
@@ -95,6 +96,10 @@ export default function NavBar() {
         <Link href="/MedicosSolicitante"><MenuItem onClick={handleClose}>Médicos Solitantes</MenuItem></Link>
         <Link href="/Convenios"><MenuItem onClick={handleClose}>Convênios</MenuItem></Link>
         <Link href="/Clinicas"><MenuItem onClick={handleClose}>Clinicas</MenuItem></Link>
+        <Divider />
+        <Link href="/dashboard"><MenuItem onClick={handleClose}>Dashboard</MenuItem></Link>
+
+
       </Menu>
         
           </div>

@@ -104,8 +104,8 @@ class ProstataForm extends Component {
   render() {
     return (
       <div className="mainDivGF">
-        <form className="box-shadow p-4"   onSubmit={this.handleSubmit}>
-          <table>
+        <form className="box-shadow p-4 mt-5  marginBottom"   onSubmit={this.handleSubmit}>
+          <table className="">
             <thead>
               <tr>
                 <td colspan="2">
@@ -119,6 +119,7 @@ class ProstataForm extends Component {
                 <td>Quais suas Dimensoes ?</td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Largura Prostata"
                     value={this.state.size1}
@@ -133,6 +134,7 @@ class ProstataForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Altura Prostata"
                     value={this.state.size2}
@@ -147,6 +149,7 @@ class ProstataForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required  
                     id="outlined-number"
                     label="Espessura Prostata"
                     value={this.state.size3}
@@ -205,6 +208,7 @@ class ProstataForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     id="outlined-number"
                     label="Quantidade(ml)"
                     value={this.state.residuoML}
@@ -261,7 +265,7 @@ class ExameTransversal extends React.Component {
 
   render() {
     return (
-      <div className="exameTransDiv">
+      <form className="exameTransDiv">
         <table>
           <thead></thead>
           <tbody>
@@ -308,6 +312,7 @@ class ExameTransversal extends React.Component {
             <tr>
               <td>
                 <TextField 
+                  required
                   id="outlined-number"
                   label="Largura Nodulo"
                   value={this.props.noduloSize1}
@@ -322,6 +327,7 @@ class ExameTransversal extends React.Component {
               </td>
               <td>
                 <TextField
+                  required
                   id="outlined-number"
                   label="Altura Nodulo"
                   value={this.props.noduloSize2}
@@ -336,6 +342,7 @@ class ExameTransversal extends React.Component {
               </td>
               <td>
                 <TextField
+                  required
                   id="outlined-number"
                   label="Espessura Nodulo(mm)"
                   value={this.props.noduloSize3}
@@ -392,6 +399,7 @@ class ExameTransversal extends React.Component {
               </td>
               <td>
                 <TextField
+                  required
                   id="outlined-number"
                   label="Fragmentos"
                   value={this.props.fragmentos}
@@ -407,7 +415,7 @@ class ExameTransversal extends React.Component {
             </tr>
           </tbody>
         </table>
-      </div>
+      </form>
     );
   }
 }

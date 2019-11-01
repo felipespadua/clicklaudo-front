@@ -1,48 +1,43 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import React, {Component} from 'react'
 
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    minHeight: '10vh',
-    // backgroundImage: 'url(/img/fundoFooter.jpeg  )',
-    // backgroundColor:  "#e4d6eb", 
-    color: "white",
-    textAlign: 'center',  
-  },
-
-  main: {
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(8),
-  },  
-
-}));
-
-export default function Footer() {
-  const classes = useStyles();
-  return (
-    <div className={classes.root}>
-      <Container component="main" className={classes.main} maxWidth="sm">
-      </Container>  
-      <footer className={classes.footer}>
-        <Container maxWidth="sm">
+class Footer extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
     
-        {/* <Tooltip className="mt-4" disableFocusListener title="Voltar ao topo">
-        <img src="/img/fundoFooter.jpeg" alt=""/>
-            <Button href="#main">Voltar ao topo</Button>
-          </Tooltip> */}
-        </Container>
-      </footer>
+    }
+  }
+
+  
+  render() {
+    return (
+      <div>
+<footer className="bg-dark text-white">
+    <div className="container py-4 mx--74 ">
+      <div className="row">
+        <div className="col">
+          
+          <ul className="list-unstyled">
+          </ul>
+          <h4 className="h6">DADOS DE CONTATO</h4>
+          <ul className="list-unstyled text-secondary">
+             <strong style={{color: 'white'}}>email:</strong> contato@onreport.com.br <strong style={{color: 'white'}}>contato:</strong> 11 99999-9999 <strong style={{color: "white"}}>aberto:</strong> de seg. à Sexta das 8hrs às 18hrs
+          <p style={{color: "white"}}>Copyright © OnReport 2019</p>
+          </ul>
+        </div>
+       
+  
+      </div>
     </div>
-  );
+  </footer>
+  </div>
+    )
+  };
 }
+
+export default Footer 
 
 
 

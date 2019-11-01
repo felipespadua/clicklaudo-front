@@ -167,7 +167,7 @@ export default function GeneralForm(props) {
   return (
 
     <div className="mainDivGF">
-      <form className="box-shadow p-4 "  onSubmit={handleSubmit}>
+      <form className="box-shadow p-4 marginBottom mt-5"  onSubmit={handleSubmit}>
         <h3>Historico do Laudo Prostata</h3>
         <table>
           <thead>
