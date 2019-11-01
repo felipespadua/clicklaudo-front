@@ -32,9 +32,9 @@ const useStyles = makeStyles(theme => ({
     backgroundImage: 'url(/img/Logo.svg)',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
-    height: '15vh',
-    width: '70vh',
-    backgroundSize: '350px'
+    height: '11vh',
+    width: '43vh',
+    backgroundSize: '280px'
   },
   paper: {
     margin: theme.spacing(8, 4),
@@ -81,17 +81,15 @@ export default function Login (props) {
     .catch( error => console.log(error) )
   }
   const handleChange = (event) => {  
-
     const {name, value} = event.target;
-    console.log(name,value)
-    setState({[name]: value});
+    setState({ ...state , [name]: value});
   }
   
   
   
     return (
       <Grid container component="main" className={classes.root}>
-      <CssBaseline />
+      {/* <CssBaseline /> */}
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
@@ -104,10 +102,10 @@ export default function Login (props) {
           </Typography>
           <form onSubmit={handleFormSubmit} className={classes.form} noValidate>
             <TextField
+              required
               id="username"
               label="Username"
               className={classes.textField}
-              required
               fullWidth
               type="text"
               name="username"
@@ -115,13 +113,14 @@ export default function Login (props) {
               margin="normal"
               value={state.username} 
               onChange={ e => handleChange(e)}
+              input="submit"
               // variant="filled"
             />
             <TextField
+              required
               id="password"
               label="Password"
               className={classes.textField}
-              required
               fullWidth
               type="password"
               name="password"
@@ -131,19 +130,19 @@ export default function Login (props) {
               onChange={ e => handleChange(e)}
               // variant="filled"
             />
+            
             <Button
               type="submit"
               fullWidth
               variant="contained"
               color="primary"
               className={classes.submit}
-              href="/Laudos"
             >
               Sign In
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/cadastro" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Não possui uma conta? Sign Up"}
                 </Link>
               </Grid>

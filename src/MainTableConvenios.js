@@ -1,5 +1,6 @@
 import React from 'react';
 import MaterialTable from 'material-table';
+import Grid from "@material-ui/core/Grid";
 
 
 
@@ -22,6 +23,7 @@ import MaterialTable from 'material-table';
 
     
     return (
+      <Grid className="mt-5 pt-4">
       <MaterialTable 
         style={state.bg}
         title="Cadastro Convênios"
@@ -66,6 +68,7 @@ import MaterialTable from 'material-table';
             }),
         }}
       />
+      </Grid>
       
       
     );

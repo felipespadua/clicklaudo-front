@@ -22,7 +22,7 @@ code {
 
 .border-box {
   padding-top: 30px;
-  /* padding-bottom: 40px; */
+  padding-bottom: 40px;
   padding-left: 30%;
   padding-right: 30%;
 }
@@ -49,6 +49,7 @@ code {
 
 .botao:hover {
   color: white;
+  transform: scale(0.8); 
 }
 
 .m-botton {
@@ -69,7 +70,7 @@ p {
 }
 
 .MuiAppBar-colorPrimary {
-  background-color: #d1d1d1 !important;
+  background-color: #f0f0f0 !important;
 }
 
 
@@ -79,4 +80,34 @@ p {
 
 a:hover {
   color: black;
+}
+
+.makeStyles-avatar-5 {
+  background-color: #7c7ef8 !important;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #7c7ef8 !important; 
+}
+
+.Component-paginationToolbar-317 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
+}
+
+.Component-paginationToolbar-138 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
+}
+
+.marginBottom {
+  margin-bottom: 525px;
+}
+
+
+
+
+.Component-paginationToolbar-241 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
 }

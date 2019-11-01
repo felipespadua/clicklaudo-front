@@ -1,44 +1,29 @@
-import React from "react";
-// import logo from "./logo.svg";
-import "./App.css";
-import GeneralForm from "./GeneralForm";
-import FigadoForm from "./FigadoForm";
+import React, {Component} from 'react'
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from './Navbar'
+import Footer from './Footer'
+import GeneralForm from './GeneralForm';
 
-class NewLaudoView extends React.Component {
-  constructor(props) {
-    super(props);
+class NewLaudoView extends Component {
+  constructor(props){
+    super(props)
     this.state = {
-      show: ""
-    };
-    this.showGeneral = this.showGeneral.bind(this);
-    this.showFigado = this.showFigado.bind(this);
-  }
-  showGeneral() {
-    this.setState({
-      show: "General"
-    });
+    
+    }
   }
 
-  showFigado() {
-    this.setState({
-      show: "Figado"
-    });
-  }
-
-  render() {
+  render(){
     return (
-      <div className="App">
-        <button onClick={this.showGeneral} className="btn-change">
-          General
-        </button>
-        <button onClick={this.showFigado} className="btn-change">
-          Figado
-        </button>
-        {this.state.show === "General" && <GeneralForm />}
-        {this.state.show === "Figado" && <FigadoForm />}
+          <div>
+            <Router>
+              <div id="main"></div>
+              <Navbar/>
+                <GeneralForm rest={this.props}/>
+                <Footer/>
+            </Router> 
       </div>
-    );
+    )
   }
 }
 
-export default NewLaudoView;
+  export default NewLaudoView

@@ -1,5 +1,7 @@
 import React from 'react';
 import MaterialTable from 'material-table';
+import { Container } from '@material-ui/core';
+import Grid from "@material-ui/core/Grid";
 
 
 
@@ -25,6 +27,7 @@ import MaterialTable from 'material-table';
 
     
     return (
+      <Grid className="mt-5 pt-4">
       <MaterialTable 
         style={state.bg}
         title="Cadastro Medicos"
@@ -69,7 +72,7 @@ import MaterialTable from 'material-table';
             }),
         }}
       />
-      
+      </Grid>
       
     );
   }

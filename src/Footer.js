@@ -1,49 +1,44 @@
-import React from 'react';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
-import Tooltip from '@material-ui/core/Tooltip';
+import React, {Component} from 'react'
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    // minHeight: '100vh',
-    // backgroundColor:  "#e4d6eb"
-    backgroundImage: "url(/img/medical3.jpeg)", 
-    color: "white",
-    textAlign: 'center'
 
-  },
+class Footer extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+    
+    }
+  }
 
-  main: {
-    marginTop: theme.spacing(12),
-    marginBottom: theme.spacing(2),
-  },
   
+  render() {
+    return (
+      <div>
+<footer className="bg-dark text-white">
+    <div className="container py-4 mx--74 ">
+      <div className="row">
+        <div className="col">
+          
+          <ul className="list-unstyled">
+          </ul>
+          <h4 className="h6">DADOS DE CONTATO</h4>
+          <ul className="list-unstyled text-secondary">
+             <strong style={{color: 'white'}}>email:</strong> contato@onreport.com.br <strong style={{color: 'white'}}>contato:</strong> 11 99999-9999 <strong style={{color: "white"}}>aberto:</strong> de seg. à Sexta das 8hrs às 18hrs
+          <p style={{color: "white"}}>Copyright © OnReport 2019</p>
+          </ul>
+        </div>
+       
   
-
-}));
-
-
-
-export default function Footer() {
-  const classes = useStyles();
-  
-
-  return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <Container component="main" className={classes.main} maxWidth="sm">
-        
-        <Tooltip disableFocusListener title="Voltar ao topo">
-            <Button href="#main">Voltar ao topo</Button>
-          </Tooltip>
-      </Container>
-
+      </div>
     </div>
-  );
+  </footer>
+  </div>
+    )
+  };
 }
+
+export default Footer 
+
+
+
+

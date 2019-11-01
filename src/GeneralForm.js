@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
 import InputLabel from "@material-ui/core/InputLabel";
 // import MenuItem from "@material-ui/core/MenuItem";
@@ -9,10 +9,17 @@ import {
   KeyboardDatePicker
 } from "@material-ui/pickers";
 import FormControl from "@material-ui/core/FormControl";
+
 import Select from "@material-ui/core/Select";
 import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import "./App.css";
+import ApiService from "./Services/ApiService";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import Link from "@material-ui/core/Link";
+import { Redirect } from 'react-router-dom'
+import Paper from "@material-ui/core/Paper";
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -28,8 +35,26 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function GeneralForm() {
+export default function GeneralForm(props) {
+  useEffect(() => function addUser(onclick) {});
+
+  useEffect(onClick => function handleSubmit(onClick) {});
+
+  
+  // const useStyles = makeStyles(theme => ({
+  //   root: {
+  //     height: "100vh"
+  //   },
+  //   image: {
+  //     backgroundImage: "url(/img/medical5.jpeg)",
+  //     backgroundRepeat: "no-repeat",
+  //     backgroundSize: "cover",
+  //     backgroundPosition: "center"
+  //   },
+  // }));
+
   const classes = useStyles();
+
   const [state, setState] = React.useState({
     data: new Date(),
     clinica: "",
@@ -41,7 +66,9 @@ export default function GeneralForm() {
     nome: "",
     idade: "",
     telefone: "",
-    email: ""
+    email: "",
+    selecionarExame: "",
+    hrefExam: "/abc"
   });
 
   const inputLabel = React.useRef(null);
@@ -49,7 +76,9 @@ export default function GeneralForm() {
   React.useEffect(() => {
     setLabelWidth(inputLabel.current.offsetWidth);
   }, []);
-
+  const completePacient = objPacient => {
+    console.log(objPacient);
+  };
   //   const [selectedDate, setSelectedDate] = React.useState(
   //     new Date("2014-08-18T21:11:54")
   //   );
@@ -62,15 +91,23 @@ export default function GeneralForm() {
   };
 
   const handleChange = name => event => {
-    // console.log(event);
-    setState({
-      ...state,
-      [name]: event.target.value
-    });
+    console.log(props);
+    if (name === "selecionarExame") {
+      console.log(event.target);
+      setState({
+        ...state,
+        [name]: event.target.value
+      });
+    } else {
+      setState({
+        ...state,
+        [name]: event.target.value
+      });
+    }
   };
 
   const handleSubmit = event => {
-    console.log(state);
+  
     event.preventDefault();
     //axios
     setState({
@@ -87,19 +124,68 @@ export default function GeneralForm() {
       email: ""
     });
   };
+  const addUser = event => {
+    const apiHandler = new ApiService();
+
+    const {
+      nome,
+      idade,
+      telefone,
+      email,
+      convenio,
+      clinica,
+      medico,
+      medicoSolicitante,
+      data,
+      selecionarExame
+    } = state;
+
+    apiHandler
+      .newPacient(nome, idade, telefone, email, convenio)
+      .then(function(itemResponse) {
+        const pacient = itemResponse._id;
+        console.log(pacient);
+        if (selecionarExame === "/newprostataview") {
+          console.log("i");
+          apiHandler
+            .newProstate(clinica, medico, medicoSolicitante, data, pacient)
+            .then(function(response) {
+              console.log("PROSTATA!!!!!!!!!!!!!", props.rest);
+              props.rest.history.push(`${selecionarExame}/${response._id}`);
+              //return <Redirect to={`${selecionarExame}/${response._id}`}/>
+            });
+        }
+        if (selecionarExame === "/newfigadoview") {
+          console.log(pacient);
+          apiHandler
+            .newLiver(clinica, medico, medicoSolicitante, data, pacient)
+            .then(function(response) {
+              console.log("figado!!!!!!!!!!!!", response, pacient);
+              props.rest.history.push(`${selecionarExame}/${response._id}`);
+            });
+        }
+      });
+  }
 
   return (
+    // <Grid container component="main" className={classes.root}>
+    //   <CssBaseline />
+      
+    //   <Grid item xs={false} sm={3} md={6} className={classes.image} />
+    //   <Grid item xs={12} sm={9} md={6} component={Paper} elevation={6} square>
+    //     <div className={classes.paper}></div>
+
     <div className="mainDivGF">
-      <form onSubmit={handleSubmit}>
-        <h1>Novo Laudo</h1>
+      <form className="box-shadow rounded p-4 marginBottom mt-5 "  onSubmit={handleSubmit}>
+        <h3>Novo Laudo</h3>
         <table>
           <thead>
             <tr>
               <td>
-                <h2>Exame</h2>
+                <h3>Exame</h3>
               </td>
               <td className="pacienteTd">
-                <h2>Paciente</h2>
+                <h3 className="mt=5" >Paciente</h3>
               </td>
             </tr>
           </thead>
@@ -114,6 +200,7 @@ export default function GeneralForm() {
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
+                        required
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -129,19 +216,21 @@ export default function GeneralForm() {
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Clinica:</label>
+                    <label  htmlFor="">Clinica:</label>
                   </td>
 
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       <InputLabel
+                      
                         ref={inputLabel}
                         htmlFor="outlined-age-simple"
                       ></InputLabel>
                       <Select
+                      required
                         native
                         margin="dense"
                         value={state.clinica}
@@ -153,26 +242,33 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Femme - Laboratório da Mulher"}>
+                          Femme - Laboratório da Mulher
+                        </option>
+                        <option value={"Clínica Popular Cuidar Mais"}>
+                          Clínica Popular Cuidar Mais
+                        </option>
+                        <option value={"Centro Diagnostico"}>
+                          Centro Diagnóstico
+                        </option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Medico:</label>
+                    <label htmlFor="">Médico:</label>
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                   Medico
                 </InputLabel> */}
                       <Select
+                      required
                         native
                         value={state.medico}
                         onChange={handleChange("medico")}
@@ -185,26 +281,34 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Roberto Sangalo"}>
+                          Roberto Sangalo
+                        </option>
+                        <option value={"Pablo Vasconcellos"}>
+                          Pablo Vasconcellos
+                        </option>
+                        <option value={"Aretuza Grande"}>Aretuza Grande</option>
+                        <option value={"Katrina Swift"}>Katrina Swift</option>
+                        <option value={"Gloria Maria"}>Gloria Maria</option>
+                        <option value={"Vitor Carlos"}>Vitor Carlos</option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Convenio:</label>
+                    <label htmlFor="">Convênio:</label>
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                   Convenio
                 </InputLabel> */}
                       <Select
+                        required
                         native
                         value={state.convenio}
                         onChange={handleChange("convenio")}
@@ -217,26 +321,29 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Unimed"}>Unimed</option>
+                        <option value={"Bradesco"}>Bradesco</option>
+                        <option value={"Sul Americano"}>Sul Americano</option>
+                        <option value={"Notre Dame"}>Notre Dame</option>
+                        <option value={"Amil"}>Amil</option>
                       </Select>
                     </FormControl>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <label htmlFor="">Medico Solicitante:</label>
+                    <label htmlFor="">Médico Solicitante:</label>
                   </td>
                   <td>
                     <FormControl
-                      variant="outlined"
+                      // variant="outlined"
                       className={classes.formControl}
                     >
                       {/* <InputLabel ref={inputLabel} htmlFor="outlined-age-simple">
                   Convenio
                 </InputLabel> */}
                       <Select
+                        required
                         native
                         name="medicoSolicitante"
                         value={state.medicoSolicitante}
@@ -249,9 +356,13 @@ export default function GeneralForm() {
                         }}
                       >
                         <option value="" />
-                        <option value={10}>Ten</option>
-                        <option value={20}>Twenty</option>
-                        <option value={30}>Thirty</option>
+                        <option value={"Albert Scharle"}>Albert Scharle</option>
+                        <option value={"Stuart David"}>Stuart David</option>
+                        <option value={"Lucas Viena"}>Lucas Viena</option>
+                        <option value={"Maria Antonieta"}>
+                          Maria Antonieta
+                        </option>
+                        <option value={"David Junior"}>David Junior</option>
                       </Select>
                     </FormControl>
                   </td>
@@ -261,12 +372,13 @@ export default function GeneralForm() {
               <td className="mainTd">
                 <tr>
                   <td>
-                    <label htmlFor="">Data de Nasc: </label>
+                    <label className="mt-4" htmlFor="">Data de Nasc: </label>
                   </td>
                   <td>
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
                       <Grid container justify="space-around">
                         <KeyboardDatePicker
+                          required
                           margin="normal"
                           id="date-picker-dialog"
                           format="dd/MM/yyyy"
@@ -280,16 +392,16 @@ export default function GeneralForm() {
                     </MuiPickersUtilsProvider>
                   </td>
                 </tr>
-
                 <tr>
                   <td>
-                    <label htmlFor="">Nome:</label>
+                    <label className="mt-2" htmlFor="">Nome:</label>
                   </td>
                   <td>
                     <TextField
+                      required
                       id="outlined-dense"
                       margin="dense"
-                      variant="outlined"
+                      // variant="outlined"
                       name="nome"
                       type="text"
                       value={state.nome}
@@ -297,13 +409,13 @@ export default function GeneralForm() {
                     />
                   </td>
                 </tr>
-
                 <tr>
                   <td>
                     <label htmlFor="">Idade:</label>
                   </td>
                   <td>
                     <TextField
+                      required
                       id="outlined-number"
                       name="idade"
                       margin="dense"
@@ -313,7 +425,7 @@ export default function GeneralForm() {
                       InputLabelProps={{
                         shrink: true
                       }}
-                      variant="outlined"
+                      // variant="outlined"
                     />
                   </td>
                 </tr>
@@ -324,10 +436,11 @@ export default function GeneralForm() {
                   </td>
                   <td>
                     <TextField
+                      required
                       id="outlined-tel"
                       margin="dense"
                       // label="Telefone"
-                      variant="outlined"
+                      // variant="outlined"
                       name="telefone"
                       type="tel"
                       value={state.telefone}
@@ -335,22 +448,50 @@ export default function GeneralForm() {
                     />
                   </td>
                 </tr>
-
                 <tr>
                   <td>
                     <label htmlFor="">E-mail:</label>
                   </td>
                   <td>
                     <TextField
+                      required
                       id="outlined-email-input"
-                      type="email"
                       name="email"
                       autoComplete="email"
                       margin="dense"
-                      variant="outlined"
+                      // variant="outlin  ed"
                       onChange={handleChange("email")}
                       value={state.email}
                     />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label htmlFor="">Exame: </label>
+                  </td>
+                  <td>
+                    <FormControl
+                      // variant="outlined"
+                      className={classes.formControl}
+                    >
+                      <Select
+                        required
+                        native
+                        value={state.selecionarExame}
+                        onChange={handleChange("selecionarExame")}
+                        name="selecionarExame"
+                        margin="dense"
+                        labelWidth={labelWidth}
+                        inputProps={{
+                          name: "convenio",
+                          id: "outlined-convenio"
+                        }}
+                      >
+                        <option value="" />
+                        <option value={"/newfigadoview"}>Figado</option>
+                        <option value={"/newprostataview"}>Prostata</option>
+                      </Select>
+                    </FormControl>
                   </td>
                 </tr>
               </td>
@@ -358,8 +499,17 @@ export default function GeneralForm() {
           </tbody>
         </table>
         <br />
-        <Button type="submit" variant="contained" color="primary">
-          Primary
+
+        <br />
+        <Button
+          type="submit"
+          onClick={() => addUser(onclick)}
+          // fullWidth
+          variant="contained"
+          color="primary"
+          className={classes.submit}
+        >
+          novo laudo
         </Button>
       </form>
     </div>
