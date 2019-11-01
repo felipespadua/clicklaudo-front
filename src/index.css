@@ -49,6 +49,7 @@ code {
 
 .botao:hover {
   color: white;
+  transform: scale(0.8); 
 }
 
 .m-botton {
@@ -89,15 +90,24 @@ a:hover {
   background-color: #7c7ef8 !important; 
 }
 
-/* footer {
-  position: fixed;
-  bottom: 0;
-} */
-
-.Component-paginationToolbar-325{
-  padding-bottom: 200px !important;
+.Component-paginationToolbar-317 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
 }
 
-.Component-paginationToolbar-146{
-  padding-bottom: 200px !important;
+.Component-paginationToolbar-138 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
+}
+
+.marginBottom {
+  margin-bottom: 525px;
+}
+
+
+
+
+.Component-paginationToolbar-241 {
+  padding-top: 700px !important;
+  padding-bottom: 30px !important;
 }

@@ -16,8 +16,11 @@ import Convenios from "./Convenios";
 import NewFigadoView from "./NewFigadoView";
 import SimpleExpansionPanel from "./Expansion";
 import AuthService from "./Components/auth/auth-service";
-import ProtectedRoute from "./Components/auth/protected-route";
-import Preview from "./Components/Preview";
+import ProtectedRoute from './Components/auth/protected-route';
+import Dashboard from './Dashboard' 
+import HistoricoFigado from './HistoricoFigado' 
+import HistoricoProstata from './HistoricoProstata' 
+
 
 // import { Switch } from? '@material-ui/core';
 import LandingPage from "./LandingPage";
@@ -83,6 +86,9 @@ class App extends React.Component {
                             render={(props) => <FinalForm {...props}/>}/>
                         <Route path="/newlaudoview" render={(props) => <NewLaudoView {...props}/>}/>
                         <Route path="/simpleexpansion" component={SimpleExpansionPanel}/>
+                        <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/historicoprostata" component={HistoricoProstata} />
+                        <Route path="/historicofigado" component={HistoricoFigado} />
 
                     </Switch>
                 </div>
@@ -112,6 +118,11 @@ class App extends React.Component {
                         <Route path="/clinicas" component={Clinicas}/>
                         <Route path="/medicossolicitante" component={MedicosSolicitante}/>
                         <Route path="/newlaudoview" render={(props) => <NewLaudoView {...props}/>}/>
+                        <Route path="/newlaudoview" render={(props)=> <NewLaudoView {...props}/>} />
+                        <Route path="/newprostataview" component={NewProstataView} />
+                        <Route path="/dashboard" component={Dashboard} />
+                        <Route path="/historicoprostata" component={HistoricoProstata} />
+                        <Route path="/historicofigado" component={HistoricoFigado} />
                         <Route
                             exact
                             path="/finalLiver/:id"

@@ -149,9 +149,9 @@ class FigadoForm extends Component {
 
   
     return (
-      <div className="mainDivGF m-4">
+      <div className="mainDivGF p-5 mt-5">
         <form onSubmit={this.handleSubmit}>
-          <table>
+          <table className="marginBottom">
             <thead>
               <tr>
                 <td>
@@ -189,6 +189,7 @@ class FigadoForm extends Component {
                   <FormControl variant="">
                     <InputLabel htmlFor="outlined-age-simple"></InputLabel>
                     <Select
+                      required  
                       value={this.state.dimensao}
                       onChange={this.handleChangeSelect("dimensao")}
                       // labelWidth={this.labelWidth}
@@ -259,6 +260,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho(mm)"
                     value={this.state.cistoSimplesMM}
@@ -320,6 +322,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho do maior(mm)"
                     value={this.state.variosCiscosMM}
@@ -408,6 +411,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     // id="outlined-with-placeholder"
                     label="Contorno"
                     margin="dense"
@@ -418,6 +422,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho Horizontal(mm)"
                     value={this.state.noduloSolidoHMM}
@@ -434,6 +439,7 @@ class FigadoForm extends Component {
                 <td>
                   {" "}
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho Vertical(mm)"
                     value={this.state.noduloSolidoVMM}
@@ -494,6 +500,7 @@ class FigadoForm extends Component {
                 </td>
                 <td>
                   <TextField
+                    required
                     id="outlined-number"
                     label="Tamanho(mm)"
                     value={this.state.calcificacaoGrosseiraMM}
