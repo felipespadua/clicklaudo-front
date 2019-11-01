@@ -68,7 +68,7 @@ class App extends React.Component {
             <Route path="/medicossolicitante" component={MedicosSolicitante} />
             <Route path="/convenios" component={Convenios} />
             <Route path="/clinicas" component={Clinicas} />
-            <Route path="/" component={LandingPageCover} />
+            <Route exact path="/" component={LandingPageCover} />
             <Route
               exact
               path="/newfigadoview/:id"
@@ -109,7 +109,7 @@ class App extends React.Component {
             <Route path="/medicos" component={Medicos} />
             <Route path="/convenios" component={Convenios} />
             <Route path="/clinicas" component={Clinicas} />
-            <Route path="/" component={LandingPageCover} />
+            <Route exact path="/" component={LandingPageCover} />
             <Route path="/medicossolicitante" component={MedicosSolicitante} />
             <Route
               path="/newlaudoview"
