@@ -14,7 +14,13 @@ class ApiService {
     .then(response => response.data)
     .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
   }
-  newLiver = (clinica,medico,medicoSolicitante,data,pacient) => {
+
+  getOneLiver = (id) =>{
+    return this.service.get(`/getoneliver/${id}`)
+    .then(response => response.data)
+    .catch(err => console.log("Ocorreu um erro ao consultar todos os exames", err))
+  }
+    newLiver = (clinica,medico,medicoSolicitante,data,pacient) => {
     
     return this.service.post('/newliver', {clinica,medico,medicoSolicitante,data,pacient})
     .then(response => response.data)

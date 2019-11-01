@@ -98,13 +98,18 @@ class FigadoForm extends Component {
     console.log(this.state);
   };
 
-     updateUser = (onclick) => {
+     updateUser = async (onclick) =>  {
+      try{
       const apiHandler = new ApiService()
       const id = this.props.rest.match.params.id;
-      
-      const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
-      apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+       const {dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit} = this.state;
+     const response = await apiHandler.updateLiver(dimensao,homogeneo,esteatotico,hepatopiaCronica,ciscoSimples,cistoSimplesMM,ciscoSimplesSit,variosCiscos,variosCiscosMM,variosCiscosSit,noduloSolido,noduloSolidoTipo,noduloSolidoContorno,noduloSolidoHMM,noduloSolidoVMM,noduloSolidoSi,calcificacaoGrosseira,calcificacaoGrosseiraMM,calcificacaoGrosseiraSit,id)
+     console.log(response)
+     this.props.rest.history.push(`/finalLiver/${response.response._id}`)
+    }catch(err){
+      console.log(err)
     }
+  }
 
   handleSubmit(event) {
     
@@ -539,7 +544,7 @@ class FigadoForm extends Component {
               {/* ----------------------------------------- */}
               <tr>
                 <td>
-                  <Button onClick={()=> this.updateUser(onclick)} variant="contained" color="primary" type="submit">
+                  <Button onClick={()=> this.updateUser()} variant="contained" color="primary" type="submit">
                     Enviar
                   </Button>
                 </td>

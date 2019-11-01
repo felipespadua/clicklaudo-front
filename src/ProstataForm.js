@@ -73,16 +73,18 @@ class ProstataForm extends Component {
     console.log(this.state);
   };
 
-  updateUser = async (onclick) =>  {
+  updateUser = async () =>  {
     console.log(this.props)
     try{
       const apiHandler = new ApiService()
       const id = this.props.rest.match.params.id;
       const { homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos} = this.state;
       const response = await apiHandler.updateProstate(homogenio,size1,size2,size3,contornos,residuo,residuoML,exameViaTransretal,noduloPeriferica,noduloPerifericaTipo,noduloSize1,noduloSize2,noduloSize3,noduloLocal,biopsia,fragmentos,id)
-      this.props.history.push(`newprostataview/${response._id}`)
+      console.log("worked")
+      this.props.rest.history.push(`/laudofinal/${response.response._id}`)
+      console.log(response)
     }catch(err){
-      console.log(err)
+      console.log(err,"=>")
     }
     //.then(function(itemResponse) {
     //  console.log(this.props)
@@ -94,24 +96,7 @@ class ProstataForm extends Component {
   handleSubmit(event) {
     console.log(this.state);
     event.preventDefault();
-    this.setState({
-      show: false,
-      size1: 0,
-      size2: 0,
-      size3: 0,
-      contornos: "",
-      residuo: false,
-      residuoML: 0,
-      exameViaTransretal: false,
-      noduloPeriferica: false,
-      noduloPerifericaTipo: "",
-      noduloSize1: 0,
-      noduloSize2: 0,
-      noduloSize3: 0,
-      noduloLocal: "",
-      biopsia: false,
-      fragmentos: 0
-    });
+    
   }
 
   //   showExameTransversal() {
@@ -277,7 +262,7 @@ class ProstataForm extends Component {
             />
           )}
           <br />
-          <Button onClick={() => this.updateUser} variant="contained" color="primary" type="submit">
+          <Button onClick={() => this.updateUser()} variant="contained" color="primary" >
             Enviar
           </Button>
         </form>

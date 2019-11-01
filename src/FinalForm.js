@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TextField from "@material-ui/core/TextField";
 import "./FinalForm.css";
 import Button from "@material-ui/core/Button";
-
+import ApiService from './Services/ApiService'
 class FinalForm extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +55,20 @@ class FinalForm extends Component {
     });
   }
 
+  componentDidMount() {
+    const apiHandler = new ApiService()
+    const id = this.props.match.params.id
+    apiHandler.getOneLiver(id)
+    .then((response) => {
+      console.log(response);
+      
+ 
+    }).catch(err => console.log(err))
+  }
+
   render() {
+    
+    console.log(this.props)
     return (
       <div className="mainDivGF">
         <form onSubmit={this.handleSubmit}>
