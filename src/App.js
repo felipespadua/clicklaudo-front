@@ -66,6 +66,7 @@ class App extends React.Component {
                             render={(props) => <Login {...props} getUser={this.getTheUser}/>}/>
                         <Route path="/signup" component={SignUp}/>
                         <ProtectedRoute
+                            exact
                             path="/laudos"
                             user={this.state.loggedInUser}
                             component={Laudos}/>
@@ -108,6 +109,7 @@ class App extends React.Component {
                         <Route path="/signup" component={SignUp}/>
                         <ProtectedRoute
                             user={this.state.loggedInUser}
+                            exact
                             path="/laudos"
                             component={Laudos}/>
                         <Route path="/laudos" component={Laudos}/>

@@ -18,51 +18,25 @@ class FinalForm extends Component {
 		};
 		this.typeControl = {
 			text: [ 'observacoes', 'conclusoes' ]
-		};
+    };
+    this.data = {}
 		this.apiHandler = new ApiService();
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleChangeBySpeech = this.handleChangeBySpeech.bind(this);
+
 	}
 
 	handleChange = (name) => (event) => {
-		console.log(event.target);
-		if (event.target.type === 'checkbox') {
-			this.setState({
-				...this.state,
-				[name]: event.target.checked
-			});
-		} else {
+		
 			this.setState({
 				...this.state,
 				[name]: event.target.value
 			});
-		}
 	};
 
-	handleChangeBySpeech = (name) => {
-		let checkBoxes = this.typeControl.checkBox;
-		let texts = this.typeControl.text;
-		let selects = this.typeControl.selects;
-		if (checkBoxes.includes(name)) {
-			this.setState({
-				...this.state,
-				[name]: !this.state.name
-			});
-		}
-	};
 
-	handleChangeSelect = (name) => (event) => {
-		console.log(event.target);
-		this.setState({
-			[event.target.name]: event.target.value
-		});
-		console.log(this.state);
-	};
 
 	handleSubmit(event) {
-		console.log(this.state);
 		event.preventDefault();
 		this.setState({
 			observacoes: '',
@@ -71,6 +45,7 @@ class FinalForm extends Component {
 	}
 
 	populateFields(data, phrases) {
+    console.log(data)
 		const {
 			homogeneo,
 			esteatotico,
@@ -91,8 +66,7 @@ class FinalForm extends Component {
 			calcificacaoGrosseiraMM,
 			calcificacaoGrosseiraSit
 		} = data;
-		console.log(data, 'data');
-		console.log(phrases, 'phrases');
+	
 		let campoObservasoes = '';
 		let campoConclusoes = '';
 		let { observations, conclusions } = phrases;
@@ -140,15 +114,29 @@ class FinalForm extends Component {
 		});
 	}
 	handleClick(e) {
+    console.log(this.data, "DATAA")
 		const { name } = e.target;
 		this.setState({
 			[name]: true
-		});
+    });
+    let data = { 
+      observacoes: this.state.observacoes,
+      conclusoes: this.state.conclusoes,
+      paciente: this.data.pacient.nome,
+      idade: this.data.pacient.idade,
+      convenio: this.data.pacient.convenio,
+      email: this.data.pacient.email,
+      medico: this.data.medico,
+      medicoSolicitante: this.data.medicoSolicitante,
+      data: this.data.data
+
+    }
 		switch (name) {
 			case 'pdf':
 				this.apiHandler
-					.downloadPdf()
+					.downloadPdf(data)
 					.then((response) => {
+
 						this.setState({
 							[name]: false
 						});
@@ -162,7 +150,7 @@ class FinalForm extends Component {
 				break;
 			case 'email':
 				this.apiHandler
-					.sendEmail()
+					.sendEmail(data)
 					.then((response) => {
 						this.setState({
 							[name]: false
@@ -176,19 +164,9 @@ class FinalForm extends Component {
 					});
 				break;
 			case 'concluir':
-				this.apiHandler
-					.saveFinalForm()
-					.then((response) => {
-						this.setState({
-							[name]: false
-						});
-					})
-					.catch((err) => {
-						this.setState({
-							[name]: false
-						});
-						console.log(err);
-					});
+        console.log(this.props)
+        this.props.history.push("/laudos")
+        break;
 		}
 	}
 	componentDidMount() {
@@ -197,6 +175,7 @@ class FinalForm extends Component {
 		apiHandler
 			.getOneLiver(id)
 			.then((data) => {
+        this.data = data
 				apiHandler
 					.getPhrases('liver')
 					.then((phrases) => {
